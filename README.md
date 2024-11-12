@@ -11,25 +11,20 @@ change boot option
 log in user
 sudo systemctl enable and start gdm.service
 
+
 #install yay
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
 makepkg -si
 
-#install basics
-yay -S hyprland kitty
 
-#install zsh
-yay -S zsh
+yay -S  stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-mono-nerd yarn npm nodejs wofi hyprpaper xclip zoxide fzf firefox ripgrep lazygit git hyprland kitty zsh
+
+#configure zsh
 chsh -s /usr/bin/zsh
 then restart system
 delete all bash files
-
-#next step
-switch to hyprland
-
-yay -S git stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-mono-nerd yarn npm nodejs wofi hyprpaper xclip zoxide fzf firefox ripgrep lazygit
 
 #adjust timezone
 timedatectl set-timezone America/Sao_Paulo
