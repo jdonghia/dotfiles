@@ -40,4 +40,6 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 clone my dotfiles
 stow all my dotfiles
 
+#zsh auto suggestions
+
 sudo pacman -Syyuu
