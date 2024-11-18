@@ -42,4 +42,6 @@ stow all my dotfiles
 
 #zsh auto suggestions
 
+#insert glazewm config
+
 sudo pacman -Syyuu
