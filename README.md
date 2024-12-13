@@ -20,18 +20,12 @@ makepkg -si
 
 
 yay -S  stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-mono-nerd yarn npm nodejs wofi hyprpaper xclip zoxide fzf firefox ripgrep lazygit git hyprland kitty zsh
+yay -S --noconfirm zsh-theme-powerlevel10k-git
 
 #configure zsh
 chsh -s /usr/bin/zsh
 then restart system
 delete all bash files
-
-#adjust timezone
-timedatectl set-timezone America/Sao_Paulo
-
-#powerlevel10k
-yay -S --noconfirm zsh-theme-powerlevel10k-git
-echo 'source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc
 
 #tpm and tmuxifier
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
