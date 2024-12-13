@@ -2,15 +2,25 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tokyonight",
+      colorscheme = "solarized-osaka",
     },
   },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   opts = {
+  --     transparent = true,
+  --   },
+  -- },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
+    "craftzdog/solarized-osaka.nvim",
+    lazy = true,
     priority = 1000,
-    opts = {
-      transparent = true,
-    },
+    opts = function()
+      return {
+        transparent = true,
+      }
+    end,
   },
 }
