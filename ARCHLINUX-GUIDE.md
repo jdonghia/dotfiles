@@ -30,7 +30,7 @@
 
 ## 3. Install Yay (AUR Helper)
 
-1. Install Git and Yay:
+1. **Install Git and Yay**:
 
 ```bash
   sudo pacman -S git
@@ -66,7 +66,7 @@ chsh -s /usr/bin/zsh
 1. **Git clone dotfiles**:
 
 ```bash
-git clone https://www.github.com/jdonghia.dotfiles.git
+git clone https://www.github.com/jdonghia/dotfiles.git
 ```
 
 2. **Use stow to manage dotfiles**:
