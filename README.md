@@ -13,6 +13,7 @@ sudo systemctl enable and start gdm.service
 
 
 #install yay
+
 sudo pacman -S git
 git clone https://aur.archlinux.org/yay-bin.git
 cd yay-bin
@@ -23,11 +24,13 @@ yay -S  stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-m
 yay -S --noconfirm zsh-theme-powerlevel10k-git
 
 #configure zsh
+
 chsh -s /usr/bin/zsh
 then restart system
 delete all bash files
 
 #tpm and tmuxifier
+
 git clone https://github.com/jimeh/tmuxifier.git ~/.tmuxifier
 git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 
