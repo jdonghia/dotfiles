@@ -19,7 +19,7 @@
 
 4. **Change Boot Option**: After reboot, change the boot option in your BIOS to boot from your installed Arch system.
 
-## 2. Enable and Start GNOME Display Manager (GDM):
+## 2. Enable and Start GNOME Display Manager (GDM)
 
 1. **Log in as the user** and enable GNOME Display Manager (GDM) to start at boot:
 
@@ -42,7 +42,7 @@
 ## 4. Install Essential Packages
 
 ```bash
-  yay -S stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-mono-nerd yarn npm nodejs wofi hyprpaper xclip zoxide fzf firefox ripgrep lazygit git hyprland kitty zsh
+  yay -S stow tmux waybar neovim hyprshot swaync ttf-font-awesome ttf-jetbrains-mono-nerd yarn npm pnpm nodejs wofi hyprpaper xclip zoxide fzf firefox ripgrep lazygit git hyprland kitty zsh
 
   yay -S --noconfirm zsh-theme-powerlevel10k-git
 
