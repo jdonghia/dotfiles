@@ -7,6 +7,7 @@ use arch wsl and follow documentation
 install fonts and configure windows terminal
 apply alt gr dead keys
 configure komorebic
+microsoft powertoys
 
 insert komorebi files at this repo
 insert alt gr dead keys at this repo
