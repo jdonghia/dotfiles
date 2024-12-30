@@ -10,5 +10,8 @@ configure komorebic
 microsoft powertoys
 
 insert komorebi files at this repo
+
 insert alt gr dead keys at this repo
+<https://github.com/thomasfaingnaert/win-us-intl-altgr>
+
 inset windows terminal themes at this repo
