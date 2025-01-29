@@ -2,9 +2,12 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      -- colorscheme = "solarized-osaka",
+      -- colorscheme = function() end,
+      colorscheme = "kanagawa",
     },
   },
+  { "rebelot/kanagawa.nvim" },
   -- {
   --   "folke/tokyonight.nvim",
   --   lazy = false,
