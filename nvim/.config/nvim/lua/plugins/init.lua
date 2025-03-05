@@ -4,6 +4,9 @@ return {
     dependencies = { 'rktjmp/lush.nvim' },
     config = function()
       vim.cmd 'colorscheme habamax.nvim'
+
+      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end,
   },
 
@@ -135,6 +138,16 @@ return {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
+    -- opts = {
+    --   defaults = {
+    --     vimgrep_arguments = {
+    --       'rg',
+    --       '--ignore',
+    --       '--hidden',
+    --       '--files',
+    --     },
+    --   },
+    -- },
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -145,6 +158,30 @@ return {
         end,
       },
       { 'nvim-telescope/telescope-ui-select.nvim' },
+    },
+    keys = {
+
+      {
+        ';f',
+        function()
+          local builtin = require 'telescope.builtin'
+          builtin.git_files {
+            no_ignore = false,
+            hidden = true,
+          }
+        end,
+        desc = 'Lists files in your current working directory, respects .gitignore',
+      },
+      {
+        ';r',
+        function()
+          local builtin = require 'telescope.builtin'
+          builtin.live_grep {
+            additional_args = { '--hidden' },
+          }
+        end,
+        desc = 'Search for a string in your current working directory and get results live as you type, respects .gitignore',
+      },
     },
     config = function()
       require('telescope').setup {
@@ -157,10 +194,6 @@ return {
 
       pcall(require('telescope').load_extension, 'fzf')
       pcall(require('telescope').load_extension, 'ui-select')
-
-      local builtin = require 'telescope.builtin'
-      vim.keymap.set('n', ';f', builtin.find_files, { desc = '[S]earch [F]iles' })
-      vim.keymap.set('n', ';r', builtin.live_grep, { desc = '[S]earch by [G]rep' })
     end,
   },
 
