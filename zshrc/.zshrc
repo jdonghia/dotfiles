@@ -14,8 +14,9 @@ export PATH="$HOME/.tmuxifier/bin:$PATH"
 export EDITOR=nvim
 
 alias ls="ls --color=auto"
-
 alias clear-nvim="rm -rf ~/.config/nvim; rm -rf ~/.local/share/nvim; rm -rf ~/.local/state/nvim; rm -rf ~/.cache/nvim"
+alias vim="nvim ."
+alias session="tmuxifier load-session"
 
 set -o vi
 
