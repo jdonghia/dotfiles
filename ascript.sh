@@ -17,7 +17,9 @@ chsh -s /usr/bin/zsh
 git clone https://www.github.com/jdonghia/dotfiles.git
 cd dotfiles
 
-stow backgrounds hypr kitty nvim tmux waybar zshrc
+stow backgrounds hypr kitty nvim tmux waybar zshrc tmux-sessionizer
+
+chmod +x ~/.local/scripts/tmux-sessionizer
 
 sudo pacman -Syu
 
