@@ -19,5 +19,9 @@ alias vim="nvim ."
 alias session="tmuxifier load-session"
 alias lazy="lazygit"
 
+# Sessionizer
+PATH="$PATH":"$HOME/.local/scripts/"
+bindkey -s ^f "tmux-sessionizer\n"
+
 set -o vi
 
