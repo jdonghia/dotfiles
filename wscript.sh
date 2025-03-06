@@ -1,5 +1,7 @@
 #!/bin/bash  
 
+cd ~
+
 sudo pacman -S --needed git base-devel
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -13,9 +15,9 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 chsh -s /usr/bin/zsh
 
 git clone https://www.github.com/jdonghia/dotfiles.git
-cd ~/dotfiles
+cd dotfiles
 
 stow nvim tmux zshrc
 
-sudo pacman -Syyuu
+sudo pacman -Syu
 
