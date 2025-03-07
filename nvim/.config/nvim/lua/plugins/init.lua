@@ -1,4 +1,6 @@
 return {
+  { 'prichrd/netrw.nvim', opts = {} },
+
   {
     'ntk148v/habamax.nvim',
     dependencies = { 'rktjmp/lush.nvim' },
