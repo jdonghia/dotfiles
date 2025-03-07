@@ -12,28 +12,28 @@ return {
     end,
   },
 
-  {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    opts = {
-      cmdline = {
-        view = 'cmdline',
-      },
-    },
-    dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      {
-        'rcarriga/nvim-notify',
-        opts = {
-          background_colour = '#000000',
-        },
-      },
-    },
-  },
+  -- {
+  --   'folke/noice.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     cmdline = {
+  --       view = 'cmdline',
+  --     },
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     'MunifTanjim/nui.nvim',
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     {
+  --       'rcarriga/nvim-notify',
+  --       opts = {
+  --         background_colour = '#000000',
+  --       },
+  --     },
+  --   },
+  -- },
 
   {
     'theprimeagen/harpoon',
@@ -341,25 +341,27 @@ return {
       local servers = {
         tailwindcss = {},
         ts_ls = {},
-        lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
+        lua_ls = {},
+        -- lua_ls = {
+        --   -- cmd = { ... },
+        --   -- filetypes = { ... },
+        --   -- capabilities = {},
+        --   settings = {
+        --     Lua = {
+        --       completion = {
+        --         callSnippet = 'Replace',
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'stylua',
         'prettierd',
         'eslint_d',
+        'eslint-lsp'
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -408,11 +410,11 @@ return {
       -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        javascript = { 'prettierd' },
-        typescript = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
-        json = { 'prettierd' },
+        javascript = { 'prettierd', 'eslint_d' },
+        typescript = { 'prettierd', 'eslint_d' },
+        typescriptreact = { 'prettierd', 'eslint_d' },
+        javascriptreact = { 'prettierd', 'eslint_d' },
+        json = { 'prettierd', 'eslint_d' },
       },
     },
   },
