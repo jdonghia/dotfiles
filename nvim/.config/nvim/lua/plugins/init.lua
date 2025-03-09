@@ -1,16 +1,44 @@
 return {
   { 'prichrd/netrw.nvim', opts = {} },
 
+  -- {
+  --   'ribru17/bamboo.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('bamboo').setup {}
+  --     require('bamboo').load()
+  --
+  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  --   end,
+  -- },
+  --
+  --
   {
-    'ntk148v/habamax.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
+    'rebelot/kanagawa.nvim',
+    -- opts = {
+    --   theme = "dragon",
+    -- },
     config = function()
-      vim.cmd 'colorscheme habamax.nvim'
+      -- require('kanagawa').setup {}
+      vim.cmd 'colorscheme kanagawa'
 
       vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
       vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
     end,
   },
+  --
+  -- {
+  --   'ntk148v/habamax.nvim',
+  --   dependencies = { 'rktjmp/lush.nvim' },
+  --   config = function()
+  --     -- vim.cmd 'colorscheme habamax.nvim'
+  --
+  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  --   end,
+  -- },
 
   -- {
   --   'folke/noice.nvim',
@@ -44,16 +72,16 @@ return {
       vim.keymap.set('n', '<leader>h', mark.add_file)
       vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
 
-      vim.keymap.set('n', '<C-h>', function()
+      vim.keymap.set('n', '<leader>1', function()
         ui.nav_file(1)
       end)
-      vim.keymap.set('n', '<C-j>', function()
+      vim.keymap.set('n', '<leader>2', function()
         ui.nav_file(2)
       end)
-      vim.keymap.set('n', '<C-k>', function()
+      vim.keymap.set('n', '<leader>3', function()
         ui.nav_file(3)
       end)
-      vim.keymap.set('n', '<C-l>', function()
+      vim.keymap.set('n', '<leader>4', function()
         ui.nav_file(4)
       end)
     end,
@@ -361,7 +389,7 @@ return {
         'stylua',
         'prettierd',
         'eslint_d',
-        'eslint-lsp'
+        'eslint-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -444,11 +472,14 @@ return {
         },
       },
       'saadparwaiz1/cmp_luasnip',
-
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'mlaursen/vim-react-snippets',
     },
+    opts = function()
+      require('vim-react-snippets').lazy_load()
+    end,
     config = function()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
