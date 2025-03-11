@@ -155,6 +155,7 @@ return {
   },
 
   'tpope/vim-sleuth',
+  { 'JoosepAlviste/nvim-ts-context-commentstring', opts = {} },
 
   {
     'lewis6991/gitsigns.nvim',
