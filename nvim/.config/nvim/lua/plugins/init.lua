@@ -1,68 +1,61 @@
-return {
-  { 'prichrd/netrw.nvim', opts = {} },
-  { 'nvim-tree/nvim-web-devicons', opts = {} },
+function ApplyTransparentBackground()
+  vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
+  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+end
 
-  -- {
-  --   'ribru17/bamboo.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('bamboo').setup {}
-  --     require('bamboo').load()
-  --
-  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-  --   end,
-  -- },
-  --
-  --
+return {
+  { 'nvim-tree/nvim-web-devicons', opts = {} },
+  { 'prichrd/netrw.nvim', opts = {} },
+
   {
     'rebelot/kanagawa.nvim',
-    opts = {
-      theme = "dragon",
-    },
     config = function()
-      -- require('kanagawa').setup {}
       vim.cmd 'colorscheme kanagawa'
 
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+      ApplyTransparentBackground()
     end,
   },
-  --
-  -- {
-  --   'ntk148v/habamax.nvim',
-  --   dependencies = { 'rktjmp/lush.nvim' },
-  --   config = function()
-  --     -- vim.cmd 'colorscheme habamax.nvim'
-  --
-  --     vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  --     vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-  --   end,
-  -- },
 
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     cmdline = {
-  --       view = 'cmdline',
-  --     },
-  --   },
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     'MunifTanjim/nui.nvim',
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     {
-  --       'rcarriga/nvim-notify',
-  --       opts = {
-  --         background_colour = '#000000',
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
+  },
+
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      cmdline = {
+        view = 'cmdline',
+      },
+    },
+    dependencies = {
+      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+      'MunifTanjim/nui.nvim',
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      {
+        'rcarriga/nvim-notify',
+        opts = {
+          background_colour = '#000000',
+        },
+      },
+    },
+  },
 
   {
     'theprimeagen/harpoon',
@@ -88,10 +81,8 @@ return {
     end,
   },
 
-  { -- Add indentation guides even on blank lines
+  { 
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
     main = 'ibl',
     opts = {},
   },
@@ -131,9 +122,6 @@ return {
   {
     'windwp/nvim-ts-autotag',
     opts = {},
-    -- Also override individual filetype configs, these take priority.
-    -- Empty by default, useful if one of the "opts" global settings
-    -- doesn't work well in a specific filetype
     per_filetype = {
       ['html'] = {
         enable_close = false,
@@ -158,19 +146,19 @@ return {
   'tpope/vim-sleuth',
   { 'JoosepAlviste/nvim-ts-context-commentstring', opts = {} },
 
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   opts = {
+  --     signs = {
+  --       add = { text = '+' },
+  --       change = { text = '~' },
+  --       delete = { text = '_' },
+  --       topdelete = { text = '‾' },
+  --       changedelete = { text = '~' },
+  --     },
+  --   },
+  -- },
+  --
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
@@ -209,6 +197,7 @@ return {
         end,
         desc = 'Lists files in your current working directory, respects .gitignore',
       },
+
       {
         ';r',
         function()
@@ -218,6 +207,16 @@ return {
           }
         end,
         desc = 'Search for a string in your current working directory and get results live as you type, respects .gitignore',
+      },
+
+      {
+        '<leader>g',
+        function()
+          local builtin = require 'telescope.builtin'
+          builtin.grep_string {
+            additional_args = { '--hidden' },
+          }
+        end,
       },
     },
     config = function()

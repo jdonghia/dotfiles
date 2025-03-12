@@ -19,7 +19,6 @@ vim.opt.incsearch = true
 vim.opt.termguicolors = true
 
 vim.opt.updatetime = 50
--- vim.opt.updatetime = 100
 
 -- vim.opt.softtabstop = 4
 -- vim.opt.shiftwidth = 4
