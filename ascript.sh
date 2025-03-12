@@ -21,5 +21,7 @@ stow backgrounds hypr kitty nvim tmux waybar zshrc tmux-sessionizer
 
 chmod +x ~/.local/scripts/tmux-sessionizer
 
+source ~/.zshrc
+
 sudo pacman -Syu
 

@@ -21,5 +21,7 @@ stow nvim tmux zshrc tmux-sessionizer
 
 chmod +x ~/.local/scripts/tmux-sessionizer
 
+source ~/.zshrc
+
 sudo pacman -Syu
 
