@@ -1,5 +1,6 @@
 return {
   { 'prichrd/netrw.nvim', opts = {} },
+  { 'nvim-tree/nvim-web-devicons', opts = {} },
 
   -- {
   --   'ribru17/bamboo.nvim',
@@ -17,9 +18,9 @@ return {
   --
   {
     'rebelot/kanagawa.nvim',
-    -- opts = {
-    --   theme = "dragon",
-    -- },
+    opts = {
+      theme = "dragon",
+    },
     config = function()
       -- require('kanagawa').setup {}
       vim.cmd 'colorscheme kanagawa'
