@@ -23,5 +23,6 @@ alias lazy="lazygit"
 PATH="$PATH":"$HOME/.local/scripts/"
 
 set -o vi
+KEYTIMEOUT=1
 
 bindkey -s ^f "tmux-sessionizer\n"
