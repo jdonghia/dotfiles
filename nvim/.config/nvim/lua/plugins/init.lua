@@ -1,8 +1,3 @@
-function ApplyTransparentBackground()
-  vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-  vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
-end
-
 return {
   { 'nvim-tree/nvim-web-devicons', opts = {} },
   { 'prichrd/netrw.nvim', opts = {} },
@@ -10,9 +5,15 @@ return {
   {
     'rebelot/kanagawa.nvim',
     config = function()
-      vim.cmd 'colorscheme kanagawa'
+      -- local time = os.date '*t'
+      -- if time.hour < 6 or time.hour > 18 then
+      vim.cmd [[colorscheme kanagawa-dragon]]
 
-      ApplyTransparentBackground()
+      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+      -- else
+      -- vim.cmd [[colorscheme kanagawa-lotus]]
+      -- end
     end,
   },
 
@@ -81,7 +82,7 @@ return {
     end,
   },
 
-  { 
+  {
     'lukas-reineke/indent-blankline.nvim',
     main = 'ibl',
     opts = {},
