@@ -23,5 +23,7 @@ chmod +x ~/.local/scripts/tmux-sessionizer
 
 source ~/.zshrc
 
+timedatectl set-timezone America/Sao_Paulo
+
 sudo pacman -Syu
 
