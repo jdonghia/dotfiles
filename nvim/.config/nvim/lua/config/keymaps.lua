@@ -32,3 +32,4 @@ vim.keymap.set('n', '<leader>m', '<cmd>messages<CR>')
 
 vim.keymap.set('n', '<leader>-', '<cmd>vsplit<CR>')
 
+-- vim.keymap.set('n', '<C-s>', 'ZZ')

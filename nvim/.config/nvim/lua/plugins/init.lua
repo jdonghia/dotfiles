@@ -1,4 +1,8 @@
 return {
+  { 'nvim-treesitter/nvim-treesitter-context', opts = {
+    max_lines = 1,
+  } },
+
   { 'nvim-tree/nvim-web-devicons', opts = {} },
   { 'prichrd/netrw.nvim', opts = {} },
 
@@ -17,23 +21,23 @@ return {
     end,
   },
 
-  {
-    'kdheepak/lazygit.nvim',
-    lazy = true,
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-    },
-  },
+  -- {
+  --   'kdheepak/lazygit.nvim',
+  --   lazy = true,
+  --   cmd = {
+  --     'LazyGit',
+  --     'LazyGitConfig',
+  --     'LazyGitCurrentFile',
+  --     'LazyGitFilter',
+  --     'LazyGitFilterCurrentFile',
+  --   },
+  --   dependencies = {
+  --     'nvim-lua/plenary.nvim',
+  --   },
+  --   keys = {
+  --     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+  --   },
+  -- },
 
   -- {
   --   'folke/noice.nvim',
@@ -60,6 +64,7 @@ return {
 
   {
     'theprimeagen/harpoon',
+    branch = 'harpoon2',
     config = function()
       local mark = require 'harpoon.mark'
       local ui = require 'harpoon.ui'
@@ -89,11 +94,13 @@ return {
   },
 
   {
-    'jiaoshijie/undotree',
-    dependencies = 'nvim-lua/plenary.nvim',
-    config = true,
-    keys = { -- load the plugin only when using it's keybinding:
-      { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
+    'mbbill/undotree',
+    config = function()
+      vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+      vim.opt.undofile = true
+    end,
+    keys = {
+      { '<leader>u', '<cmd>UndotreeToggle<cr>' },
     },
   },
 
