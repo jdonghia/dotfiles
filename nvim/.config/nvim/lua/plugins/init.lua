@@ -7,6 +7,16 @@ return {
   { 'prichrd/netrw.nvim', opts = {} },
 
   {
+    'tanvirtin/monokai.nvim',
+    config = function()
+      vim.cmd [[colorscheme monokai_soda]]
+
+      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+    end,
+  },
+
+  {
     'rebelot/kanagawa.nvim',
     config = function()
       -- local time = os.date '*t'
