@@ -9,45 +9,45 @@ return {
   {
     'tanvirtin/monokai.nvim',
     config = function()
-      vim.cmd [[colorscheme monokai_soda]]
+      vim.cmd 'colorscheme monokai_soda'
 
       vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
       vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
-    end,
-  },
-
-  {
-    'rebelot/kanagawa.nvim',
-    config = function()
-      -- local time = os.date '*t'
-      -- if time.hour < 6 or time.hour > 18 then
-      vim.cmd [[colorscheme kanagawa-dragon]]
-
-      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
-      -- else
-      -- vim.cmd [[colorscheme kanagawa-lotus]]
-      -- end
     end,
   },
 
   -- {
-  --   'kdheepak/lazygit.nvim',
-  --   lazy = true,
-  --   cmd = {
-  --     'LazyGit',
-  --     'LazyGitConfig',
-  --     'LazyGitCurrentFile',
-  --     'LazyGitFilter',
-  --     'LazyGitFilterCurrentFile',
-  --   },
-  --   dependencies = {
-  --     'nvim-lua/plenary.nvim',
-  --   },
-  --   keys = {
-  --     { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-  --   },
+  --   'rebelot/kanagawa.nvim',
+  --   config = function()
+  --     -- local time = os.date '*t'
+  --     -- if time.hour < 6 or time.hour > 18 then
+  --     vim.cmd [[colorscheme kanagawa-dragon]]
+  --
+  --     vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+  --     vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+  --     -- else
+  --     -- vim.cmd [[colorscheme kanagawa-lotus]]
+  --     -- end
+  --   end,
   -- },
+
+  {
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
+    },
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
+    },
+  },
 
   -- {
   --   'folke/noice.nvim',
