@@ -16,21 +16,6 @@ return {
     end,
   },
 
-  -- {
-  --   'rebelot/kanagawa.nvim',
-  --   config = function()
-  --     -- local time = os.date '*t'
-  --     -- if time.hour < 6 or time.hour > 18 then
-  --     vim.cmd [[colorscheme kanagawa-dragon]]
-  --
-  --     vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
-  --     vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
-  --     -- else
-  --     -- vim.cmd [[colorscheme kanagawa-lotus]]
-  --     -- end
-  --   end,
-  -- },
-
   {
     'kdheepak/lazygit.nvim',
     lazy = true,
@@ -106,8 +91,17 @@ return {
   {
     'mbbill/undotree',
     config = function()
-      vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
-      vim.opt.undofile = true
+      if vim.fn.has 'persistent_undo' == 1 then
+        local target_path = vim.fn.expand '~/.undodir'
+
+        -- Create the directory and any parent directories if the location does not exist
+        if not vim.fn.isdirectory(target_path) then
+          vim.fn.mkdir(target_path, 'p', 0700)
+        end
+
+        vim.o.undodir = target_path
+        vim.o.undofile = true
+      end
     end,
     keys = {
       { '<leader>u', '<cmd>UndotreeToggle<cr>' },
