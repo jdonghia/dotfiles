@@ -16,7 +16,7 @@ vim.opt.termguicolors = true
 vim.opt.updatetime = 50
 
 -- undodir
--- vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
+-- vim.opt.undodir = os.getenv 'HOME' .. '/.undodir'
 -- vim.opt.undofile = true
 vim.opt.swapfile = false
 vim.opt.backup = false
