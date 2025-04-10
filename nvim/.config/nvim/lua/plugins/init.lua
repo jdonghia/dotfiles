@@ -59,7 +59,7 @@ return {
 
   {
     'theprimeagen/harpoon',
-    -- branch = 'harpoon2',
+    branch = 'harpoon2',
     config = function()
       local mark = require 'harpoon.mark'
       local ui = require 'harpoon.ui'
@@ -90,20 +90,22 @@ return {
 
   {
     'mbbill/undotree',
-    config = function()
-      if vim.fn.has 'persistent_undo' == 1 then
-        local target_path = vim.fn.expand '~/.vim/undodir'
-
-        -- Create the directory and any parent directories if the location does not exist
-        if not vim.fn.isdirectory(target_path) then
-          vim.fn.mkdir(target_path, 'p', 0700)
-        end
-
-
-        vim.o.undodir = target_path
-        vim.o.undofile = true
-      end
-    end,
+    -- config = function()
+    --   if vim.fn.has 'persistent_undo' == 1 then
+    --     local target_path = vim.fn.expand '~/.undodir'
+    --
+    --     -- Create the directory and any parent directories if the location does not exist
+    --     if not vim.fn.isdirectory(target_path) then
+    --       vim.fn.mkdir(target_path, 'p', 0700)
+    --     end
+    --
+    --     vim.opt.swapfile = false
+    --     vim.opt.backup = false
+    --
+    --     vim.o.undodir = target_path
+    --     vim.o.undofile = true
+    --   end
+    -- end,
     keys = {
       { '<leader>u', '<cmd>UndotreeToggle<cr>' },
     },
