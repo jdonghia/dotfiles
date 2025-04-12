@@ -58,27 +58,45 @@ return {
   -- },
 
   {
-    'theprimeagen/harpoon',
+    'ThePrimeagen/harpoon',
     branch = 'harpoon2',
-    config = function()
-      local mark = require 'harpoon.mark'
-      local ui = require 'harpoon.ui'
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
+    keys = function()
+      local keys = {
+        {
+          '<leader>h',
+          function()
+            require('harpoon'):list():add()
+          end,
+          desc = 'Harpoon File',
+        },
+        {
+          '<C-e>',
+          function()
+            local harpoon = require 'harpoon'
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = 'Harpoon Quick Menu',
+        },
+      }
 
-      vim.keymap.set('n', '<leader>h', mark.add_file)
-      vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
-
-      vim.keymap.set('n', '<leader>1', function()
-        ui.nav_file(1)
-      end)
-      vim.keymap.set('n', '<leader>2', function()
-        ui.nav_file(2)
-      end)
-      vim.keymap.set('n', '<leader>3', function()
-        ui.nav_file(3)
-      end)
-      vim.keymap.set('n', '<leader>4', function()
-        ui.nav_file(4)
-      end)
+      for i = 1, 5 do
+        table.insert(keys, {
+          '<leader>' .. i,
+          function()
+            require('harpoon'):list():select(i)
+          end,
+          desc = 'Harpoon to File ' .. i,
+        })
+      end
+      return keys
     end,
   },
 
@@ -90,22 +108,6 @@ return {
 
   {
     'mbbill/undotree',
-    -- config = function()
-    --   if vim.fn.has 'persistent_undo' == 1 then
-    --     local target_path = vim.fn.expand '~/.undodir'
-    --
-    --     -- Create the directory and any parent directories if the location does not exist
-    --     if not vim.fn.isdirectory(target_path) then
-    --       vim.fn.mkdir(target_path, 'p', 0700)
-    --     end
-    --
-    --     vim.opt.swapfile = false
-    --     vim.opt.backup = false
-    --
-    --     vim.o.undodir = target_path
-    --     vim.o.undofile = true
-    --   end
-    -- end,
     keys = {
       { '<leader>u', '<cmd>UndotreeToggle<cr>' },
     },
