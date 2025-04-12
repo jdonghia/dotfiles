@@ -1,17 +1,18 @@
 ## Steps to FORMAT
 
-disable log in with microsoft user with commands
-use windows debloat
-install wsl
-use arch wsl and follow documentation
-install fonts and configure windows terminal
-apply alt gr dead keys
-configure komorebic
-microsoft powertoys
+OOBE\BYPASSNRO
+ipconfig /release
 
+## windows debloat
+https://github.com/LeDragoX/Win-Debloat-Toolswsl
+## wsl arch
+https://github.com/yuk7/ArchWSL
+## komorebic
 insert komorebi files at this repo
+## microsoft powertoys
+winget install --id Microsoft.PowerToys --source winget
+## keyboard layout
+https://github.com/thomasfaingnaert/win-us-intl-altgr
+## nerd font
+https://www.nerdfonts.com/
 
-insert alt gr dead keys at this repo
-<https://github.com/thomasfaingnaert/win-us-intl-altgr>
-
-inset windows terminal themes at this repo

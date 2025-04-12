@@ -1,76 +1,115 @@
 return {
-  {
-    'ntk148v/habamax.nvim',
-    dependencies = { 'rktjmp/lush.nvim' },
-    config = function()
-      vim.cmd 'colorscheme habamax.nvim'
+  { 'nvim-treesitter/nvim-treesitter-context', opts = {
+    max_lines = 1,
+  } },
 
-      vim.api.nvim_set_hl(0, 'Normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'NormalFloat', { bg = 'none' })
+  { 'nvim-tree/nvim-web-devicons', opts = {} },
+  { 'prichrd/netrw.nvim', opts = {} },
+
+  {
+    'tanvirtin/monokai.nvim',
+    config = function()
+      vim.cmd 'colorscheme monokai_soda'
+
+      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
     end,
   },
 
   {
-    'folke/noice.nvim',
-    event = 'VeryLazy',
-    opts = {
-      cmdline = {
-        view = 'cmdline',
-      },
+    'kdheepak/lazygit.nvim',
+    lazy = true,
+    cmd = {
+      'LazyGit',
+      'LazyGitConfig',
+      'LazyGitCurrentFile',
+      'LazyGitFilter',
+      'LazyGitFilterCurrentFile',
     },
     dependencies = {
-      -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-      'MunifTanjim/nui.nvim',
-      -- OPTIONAL:
-      --   `nvim-notify` is only needed, if you want to use the notification view.
-      --   If not available, we use `mini` as the fallback
-      {
-        'rcarriga/nvim-notify',
-        opts = {
-          background_colour = '#000000',
-        },
-      },
+      'nvim-lua/plenary.nvim',
+    },
+    keys = {
+      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
     },
   },
 
+  -- {
+  --   'folke/noice.nvim',
+  --   event = 'VeryLazy',
+  --   opts = {
+  --     cmdline = {
+  --       view = 'cmdline',
+  --     },
+  --   },
+  --   dependencies = {
+  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+  --     'MunifTanjim/nui.nvim',
+  --     -- OPTIONAL:
+  --     --   `nvim-notify` is only needed, if you want to use the notification view.
+  --     --   If not available, we use `mini` as the fallback
+  --     {
+  --       'rcarriga/nvim-notify',
+  --       opts = {
+  --         background_colour = '#000000',
+  --       },
+  --     },
+  --   },
+  -- },
+
   {
-    'theprimeagen/harpoon',
-    config = function()
-      local mark = require 'harpoon.mark'
-      local ui = require 'harpoon.ui'
+    'ThePrimeagen/harpoon',
+    branch = 'harpoon2',
+    opts = {
+      menu = {
+        width = vim.api.nvim_win_get_width(0) - 4,
+      },
+      settings = {
+        save_on_toggle = true,
+      },
+    },
+    keys = function()
+      local keys = {
+        {
+          '<leader>h',
+          function()
+            require('harpoon'):list():add()
+          end,
+          desc = 'Harpoon File',
+        },
+        {
+          '<C-e>',
+          function()
+            local harpoon = require 'harpoon'
+            harpoon.ui:toggle_quick_menu(harpoon:list())
+          end,
+          desc = 'Harpoon Quick Menu',
+        },
+      }
 
-      vim.keymap.set('n', '<leader>h', mark.add_file)
-      vim.keymap.set('n', '<C-e>', ui.toggle_quick_menu)
-
-      vim.keymap.set('n', '<C-h>', function()
-        ui.nav_file(1)
-      end)
-      vim.keymap.set('n', '<C-j>', function()
-        ui.nav_file(2)
-      end)
-      vim.keymap.set('n', '<C-k>', function()
-        ui.nav_file(3)
-      end)
-      vim.keymap.set('n', '<C-l>', function()
-        ui.nav_file(4)
-      end)
+      for i = 1, 5 do
+        table.insert(keys, {
+          '<leader>' .. i,
+          function()
+            require('harpoon'):list():select(i)
+          end,
+          desc = 'Harpoon to File ' .. i,
+        })
+      end
+      return keys
     end,
   },
 
-  { -- Add indentation guides even on blank lines
+  {
     'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help ibl`
     main = 'ibl',
     opts = {},
   },
 
   {
-    'jiaoshijie/undotree',
-    dependencies = 'nvim-lua/plenary.nvim',
-    config = true,
-    keys = { -- load the plugin only when using it's keybinding:
-      { '<leader>u', "<cmd>lua require('undotree').toggle()<cr>" },
+    'mbbill/undotree',
+    keys = {
+      { '<leader>u', '<cmd>UndotreeToggle<cr>' },
     },
   },
 
@@ -100,9 +139,6 @@ return {
   {
     'windwp/nvim-ts-autotag',
     opts = {},
-    -- Also override individual filetype configs, these take priority.
-    -- Empty by default, useful if one of the "opts" global settings
-    -- doesn't work well in a specific filetype
     per_filetype = {
       ['html'] = {
         enable_close = false,
@@ -125,20 +161,21 @@ return {
   },
 
   'tpope/vim-sleuth',
+  { 'JoosepAlviste/nvim-ts-context-commentstring', opts = {} },
 
-  {
-    'lewis6991/gitsigns.nvim',
-    opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
-      },
-    },
-  },
-
+  -- {
+  --   'lewis6991/gitsigns.nvim',
+  --   opts = {
+  --     signs = {
+  --       add = { text = '+' },
+  --       change = { text = '~' },
+  --       delete = { text = '_' },
+  --       topdelete = { text = '‾' },
+  --       changedelete = { text = '~' },
+  --     },
+  --   },
+  -- },
+  --
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
@@ -177,6 +214,7 @@ return {
         end,
         desc = 'Lists files in your current working directory, respects .gitignore',
       },
+
       {
         ';r',
         function()
@@ -186,6 +224,16 @@ return {
           }
         end,
         desc = 'Search for a string in your current working directory and get results live as you type, respects .gitignore',
+      },
+
+      {
+        '<leader>g',
+        function()
+          local builtin = require 'telescope.builtin'
+          builtin.grep_string {
+            additional_args = { '--hidden' },
+          }
+        end,
       },
     },
     config = function()
@@ -339,25 +387,31 @@ return {
       local servers = {
         tailwindcss = {},
         ts_ls = {},
-        lua_ls = {
-          -- cmd = { ... },
-          -- filetypes = { ... },
-          -- capabilities = {},
-          settings = {
-            Lua = {
-              completion = {
-                callSnippet = 'Replace',
-              },
-            },
-          },
-        },
+        lua_ls = {},
+        -- lua_ls = {
+        --   -- cmd = { ... },
+        --   -- filetypes = { ... },
+        --   -- capabilities = {},
+        --   settings = {
+        --     Lua = {
+        --       completion = {
+        --         callSnippet = 'Replace',
+        --       },
+        --     },
+        --   },
+        -- },
       }
 
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'stylua',
         'prettierd',
+
+        -- format eslint
         'eslint_d',
+
+        -- check eslint errors
+        'eslint-lsp',
       })
       require('mason-tool-installer').setup { ensure_installed = ensure_installed }
 
@@ -406,11 +460,11 @@ return {
       -- end,
       formatters_by_ft = {
         lua = { 'stylua' },
-        javascript = { 'prettierd' },
-        typescript = { 'prettierd' },
-        typescriptreact = { 'prettierd' },
-        javascriptreact = { 'prettierd' },
-        json = { 'prettierd' },
+        javascript = { 'prettierd', 'eslint_d' },
+        typescript = { 'prettierd', 'eslint_d' },
+        typescriptreact = { 'prettierd', 'eslint_d' },
+        javascriptreact = { 'prettierd', 'eslint_d' },
+        json = { 'prettierd', 'eslint_d' },
       },
     },
   },
@@ -440,11 +494,14 @@ return {
         },
       },
       'saadparwaiz1/cmp_luasnip',
-
       'hrsh7th/cmp-nvim-lsp',
       'hrsh7th/cmp-path',
       'hrsh7th/cmp-nvim-lsp-signature-help',
+      'mlaursen/vim-react-snippets',
     },
+    opts = function()
+      require('vim-react-snippets').lazy_load()
+    end,
     config = function()
       local cmp = require 'cmp'
       local luasnip = require 'luasnip'
