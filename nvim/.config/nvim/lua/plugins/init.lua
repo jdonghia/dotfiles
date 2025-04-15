@@ -7,7 +7,7 @@ return {
 
   { 'prichrd/netrw.nvim', opts = {} },
 
-  { 'xiyaowong/transparent.nvim', config = function() end },
+  -- { 'xiyaowong/transparent.nvim', config = function() end },
 
   {
     'tanvirtin/monokai.nvim',
