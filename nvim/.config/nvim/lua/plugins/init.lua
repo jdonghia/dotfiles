@@ -4,16 +4,33 @@ return {
   } },
 
   { 'nvim-tree/nvim-web-devicons', opts = {} },
+
   { 'prichrd/netrw.nvim', opts = {} },
+
+  { 'xiyaowong/transparent.nvim', config = function() end },
 
   {
     'tanvirtin/monokai.nvim',
     config = function()
-      vim.cmd 'colorscheme monokai_soda'
+      -- vim.cmd 'colorscheme monokai_soda'
+      vim.cmd 'colorscheme monokai_pro'
 
-      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+      -- vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
     end,
+  },
+
+  {
+    'lewis6991/gitsigns.nvim',
+    opts = {
+      signs = {
+        add = { text = '+' },
+        change = { text = '~' },
+        delete = { text = '_' },
+        topdelete = { text = '‾' },
+        changedelete = { text = '~' },
+      },
+    },
   },
 
   {
@@ -34,28 +51,42 @@ return {
     },
   },
 
-  -- {
-  --   'folke/noice.nvim',
-  --   event = 'VeryLazy',
-  --   opts = {
-  --     cmdline = {
-  --       view = 'cmdline',
-  --     },
-  --   },
-  --   dependencies = {
-  --     -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
-  --     'MunifTanjim/nui.nvim',
-  --     -- OPTIONAL:
-  --     --   `nvim-notify` is only needed, if you want to use the notification view.
-  --     --   If not available, we use `mini` as the fallback
-  --     {
-  --       'rcarriga/nvim-notify',
-  --       opts = {
-  --         background_colour = '#000000',
-  --       },
-  --     },
-  --   },
-  -- },
+  {
+    'nvim-lualine/lualine.nvim',
+    -- config = function()
+    --   vim.opt.showmode = false
+    --   vim.o.cmdheight = 0
+    -- end,
+    opts = {
+      sections = {
+        lualine_a = { 'mode' },
+        lualine_z = { 'diff', 'diagnostics' },
+        lualine_b = { 'branch' },
+        lualine_x = {},
+        lualine_y = {},
+        lualine_c = { 'filename' },
+      },
+    },
+  },
+
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    opts = {
+      cmd_line = {
+        enabled = true,
+      },
+    },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      {
+        'rcarriga/nvim-notify',
+        opts = {
+          background_colour = '#000000',
+        },
+      },
+    },
+  },
 
   {
     'ThePrimeagen/harpoon',
@@ -210,6 +241,7 @@ return {
           builtin.find_files {
             no_ignore = false,
             hidden = true,
+            file_ignore_patterns = { '.git/' },
           }
         end,
         desc = 'Lists files in your current working directory, respects .gitignore',
@@ -221,6 +253,7 @@ return {
           local builtin = require 'telescope.builtin'
           builtin.live_grep {
             additional_args = { '--hidden' },
+            file_ignore_patterns = { '.git/' },
           }
         end,
         desc = 'Search for a string in your current working directory and get results live as you type, respects .gitignore',
@@ -237,6 +270,8 @@ return {
       },
     },
     config = function()
+      vim.api.nvim_set_hl(0, 'TelescopeNormal', { bg = 'none' })
+
       require('telescope').setup {
         extensions = {
           ['ui-select'] = {
@@ -267,7 +302,7 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
 
-      { 'j-hui/fidget.nvim', opts = {} },
+      -- { 'j-hui/fidget.nvim', opts = {} },
 
       'hrsh7th/cmp-nvim-lsp',
     },
@@ -384,9 +419,27 @@ return {
       local capabilities = vim.lsp.protocol.make_client_capabilities()
       capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 
+      local function organize_imports()
+        local params = {
+          command = '_typescript.organizeImports',
+          arguments = { vim.api.nvim_buf_get_name(0) },
+          title = '',
+        }
+        vim.lsp.buf.execute_command(params)
+      end
+
+      vim.keymap.set('n', '<leader>n', '<cmd>OrganizeImports<CR>')
+
       local servers = {
         tailwindcss = {},
-        ts_ls = {},
+        ts_ls = {
+          commands = {
+            OrganizeImports = {
+              organize_imports,
+              description = 'Organize Imports',
+            },
+          },
+        },
         lua_ls = {},
         -- lua_ls = {
         --   -- cmd = { ... },

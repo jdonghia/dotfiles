@@ -1,5 +1,6 @@
 require 'config.options'
 require 'config.keymaps'
+require 'config.autocmds'
 
 local get_option = vim.filetype.get_option
 vim.filetype.get_option = function(filetype, option)

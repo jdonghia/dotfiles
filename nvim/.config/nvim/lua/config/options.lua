@@ -17,7 +17,7 @@ vim.opt.updatetime = 50
 
 vim.opt.swapfile = false
 vim.opt.backup = false
-vim.opt.undodir = os.getenv("HOME") .. "/.vim/undodir"
+vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 
 -- vim.opt.softtabstop = 4
@@ -31,3 +31,9 @@ vim.opt.signcolumn = 'yes'
 
 vim.opt.breakindent = true
 vim.opt.scrolloff = 8
+
+vim.g.netrw_banner = 0
+
+-- vim.opt.showmode = false
+-- vim.o.cmdheight = 0
+
