@@ -7,18 +7,31 @@ return {
 
   { 'prichrd/netrw.nvim', opts = {} },
 
-  -- { 'xiyaowong/transparent.nvim', config = function() end },
+  { 'xiyaowong/transparent.nvim', config = function() end },
 
   {
-    'tanvirtin/monokai.nvim',
+    'catppuccin/nvim',
     config = function()
-      -- vim.cmd 'colorscheme monokai_soda'
-      vim.cmd 'colorscheme monokai_pro'
+      vim.cmd.colorscheme 'catppuccin'
 
       -- vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
       -- vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
     end,
+    name = 'catppuccin',
+    priority = 1000,
+    opts = { flavour = 'mocha' },
   },
+
+  -- {
+  --   'tanvirtin/monokai.nvim',
+  --   config = function()
+  --     -- vim.cmd 'colorscheme monokai_soda'
+  --     vim.cmd 'colorscheme monokai_pro'
+  --
+  -- vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+  -- vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+  --   end,
+  -- },
 
   {
     'lewis6991/gitsigns.nvim',
