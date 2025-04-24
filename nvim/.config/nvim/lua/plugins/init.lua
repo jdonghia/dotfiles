@@ -12,7 +12,6 @@ return {
   {
     'rebelot/kanagawa.nvim',
     config = function()
-
       -- setup must be called before loading
       vim.cmd 'colorscheme kanagawa'
       -- vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
@@ -59,12 +58,12 @@ return {
     -- end,
     opts = {
       sections = {
-        lualine_a = { 'mode' },
-        lualine_z = { 'diff', 'diagnostics' },
-        lualine_b = { 'branch' },
+        lualine_z = { 'mode' },
+        lualine_c = { 'diff', 'diagnostics' },
+        lualine_a = { 'branch' },
         lualine_x = {},
         lualine_y = {},
-        lualine_c = { 'filename' },
+        lualine_b = { 'filename' },
       },
     },
   },
