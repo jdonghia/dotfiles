@@ -1,66 +1,95 @@
 return {
-  { 'nvim-treesitter/nvim-treesitter-context', opts = {
-    max_lines = 1,
-  } },
-
-  { 'nvim-tree/nvim-web-devicons', opts = {} },
-
-  { 'prichrd/netrw.nvim', opts = {} },
-
   -- { 'xiyaowong/transparent.nvim', config = function() end },
+
+  -- {
+  -- 'lewis6991/gitsigns.nvim',
+  -- opts = {
+  --   signs = {
+  --     add = { text = '+' },
+  --     change = { text = '~' },
+  --     delete = { text = '_' },
+  --     topdelete = { text = '‾' },
+  --     changedelete = { text = '~' },
+  --   },
+  -- },
+  -- },
+
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    opts = {
+      max_lines = 1,
+    },
+  },
+
+  {
+    'nvim-tree/nvim-web-devicons',
+    opts = {},
+  },
+
+  -- icons for netrw Ex
+  {
+    'prichrd/netrw.nvim',
+    opts = {},
+  },
 
   {
     'rebelot/kanagawa.nvim',
     config = function()
-      -- setup must be called before loading
       vim.cmd 'colorscheme kanagawa'
-      -- vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
-      -- vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
     end,
   },
 
   {
-    'lewis6991/gitsigns.nvim',
+    'akinsho/toggleterm.nvim',
     opts = {
-      signs = {
-        add = { text = '+' },
-        change = { text = '~' },
-        delete = { text = '_' },
-        topdelete = { text = '‾' },
-        changedelete = { text = '~' },
+      direction = 'float',
+      float_opts = {
+        border = 'double',
       },
+      start_in_insert = true,
+      persist_mode = false,
     },
-  },
+    config = function(_, opts)
+      require('toggleterm').setup(opts)
 
-  {
-    'kdheepak/lazygit.nvim',
-    lazy = true,
-    cmd = {
-      'LazyGit',
-      'LazyGitConfig',
-      'LazyGitCurrentFile',
-      'LazyGitFilter',
-      'LazyGitFilterCurrentFile',
-    },
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-    },
-    keys = {
-      { '<leader>lg', '<cmd>LazyGit<cr>', desc = 'LazyGit' },
-    },
+      local Terminal = require('toggleterm.terminal').Terminal
+
+      local lazygit_term = Terminal:new {
+        cmd = 'lazygit',
+        dir = 'git_dir',
+        hidden = true,
+        direction = 'float',
+        float_opts = {
+          border = 'double',
+        },
+        close_on_exit = false,
+        on_open = function(term)
+          vim.cmd 'startinsert!'
+
+          -- <C-/> (Ctrl + /)
+          vim.keymap.set('t', '<C-c>', function()
+            term:toggle()
+          end, { buffer = term.bufnr, noremap = true, silent = true })
+        end,
+      }
+
+      function _LAZYGIT_TOGGLE()
+        lazygit_term:toggle()
+      end
+
+      vim.keymap.set('n', '<leader>lg', _LAZYGIT_TOGGLE, { desc = 'Lazygit (toggleterm)' })
+    end,
   },
 
   {
     'nvim-lualine/lualine.nvim',
-    -- config = function()
-    --   vim.opt.showmode = false
-    --   vim.o.cmdheight = 0
-    -- end,
     opts = {
       sections = {
-        lualine_z = { 'mode' },
-        lualine_c = { 'diff', 'diagnostics' },
-        lualine_a = { 'branch' },
+        lualine_a = { 'mode' },
+        lualine_z = { 'diagnostics' },
+        lualine_b = { 'branch' },
         lualine_x = {},
         lualine_y = {},
         lualine_b = { 'filename' },
@@ -74,15 +103,6 @@ return {
     opts = {
       cmd_line = {
         enabled = true,
-      },
-    },
-    dependencies = {
-      'MunifTanjim/nui.nvim',
-      {
-        'rcarriga/nvim-notify',
-        opts = {
-          background_colour = '#000000',
-        },
       },
     },
   },
@@ -138,6 +158,9 @@ return {
 
   {
     'mbbill/undotree',
+    config = function()
+      vim.g.undotree_SetFocusWhenToggle = 1
+    end,
     keys = {
       { '<leader>u', '<cmd>UndotreeToggle<cr>' },
     },
@@ -179,47 +202,28 @@ return {
   {
     'windwp/nvim-autopairs',
     event = 'InsertEnter',
-    -- Optional dependency
     dependencies = { 'hrsh7th/nvim-cmp' },
     config = function()
       require('nvim-autopairs').setup {}
-      -- If you want to automatically add `(` after selecting a function or method
       local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
       local cmp = require 'cmp'
       cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
     end,
   },
 
-  'tpope/vim-sleuth',
-  { 'JoosepAlviste/nvim-ts-context-commentstring', opts = {} },
+  {
+    'tpope/vim-sleuth',
+  },
 
-  -- {
-  --   'lewis6991/gitsigns.nvim',
-  --   opts = {
-  --     signs = {
-  --       add = { text = '+' },
-  --       change = { text = '~' },
-  --       delete = { text = '_' },
-  --       topdelete = { text = '‾' },
-  --       changedelete = { text = '~' },
-  --     },
-  --   },
-  -- },
-  --
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    opts = {},
+  },
+
   {
     'nvim-telescope/telescope.nvim',
     event = 'VimEnter',
     branch = '0.1.x',
-    -- opts = {
-    --   defaults = {
-    --     vimgrep_arguments = {
-    --       'rg',
-    --       '--ignore',
-    --       '--hidden',
-    --       '--files',
-    --     },
-    --   },
-    -- },
     dependencies = {
       'nvim-lua/plenary.nvim',
       {
@@ -300,9 +304,6 @@ return {
       { 'williamboman/mason.nvim', opts = {} },
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- { 'j-hui/fidget.nvim', opts = {} },
-
       'hrsh7th/cmp-nvim-lsp',
     },
     config = function()
@@ -528,9 +529,6 @@ return {
       {
         'L3MON4D3/LuaSnip',
         build = (function()
-          -- Build Step is needed for regex support in snippets.
-          -- This step is not supported in many windows environments.
-          -- Remove the below condition to re-enable on windows.
           if vim.fn.has 'win32' == 1 or vim.fn.executable 'make' == 0 then
             return
           end
