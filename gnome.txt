@@ -1,0 +1,25 @@
+[color-picker]
+color-history=[uint32 1920728]
+
+[just-perfection]
+animation=2
+support-notifier-showed-version=34
+support-notifier-type=0
+
+[nightthemeswitcher/time]
+manual-schedule=true
+nightthemeswitcher-ondemand-keybinding=['<Alt>j']
+sunset=18.0
+
+[switcher]
+fade-enable=false
+launcher-stats='{"firefox.desktop":5,"com.mitchellh.ghostty.desktop":5,"org.gnome.Settings.desktop":3,"org.gnome.Extensions.desktop":3,"steam.desktop":13,"org.gnome.DiskUtility.desktop":1,"org.gnome.Nautilus.desktop":3}'
+on-active-display=false
+only-current-workspace=false
+show-executables=false
+show-original-names=false
+show-switcher=['<Alt>space']
+workspace-indicator=false
+
+[tactile]
+show-tiles=['<Alt>t']
