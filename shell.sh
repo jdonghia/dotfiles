@@ -6,29 +6,29 @@ cd yay
 makepkg -si
 
 packages=(
-    stow
-    tmux
+    unzip
     neovim
-    ttf-jetbrains-mono-nerd
-    pnpm
-    nodejs
     xclip
+    ripgrep
+    tmux
+    lazygit
+    nodejs
+    pnpm
+    npm
+    zsh
     zoxide
     fzf
-    firefox
-    ripgrep
-    lazygit
-    zsh
     starship
-    npm
+    google-chrome
+    stow
     openssh
-    unzip
 )
 
 for package in ${packages[@]}; do
     yay -S --noconfirm ${package}
 done
 
+# change shell to zsh
 chsh -s /usr/bin/zsh
 
 sudo pacman -Syu
