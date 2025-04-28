@@ -51,47 +51,47 @@ return {
   --   end,
   -- },
 
-  {
-    'akinsho/toggleterm.nvim',
-    opts = {
-      direction = 'float',
-      float_opts = {
-        border = 'double',
-      },
-      start_in_insert = true,
-      persist_mode = false,
-    },
-    config = function(_, opts)
-      require('toggleterm').setup(opts)
-
-      local Terminal = require('toggleterm.terminal').Terminal
-
-      local lazygit_term = Terminal:new {
-        cmd = 'lazygit',
-        dir = 'git_dir',
-        hidden = true,
-        direction = 'float',
-        float_opts = {
-          border = 'double',
-        },
-        close_on_exit = false,
-        on_open = function(term)
-          vim.cmd 'startinsert!'
-
-          -- <C-/> (Ctrl + /)
-          vim.keymap.set('t', '<C-c>', function()
-            term:toggle()
-          end, { buffer = term.bufnr, noremap = true, silent = true })
-        end,
-      }
-
-      function _LAZYGIT_TOGGLE()
-        lazygit_term:toggle()
-      end
-
-      vim.keymap.set('n', '<leader>lg', _LAZYGIT_TOGGLE, { desc = 'Lazygit (toggleterm)' })
-    end,
-  },
+  -- {
+  --   'akinsho/toggleterm.nvim',
+  --   opts = {
+  --     direction = 'float',
+  --     float_opts = {
+  --       border = 'double',
+  --     },
+  --     start_in_insert = true,
+  --     persist_mode = false,
+  --   },
+  --   config = function(_, opts)
+  --     require('toggleterm').setup(opts)
+  --
+  --     local Terminal = require('toggleterm.terminal').Terminal
+  --
+  --     local lazygit_term = Terminal:new {
+  --       cmd = 'lazygit',
+  --       dir = 'git_dir',
+  --       hidden = true,
+  --       direction = 'float',
+  --       float_opts = {
+  --         border = 'double',
+  --       },
+  --       close_on_exit = false,
+  --       on_open = function(term)
+  --         vim.cmd 'startinsert!'
+  --
+  --         -- <C-/> (Ctrl + /)
+  --         vim.keymap.set('t', '<C-c>', function()
+  --           term:toggle()
+  --         end, { buffer = term.bufnr, noremap = true, silent = true })
+  --       end,
+  --     }
+  --
+  --     function _LAZYGIT_TOGGLE()
+  --       lazygit_term:toggle()
+  --     end
+  --
+  --     vim.keymap.set('n', '<leader>lg', _LAZYGIT_TOGGLE, { desc = 'Lazygit (toggleterm)' })
+  --   end,
+  -- },
 
   {
     'nvim-lualine/lualine.nvim',
@@ -250,10 +250,10 @@ return {
     'tpope/vim-sleuth',
   },
 
-  -- {
-  --   'JoosepAlviste/nvim-ts-context-commentstring',
-  --   opts = {},
-  -- },
+  {
+    'JoosepAlviste/nvim-ts-context-commentstring',
+    opts = {},
+  },
 
   {
     'nvim-telescope/telescope.nvim',
