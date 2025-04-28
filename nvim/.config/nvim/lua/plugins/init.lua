@@ -33,13 +33,23 @@ return {
   },
 
   {
-    'rebelot/kanagawa.nvim',
+    'projekt0n/github-nvim-theme',
+    name = 'github-theme',
+    lazy = false,
+    priority = 1000,
     config = function()
-      vim.cmd 'colorscheme kanagawa'
-      vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
-      vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+      vim.cmd 'colorscheme github_dark'
     end,
   },
+
+  -- {
+  --   'rebelot/kanagawa.nvim',
+  --   config = function()
+  --     vim.cmd 'colorscheme kanagawa'
+  --     vim.api.nvim_set_hl(0, 'normal', { bg = 'none' })
+  --     vim.api.nvim_set_hl(0, 'normalfloat', { bg = 'none' })
+  --   end,
+  -- },
 
   {
     'akinsho/toggleterm.nvim',
@@ -238,7 +248,7 @@ return {
     keys = {
 
       {
-        ';f',
+        '<leader>pf',
         function()
           local builtin = require 'telescope.builtin'
           builtin.find_files {
@@ -251,7 +261,7 @@ return {
       },
 
       {
-        ';r',
+        '<leader>ps',
         function()
           local builtin = require 'telescope.builtin'
           builtin.live_grep {

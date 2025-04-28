@@ -28,4 +28,3 @@ vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 vim.keymap.set('n', '<leader>-', '<cmd>vsplit<CR>')
-
