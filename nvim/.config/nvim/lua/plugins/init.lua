@@ -32,6 +32,16 @@ return {
     opts = {},
   },
 
+  {
+    'craftzdog/solarized-osaka.nvim',
+    lazy = false,
+    priority = 1000,
+    opts = {},
+    config = function()
+      vim.cmd 'colorscheme solarized-osaka'
+    end,
+  },
+
   -- {
   --   'projekt0n/github-nvim-theme',
   --   name = 'github-theme',
@@ -97,12 +107,13 @@ return {
     'nvim-lualine/lualine.nvim',
     opts = {
       sections = {
-        lualine_a = { 'mode' },
-        lualine_z = { 'diagnostics' },
-        lualine_b = { 'branch' },
+        lualine_a = { 'branch' },
+        -- lualine_z = { 'diagnostics' },
+        lualine_z = { 'mode' },
+        lualine_b = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_c = { { 'filename', path = 4 } },
+        lualine_c = { { icon_only = true, 'filetype' }, { 'filename', path = 4 } },
       },
     },
   },
