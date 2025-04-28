@@ -1,6 +1,5 @@
-theme = PencilDark
+theme = GitHub-Dark-Dimmed
 font-family = JetBrains Mono Nerd Font 
 font-size = 16
-background-opacity = 0.95
 gtk-titlebar = false
 fullscreen = true
