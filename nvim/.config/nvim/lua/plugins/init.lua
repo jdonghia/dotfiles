@@ -235,15 +235,15 @@ return {
     },
   },
 
-  {
-    'windwp/nvim-ts-autotag',
-    opts = {},
-    per_filetype = {
-      ['html'] = {
-        enable_close = false,
-      },
-    },
-  },
+  -- {
+  --   'windwp/nvim-ts-autotag',
+  --   opts = {},
+  --   per_filetype = {
+  --     ['html'] = {
+  --       enable_close = false,
+  --     },
+  --   },
+  -- },
 
   -- {
   --   'windwp/nvim-autopairs',
@@ -257,9 +257,9 @@ return {
   --   end,
   -- },
 
-  {
-    'tpope/vim-sleuth',
-  },
+  -- {
+  --   'tpope/vim-sleuth',
+  -- },
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
