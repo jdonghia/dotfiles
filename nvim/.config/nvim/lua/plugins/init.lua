@@ -102,7 +102,7 @@ return {
         lualine_b = { 'branch' },
         lualine_x = {},
         lualine_y = {},
-        lualine_b = { 'filename' },
+        lualine_c = { { 'filename', path = 4 } },
       },
     },
   },
