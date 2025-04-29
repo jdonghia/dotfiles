@@ -126,6 +126,19 @@ return {
         enabled = true,
       },
     },
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+      'rcarriga/nvim-notify',
+    },
+    keys = {
+      {
+        '<leader>snh',
+        function()
+          require('noice').cmd 'history'
+        end,
+        desc = 'Noice History',
+      },
+    },
   },
 
   {
@@ -235,27 +248,27 @@ return {
     },
   },
 
-  -- {
-  --   'windwp/nvim-ts-autotag',
-  --   opts = {},
-  --   per_filetype = {
-  --     ['html'] = {
-  --       enable_close = false,
-  --     },
-  --   },
-  -- },
+  {
+    'windwp/nvim-ts-autotag',
+    opts = {},
+    per_filetype = {
+      ['html'] = {
+        enable_close = false,
+      },
+    },
+  },
 
-  -- {
-  --   'windwp/nvim-autopairs',
-  --   event = 'InsertEnter',
-  --   dependencies = { 'hrsh7th/nvim-cmp' },
-  --   config = function()
-  --     require('nvim-autopairs').setup {}
-  --     local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
-  --     local cmp = require 'cmp'
-  --     cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
-  --   end,
-  -- },
+  {
+    'windwp/nvim-autopairs',
+    event = 'InsertEnter',
+    dependencies = { 'hrsh7th/nvim-cmp' },
+    config = function()
+      require('nvim-autopairs').setup {}
+      local cmp_autopairs = require 'nvim-autopairs.completion.cmp'
+      local cmp = require 'cmp'
+      cmp.event:on('confirm_done', cmp_autopairs.on_confirm_done())
+    end,
+  },
 
   -- {
   --   'tpope/vim-sleuth',
@@ -474,7 +487,7 @@ return {
         vim.lsp.buf.execute_command(params)
       end
 
-      vim.keymap.set('n', '<leader>n', '<cmd>OrganizeImports<CR>')
+      vim.keymap.set('n', '<leader>oi', '<cmd>OrganizeImports<CR>')
 
       local servers = {
         tailwindcss = {},
