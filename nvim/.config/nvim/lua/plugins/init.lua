@@ -186,33 +186,34 @@ return {
 
   {
     'lukas-reineke/indent-blankline.nvim',
-    main = 'ibl',
-    config = function()
-      local highlight = {
-        'RainbowRed',
-        'RainbowYellow',
-        'RainbowBlue',
-        'RainbowOrange',
-        'RainbowGreen',
-        'RainbowViolet',
-        'RainbowCyan',
+    opts = function()
+      return {
+        indent = {
+          char = '│',
+          tab_char = '│',
+        },
+        scope = { show_start = false, show_end = false },
+        exclude = {
+          filetypes = {
+            'Trouble',
+            'alpha',
+            'dashboard',
+            'help',
+            'lazy',
+            'mason',
+            'neo-tree',
+            'notify',
+            'snacks_dashboard',
+            'snacks_notif',
+            'snacks_terminal',
+            'snacks_win',
+            'toggleterm',
+            'trouble',
+          },
+        },
       }
-
-      local hooks = require 'ibl.hooks'
-
-      hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
-        vim.api.nvim_set_hl(0, 'RainbowRed', { fg = '#E06C75' })
-        vim.api.nvim_set_hl(0, 'RainbowYellow', { fg = '#E5C07B' })
-        vim.api.nvim_set_hl(0, 'RainbowBlue', { fg = '#61AFEF' })
-        vim.api.nvim_set_hl(0, 'RainbowOrange', { fg = '#D19A66' })
-        vim.api.nvim_set_hl(0, 'RainbowGreen', { fg = '#98C379' })
-        vim.api.nvim_set_hl(0, 'RainbowViolet', { fg = '#C678DD' })
-        vim.api.nvim_set_hl(0, 'RainbowCyan', { fg = '#56B6C2' })
-      end)
-
-      require('ibl').setup { indent = { highlight = highlight } }
     end,
-    opts = {},
+    main = 'ibl',
   },
 
   {
@@ -276,7 +277,21 @@ return {
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
-    opts = {},
+    lazy = true,
+    opts = {
+      enable_autocmd = false,
+    },
+  },
+  {
+    'numToStr/Comment.nvim',
+    opts = {
+      -- add any options here
+    },
+    config = function()
+      require('Comment').setup {
+        pre_hook = require('ts_context_commentstring.integrations.comment_nvim').create_pre_hook(),
+      }
+    end,
   },
 
   {
