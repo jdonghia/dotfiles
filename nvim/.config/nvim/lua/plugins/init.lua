@@ -271,9 +271,9 @@ return {
     end,
   },
 
-  -- {
-  --   'tpope/vim-sleuth',
-  -- },
+  {
+    'tpope/vim-sleuth',
+  },
 
   {
     'JoosepAlviste/nvim-ts-context-commentstring',
@@ -379,6 +379,10 @@ return {
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
       'hrsh7th/cmp-nvim-lsp',
+      {
+        'pmizio/typescript-tools.nvim',
+        opts = {},
+      },
     },
     config = function()
       vim.api.nvim_create_autocmd('LspAttach', {
@@ -503,6 +507,7 @@ return {
       end
 
       vim.keymap.set('n', '<leader>oi', '<cmd>OrganizeImports<CR>')
+      vim.keymap.set('n', '<leader>ai', '<cmd>TSToolsAddMissingImports<CR>')
 
       local servers = {
         tailwindcss = {},
