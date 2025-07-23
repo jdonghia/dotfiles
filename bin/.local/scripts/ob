@@ -1,0 +1,45 @@
+#!/bin/zsh
+
+# Set vault directory
+VAULT_DIR="$HOME/obsidian"
+
+# Check if vault directory exists
+if [ ! -d "$VAULT_DIR" ]; then
+    echo "❌ Error: Vault directory not found at $VAULT_DIR"
+    exit 1
+fi
+
+# Navigate to vault directory
+cd "$VAULT_DIR"
+
+# Check if it's a git repository
+if [ ! -d ".git" ]; then
+    echo "❌ Error: Not a git repository"
+    exit 1
+fi
+
+# Check if there are changes to commit
+if git diff --quiet && git diff --cached --quiet; then
+    echo "✅ No changes to commit"
+    exit 0
+fi
+
+# Add all changes to git
+echo "📁 Adding files..."
+git add .
+
+# Get current timestamp
+timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+
+# Commit with timestamped message
+echo "💾 Committing changes..."
+git commit -m "vault backup: $timestamp"
+
+# Push to remote repository
+echo "🚀 Pushing to remote..."
+if git push; then
+    echo "✅ Vault backup completed successfully!"
+else
+    echo "❌ Error: Failed to push to remote repository"
+    exit 1
+fi

@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ "$PWD" != "$HOME/obsidian" ]; then
+    echo "Error: This script must be run from ~/vaults/docs"
+    echo "Current directory: $PWD"
+    echo "Expected directory: $HOME/obsidian"
+    exit 1
+fi
+
+timestamp=$(date '+%Y-%m-%d %H:%M:%S')
+
+git add .
+git commit -m "vault backup: $timestamp"
+git push
