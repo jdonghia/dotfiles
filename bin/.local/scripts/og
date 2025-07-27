@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash  
 
 # Directory containing markdown files
 VAULT_DIR="$HOME/obsidian"
