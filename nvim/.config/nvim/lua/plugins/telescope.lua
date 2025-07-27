@@ -29,6 +29,7 @@ return {
             '--hidden',
             '--glob',
             '!package-lock.json',
+            '--glob',
             '!pnpm-lock.yaml',
           },
         }
