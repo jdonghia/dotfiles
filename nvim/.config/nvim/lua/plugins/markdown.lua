@@ -18,14 +18,16 @@ return {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
     build = 'cd app && npm install',
+    ft = { 'markdown' },
     init = function()
       vim.g.mkdp_filetypes = { 'markdown' }
     end,
-    ft = { 'markdown' },
   },
 
   {
     'davidmh/mdx.nvim',
-    config = true,
+    config = function()
+      require('mdx').setup {}
+    end,
   },
 }

@@ -1,6 +1,16 @@
 return {
   'nvim-telescope/telescope.nvim',
-  dependencies = { 'nvim-lua/plenary.nvim', { 'nvim-tree/nvim-web-devicons', config = true } },
+  dependencies = {
+    'nvim-lua/plenary.nvim',
+    {
+      {
+        'nvim-tree/nvim-web-devicons',
+        config = function()
+          require('nvim-web-devicons').setup {}
+        end,
+      },
+    },
+  },
   keys = {
     {
       '<leader>pf',
@@ -19,7 +29,6 @@ return {
             '--hidden',
             '--glob',
             '!package-lock.json',
-            '--glob',
             '!pnpm-lock.yaml',
           },
         }

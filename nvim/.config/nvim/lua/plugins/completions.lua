@@ -4,14 +4,17 @@ return {
     'rafamadriz/friendly-snippets',
   },
   version = '0.*',
-  opts = {
-    keymap = { preset = 'default' },
+  config = function()
+    require('blink.cmp').setup {
 
-    appearance = {
-      use_nvim_cmp_as_default = true,
-      nerd_font_variant = 'mono',
-    },
+      keymap = { preset = 'default' },
 
-    signature = { enabled = true },
-  },
+      appearance = {
+        use_nvim_cmp_as_default = true,
+        nerd_font_variant = 'mono',
+      },
+
+      signature = { enabled = true },
+    }
+  end,
 }

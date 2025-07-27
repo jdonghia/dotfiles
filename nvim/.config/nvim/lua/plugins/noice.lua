@@ -1,10 +1,11 @@
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
-  dependencies = {},
-  opts = {
-    cmdline = {
-      enable = true,
-    },
-  },
+  config = function()
+    require('noice').setup {
+      cmdline = {
+        enable = true,
+      },
+    }
+  end,
 }

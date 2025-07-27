@@ -48,7 +48,6 @@ return {
     },
   },
   config = function()
-    local harpoon = require 'harpoon'
-    harpoon:setup()
+    require('harpoon').setup {}
   end,
 }

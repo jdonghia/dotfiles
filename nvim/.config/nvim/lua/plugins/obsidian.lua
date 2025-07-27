@@ -1,11 +1,11 @@
 return {
   'epwalsh/obsidian.nvim',
+  lazy = true,
+  version = '*',
+  ft = 'markdown',
   dependencies = {
     'nvim-lua/plenary.nvim',
   },
-  version = '*',
-  lazy = true,
-  ft = 'markdown',
   keys = {
     { 'gt', '<cmd>ObsidianTag<CR>', silent = true },
     {
@@ -17,7 +17,6 @@ return {
       noremap = false,
       expr = true,
       buffer = true,
-      desc = 'Obsidian follow link',
       silent = true,
     },
     {
@@ -68,16 +67,16 @@ return {
       notes_subdir = 'inbox',
       new_notes_location = 'notes_subdir',
       note_id_func = function(title)
-        local suffix = ""
+        local suffix = ''
         if title ~= nil then
-          suffix = title:gsub(" ", "-"):gsub("[^A-Za-z0-9-]", ""):lower()
+          suffix = title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
           if suffix:len() > 0 then
-            suffix = suffix:gsub("^%l", string.upper)
+            suffix = suffix:gsub('^%l', string.upper)
           end
         else
           suffix = tostring(os.time())
         end
-        return tostring(os.date("%Y-%m-%d")) .. "_" .. suffix
+        return tostring(os.date '%Y-%m-%d') .. '_' .. suffix
       end,
       templates = {
         subdir = 'templates',
@@ -88,4 +87,3 @@ return {
     }
   end,
 }
-

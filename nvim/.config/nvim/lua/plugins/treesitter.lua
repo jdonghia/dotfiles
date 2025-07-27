@@ -1,8 +1,8 @@
 return {
   {
     'nvim-treesitter/nvim-treesitter',
-    branch = 'master',
     lazy = false,
+    branch = 'master',
     build = ':TSUpdate',
     config = function()
       require('nvim-treesitter.configs').setup {
@@ -33,7 +33,6 @@ return {
 
   {
     'nvim-treesitter/nvim-treesitter-context',
-
     config = function()
       require('treesitter-context').setup {
         max_lines = 2,
