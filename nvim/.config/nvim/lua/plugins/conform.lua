@@ -34,6 +34,17 @@ return {
 
         markdown = { 'prettierd' },
         mdx = { 'prettierd' },
+
+        formatters = {
+          eslint_d = {
+            condition = function(ctx)
+              return vim.fs.find({
+                'eslint.config.js',
+                'eslint.config.mjs',
+              }, { path = ctx.filename, upward = true })[1]
+            end,
+          },
+        },
       },
     }
   end,
