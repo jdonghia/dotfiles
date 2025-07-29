@@ -8,7 +8,20 @@ return {
         lualine_b = { 'branch', 'diff', 'diagnostics' },
         lualine_c = {},
         lualine_x = {},
-        lualine_y = {},
+        lualine_y = {
+          {
+            'macro',
+            fmt = function()
+              local reg = vim.fn.reg_recording()
+              if reg ~= '' then
+                return 'Recording @' .. reg
+              end
+              return nil
+            end,
+            color = { fg = '#ff9e64' },
+            draw_empty = false,
+          },
+        },
         lualine_z = { 'filename' },
       },
     }
