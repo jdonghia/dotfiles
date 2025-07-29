@@ -55,7 +55,7 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:
 
 chsh -s /usr/bin/zsh
 
-chmod +x ~/.local/scripts/*
+chmod +x ~/dotfiles/bin/.local/scripts/*
 
 sudo pacman -Syu
 
