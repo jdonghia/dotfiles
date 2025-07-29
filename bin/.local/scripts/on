@@ -6,7 +6,6 @@ if [ -z "$1" ]; then
 fi
 
 file_name=$(echo "$1" | tr ' ' '-')
-formatted_file_name=$(date "+%Y-%m-%d")_${file_name}.md
 cd "$HOME/obsidian" || exit
-touch "inbox/${formatted_file_name}"
-nvim "inbox/${formatted_file_name}"
+touch "${file_name}.md"
+nvim "${file_name}.md"
