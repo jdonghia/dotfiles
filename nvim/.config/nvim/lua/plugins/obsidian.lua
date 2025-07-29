@@ -1,5 +1,5 @@
 return {
-  'epwalsh/obsidian.nvim',
+  'obsidian-nvim/obsidian.nvim',
   lazy = true,
   version = '*',
   ft = 'markdown',
@@ -31,12 +31,6 @@ return {
     {
       '<leader>on',
       ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>',
-      mode = 'n',
-      silent = true,
-    },
-    {
-      '<leader>of',
-      ':s/\\(# \\)[^_]*_/\\1/ | s/-/ /g<cr>',
       mode = 'n',
       silent = true,
     },
