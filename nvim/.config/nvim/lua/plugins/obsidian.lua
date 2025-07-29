@@ -67,16 +67,7 @@ return {
       notes_subdir = 'inbox',
       new_notes_location = 'notes_subdir',
       note_id_func = function(title)
-        local suffix = ''
-        if title ~= nil then
-          suffix = title:gsub(' ', '-'):gsub('[^A-Za-z0-9-]', ''):lower()
-          if suffix:len() > 0 then
-            suffix = suffix:gsub('^%l', string.upper)
-          end
-        else
-          suffix = tostring(os.time())
-        end
-        return tostring(os.date '%Y-%m-%d') .. '_' .. suffix
+        return title
       end,
       templates = {
         subdir = 'templates',
