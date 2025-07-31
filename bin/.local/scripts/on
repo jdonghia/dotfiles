@@ -6,6 +6,6 @@ if [ -z "$1" ]; then
 fi
 
 file_name=$(echo "$1" | tr ' ' '-')
-cd "$HOME/obsidian" || exit
+cd "$HOME/obsidian/inbox" || exit
 touch "${file_name}.md"
 nvim "${file_name}.md"
