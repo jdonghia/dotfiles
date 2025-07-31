@@ -22,7 +22,7 @@ return {
             draw_empty = false,
           },
         },
-        lualine_z = { 'filename' },
+        lualine_z = { { 'filename', path = 1 } },
       },
     }
   end,
