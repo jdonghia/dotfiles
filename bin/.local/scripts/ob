@@ -1,18 +1,6 @@
 #!/bin/bash
 
-if [ "$PWD" != "$HOME/obsidian" ]; then
-    echo "Error: This script must be run from ~/obsidian"
-    echo "Current directory: $PWD"
-    echo "Expected directory: $HOME/obsidian"
-    exit 1
-fi
-
-# If there are unstaged changes, stash them.
-if ! git diff-index --quiet HEAD --; then
-  git stash
-fi
-
-git pull
+cd ~/obsidian
 
 timestamp=$(date '+%Y-%m-%d %H:%M:%S')
 
