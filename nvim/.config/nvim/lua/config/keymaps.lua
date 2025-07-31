@@ -26,7 +26,8 @@ vim.keymap.set('n', '<C-l>', 'gg<S-v>G')
 vim.keymap.set('n', '<c-k>', '<cmd>cnext<cr>zz')
 vim.keymap.set('n', '<c-j>', '<cmd>cprev<cr>zz')
 
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+-- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+
 vim.keymap.set('n', '<leader>k', '<cmd>lnext<cr>zz')
 vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
 
@@ -34,3 +35,17 @@ vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
 vim.keymap.set('i', '<F4>', '', { noremap = true, silent = true })
 vim.keymap.set('c', '<F4>', '', { noremap = true, silent = true })
 
+vim.keymap.set('n', '-', '<cmd>Oil<cr>')
+
+vim.keymap.set('n', '<leader>tt', function() -- 'tt' for "tmux terminal"
+  local dir = vim.fn.expand '%:p:h'
+
+  if dir == '' then
+    print 'Error: No file path associated with this buffer.'
+    return
+  end
+
+  local cmd = "tmux split-window -h -c '" .. dir .. "'"
+
+  vim.fn.system(cmd)
+end, { noremap = true, silent = true, desc = "Open new tmux pane in file's directory" })
