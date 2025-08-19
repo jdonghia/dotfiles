@@ -3,7 +3,7 @@ return {
     'CopilotC-Nvim/CopilotChat.nvim',
     build = 'make tiktoken',
     keys = {
-      { '<leader>cp', '<cmd>CopilotChatToggle<CR>', mode = 'n' },
+      { '<leader>ct', '<cmd>CopilotChatToggle<CR>', mode = 'n' },
     },
     config = function()
       require('CopilotChat').setup {}

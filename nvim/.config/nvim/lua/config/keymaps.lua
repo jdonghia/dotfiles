@@ -18,26 +18,18 @@ vim.keymap.set('n', '<leader>Y', [["+Y]])
 vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
-vim.keymap.set('n', '<leader>-', '<cmd>vsplit<CR>')
-vim.keymap.set('n', '<leader>=', '<cmd>split<CR>')
-
 vim.keymap.set('n', '<C-l>', 'gg<S-v>G')
 
-vim.keymap.set('n', '<c-j>', '<cmd>cnext<cr>zz')
-vim.keymap.set('n', '<c-k>', '<cmd>cprev<cr>zz')
+vim.keymap.set('n', '<leader>vs', '<cmd>vsplit<CR>')
+vim.keymap.set('n', '<leader>hs', '<cmd>split<CR>')
 
--- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
+vim.keymap.set('n', '<leader>cn', '<cmd>cnext<cr>zz')
+vim.keymap.set('n', '<leader>cp', '<cmd>cprev<cr>zz')
+vim.keymap.set('n', '<leader>ln', '<cmd>lnext<cr>zz')
+vim.keymap.set('n', '<leader>lp', '<cmd>lprev<cr>zz')
 
-vim.keymap.set('n', '<leader>k', '<cmd>lnext<cr>zz')
-vim.keymap.set('n', '<leader>j', '<cmd>lprev<cr>zz')
-
--- GlazeWM and Windows stuff
-vim.keymap.set('i', '<F4>', '', { noremap = true, silent = true })
-vim.keymap.set('c', '<F4>', '', { noremap = true, silent = true })
-
-vim.keymap.set('n', '-', '<cmd>Oil<cr>')
-
-vim.keymap.set('n', '<leader>tt', function() -- 'tt' for "tmux terminal"
+-- split tmux pane with current path buffer
+vim.keymap.set('n', '<leader>tt', function()
   local dir = vim.fn.expand '%:p:h'
 
   if dir == '' then
