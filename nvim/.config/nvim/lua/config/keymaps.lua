@@ -23,8 +23,8 @@ vim.keymap.set('n', '<leader>=', '<cmd>split<CR>')
 
 vim.keymap.set('n', '<C-l>', 'gg<S-v>G')
 
-vim.keymap.set('n', '<c-k>', '<cmd>cnext<cr>zz')
-vim.keymap.set('n', '<c-j>', '<cmd>cprev<cr>zz')
+vim.keymap.set('n', '<c-j>', '<cmd>cnext<cr>zz')
+vim.keymap.set('n', '<c-k>', '<cmd>cprev<cr>zz')
 
 -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
