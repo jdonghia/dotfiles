@@ -7,7 +7,7 @@ Use **Rufus** to bypass Windows login
 ---
 ## Cleaning Windows
 
-[Debloat Tool](https://github.com/LeDragoX/Win-Debloat-Toolswsl)
+[Debloat Tool](https://github.com/LeDragoX/Win-Debloat-Toolswsl)    
 
 ---
 ## WSL Setup
@@ -15,15 +15,13 @@ Use **Rufus** to bypass Windows login
 1. Install wsl from powershell
 2. [Arch Linux WSL](https://github.com/yuk7/ArchWSL)
 3. Follow Arch Linux WSL Documentation
-4. Install the packages through .dotfiles setup.sh
 
 ---
 ## Tools
 
 ### Keyboard Layout
-
-1. Get the klc zip file from: [Alt gr keyboard layout](https://github.com/thomasfaingnaert/win-us-intl-altgr)
-Windows doesnt have a official keyboard layout for ALT GR dead keys.
+  
+- US and ABNT2
 
 ### Fonts
 
@@ -37,17 +35,23 @@ Windows doesnt have a official keyboard layout for ALT GR dead keys.
 
 3. Enable **PowerToysRun** and **Keyboard Manager**
 
-4. **Keyboard Manager**: Remap Win Left Key to F4. This is needed because GlazeWM doesnt handle well keybinds on the SUPER key. So it is a bypass to not use ALT as a key
+4. **Keyboard Manager**: Remap shortcut Win + W to CTRL + W on Zen Browser 
 
-5. Enable PowerToys on startup 
+5. Enable PowerToys on startup   
 
-### GlazeWM, Yasb
+### GlazeWM 
 
-1. Download via winget
+1. Install GlazeWM
 
-`winget install --id AmN.yasb
+```powershell
+
 winget install GlazeWM
-`
-2. Get the dotfiles .config/yasb/ .glzr/
+```
 
-3. Enable on shell:startup
+2. Stow glazeWM config.yaml from dotfiles 
+
+3. Enable autostart on shell:startup    
+
+### Zen Browser
+
+1. Remap alt commands key to command/super
