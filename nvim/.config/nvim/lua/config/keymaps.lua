@@ -21,7 +21,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 vim.keymap.set('n', '<C-l>', 'gg<S-v>G')
 
 vim.keymap.set('n', '<leader>vs', '<cmd>vsplit<CR>')
-vim.keymap.set('n', '<leader>hs', '<cmd>split<CR>')
 
 vim.keymap.set('n', '<leader>cn', '<cmd>cnext<cr>zz')
 vim.keymap.set('n', '<leader>cp', '<cmd>cprev<cr>zz')
