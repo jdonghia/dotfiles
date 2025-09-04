@@ -7,7 +7,7 @@ return {
     'nvim-lua/plenary.nvim',
   },
   keys = {
-    { 'gt', '<cmd>ObsidianTag<CR>', silent = true },
+    -- { 'gt', '<cmd>ObsidianTag<CR>', silent = true },
     {
       'gf',
       function()
@@ -28,24 +28,24 @@ return {
       buffer = true,
       silent = true,
     },
-    {
-      '<leader>on',
-      ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>',
-      mode = 'n',
-      silent = true,
-    },
-    {
-      '<leader>ok',
-      ":!mv '%:p' $HOME/obsidian/zettelkasten<cr>:bd<cr>",
-      mode = 'n',
-      silent = true,
-    },
-    {
-      '<leader>odd',
-      ":!rm '%:p'<cr>:bd<cr>",
-      mode = 'n',
-      silent = true,
-    },
+    -- {
+    --   '<leader>on',
+    --   ':ObsidianTemplate note<cr> :lua vim.cmd([[1,/^\\S/s/^\\n\\{1,}//]])<cr>',
+    --   mode = 'n',
+    --   silent = true,
+    -- },
+    -- {
+    --   '<leader>ok',
+    --   ":!mv '%:p' $HOME/obsidian/zettelkasten<cr>:bd<cr>",
+    --   mode = 'n',
+    --   silent = true,
+    -- },
+    -- {
+    --   '<leader>odd',
+    --   ":!rm '%:p'<cr>:bd<cr>",
+    --   mode = 'n',
+    --   silent = true,
+    -- },
   },
 
   config = function()

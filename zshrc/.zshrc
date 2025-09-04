@@ -6,7 +6,7 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 alias vim='nvim'
-alias or='vim $HOME/obsidian/inbox/*.md'
+# alias or='vim $HOME/obsidian/inbox/*.md'
 
 bindkey -s ^g "tmux-sessionizer\n"
 
