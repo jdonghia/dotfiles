@@ -1,5 +1,5 @@
-theme = rose-pine-moon
-background = #121212
+theme = Rose Pine
+##background = #121212
 font-family = JetBrains Mono Nerd Font 
 font-size = 18
 background-opacity = 0.925
