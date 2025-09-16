@@ -8,6 +8,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 alias vim='nvim'
 # alias or='vim $HOME/obsidian/inbox/*.md'
 
+PATH="$PATH":"$HOME/.local/scripts/"
 bindkey -s ^g "tmux-sessionizer\n"
 
 plugins=(zsh-syntax-highlighting zoxide fzf zsh-autosuggestions)
