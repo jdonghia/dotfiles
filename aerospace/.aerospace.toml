@@ -139,7 +139,7 @@ automatically-unhide-macos-hidden-apps = false
 
     alt-t = "exec-and-forget open -n -a ghostty"
     alt-n = "exec-and-forget open -n -a zen"
-    alt-q = "close --quit-if-last-window"
+    alt-shift-q = "close --quit-if-last-window"
     alt-shift-f = 'fullscreen'
 
 # 'service' binding mode declaration.
