@@ -3,5 +3,5 @@ theme = Gruvbox Dark
 ##background = #121212
 font-family = JetBrains Mono Nerd Font 
 font-size = 18
-background-opacity = 0.925
+background-opacity = 0.9
 background-blur = true
