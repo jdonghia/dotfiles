@@ -18,14 +18,29 @@ return {
       vim.diagnostic.config { virtual_text = true }
       local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-      require('lspconfig').ts_ls.setup { capabilities = capabilities }
-      require('lspconfig').eslint.setup { capabilities = capabilities }
-      require('lspconfig').lua_ls.setup { capabilities = capabilities }
-      require('lspconfig').tailwindcss.setup { capabilities = capabilities }
-      require('lspconfig').gopls.setup { capabilities = capabilities }
-      require('lspconfig').marksman.setup { capabilities = capabilities }
-      require('lspconfig').mdx_analyzer.setup { capabilities = capabilities }
-      require('lspconfig').bashls.setup { capabilities = capabilities }
+      vim.lsp.config('ts_ls', { capabilities = capabilities })
+      vim.lsp.enable('ts_ls', true)
+
+      vim.lsp.config('eslint', { capabilities = capabilities })
+      vim.lsp.enable('eslint', true)
+
+      vim.lsp.config('lua_ls', { capabilities = capabilities })
+      vim.lsp.enable('lua_ls', true)
+
+      vim.lsp.config('tailwindcss', { capabilities = capabilities })
+      vim.lsp.enable('tailwindcss', true)
+
+      vim.lsp.config('gopls', { capabilities = capabilities })
+      vim.lsp.enable('gopls', true)
+
+      vim.lsp.config('marksman', { capabilities = capabilities })
+      vim.lsp.enable('marksman', true)
+
+      vim.lsp.config('mdx_analyzer', { capabilities = capabilities })
+      vim.lsp.enable('mdx_analyzer', true)
+
+      vim.lsp.config('bashls', { capabilities = capabilities })
+      vim.lsp.enable('bashls', true)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
