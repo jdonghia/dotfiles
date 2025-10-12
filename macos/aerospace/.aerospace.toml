@@ -137,8 +137,7 @@ automatically-unhide-macos-hidden-apps = false
     # See: https://nikitabobko.github.io/AeroSpace/commands#mode
     alt-shift-semicolon = 'mode service'
 
-    alt-t = "exec-and-forget open -n -a ghostty"
-    alt-n = "exec-and-forget open -n -a zen"
+    alt-shift-t = "exec-and-forget open -n -a ghostty"
     alt-shift-q = "close --quit-if-last-window"
     alt-shift-f = 'fullscreen'
 
