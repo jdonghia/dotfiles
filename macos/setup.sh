@@ -23,6 +23,8 @@ cask_packages=(
     raycast
     ghostty
     font-jetbrains-mono-nerd-font
+    obsidian
+    docker
 )
 
 # Install Homebrew if it's not already installed
