@@ -1,7 +1,6 @@
 general:
-  startup_commands: ['shell-exec zebar']
-  shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
-
+  # startup_commands: ['shell-exec zebar']
+  # shutdown_commands: ['shell-exec taskkill /IM zebar.exe /F']
 
   focus_follows_cursor: false
 
@@ -142,11 +141,8 @@ keybindings:
   - commands: ['close']
     bindings: ['alt+shift+q']
 
-  - commands: ['shell-exec zen']
-    bindings: ['alt+n']
-
   - commands: ['shell-exec wt']
-    bindings: ['alt+t']
+    bindings: ['alt+shift+t']
 
   - commands: ['focus --direction left']
     bindings: ['alt+h', 'alt+left']
