@@ -1,18 +1,18 @@
 return {
-  {
-    'CopilotC-Nvim/CopilotChat.nvim',
-    build = 'make tiktoken',
-    keys = {
-      { '<leader>ct', '<cmd>CopilotChatToggle<CR>', mode = 'n' },
-    },
-    config = function()
-      require('CopilotChat').setup {}
-    end,
-  },
+  -- {
+  --   'CopilotC-Nvim/CopilotChat.nvim',
+  --   build = 'make tiktoken',
+  --   keys = {
+  --     { '<leader>ct', '<cmd>CopilotChatToggle<CR>', mode = 'n' },
+  --   },
+  --   config = function()
+  --     require('CopilotChat').setup {}
+  --   end,
+  -- },
   {
     'github/copilot.vim',
-    config = function()
-      vim.cmd 'Copilot disable'
-    end,
+    -- config = function()
+    --   vim.cmd 'Copilot disable'
+    -- end,
   },
 }
