@@ -7,7 +7,14 @@ return {
     config = function()
       require('blink.cmp').setup {
         fuzzy = { implementation = 'lua' },
-        keymap = { preset = 'super-tab' },
+        keymap = {
+          ['<C-h>'] = {
+            function(cmp)
+              cmp.show { providers = { 'snippets' } }
+            end,
+          },
+          preset = 'enter',
+        },
       }
     end,
   },
