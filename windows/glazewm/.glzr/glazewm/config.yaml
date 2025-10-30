@@ -115,6 +115,7 @@ workspaces:
   - name: '3'
   - name: '4'
   - name: '5'
+  - name: '6'
 
 window_rules:
   - commands: ['ignore']
@@ -163,6 +164,8 @@ keybindings:
     bindings: ['alt+4']
   - commands: ['focus --workspace 5']
     bindings: ['alt+5']
+  - commands: ['focus --workspace 6']
+    bindings: ['alt+6']
 
   - commands: ['move --workspace 1', 'focus --workspace 1']
     bindings: ['alt+shift+1']
@@ -174,5 +177,11 @@ keybindings:
     bindings: ['alt+shift+4']
   - commands: ['move --workspace 5', 'focus --workspace 5']
     bindings: ['alt+shift+5']
+  - commands: ['move --workspace 6', 'focus --workspace 6']
+    bindings: ['alt+shift+6']
+
+
+
+
 
 
