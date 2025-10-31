@@ -13,7 +13,9 @@ return {
               cmp.show { providers = { 'snippets' } }
             end,
           },
-          preset = 'enter',
+
+          ['<C-k>'] = { 'show', 'show_documentation', 'hide_documentation' },
+          preset = 'super-tab',
         },
       }
     end,
