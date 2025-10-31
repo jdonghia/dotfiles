@@ -24,8 +24,8 @@ vim.keymap.set('n', '<leader>vs', '<cmd>vsplit<CR>')
 
 vim.keymap.set('n', '<leader>cn', '<cmd>cnext<cr>zz')
 vim.keymap.set('n', '<leader>cp', '<cmd>cprev<cr>zz')
-vim.keymap.set('n', '<leader>ln', '<cmd>lnext<cr>zz')
-vim.keymap.set('n', '<leader>lp', '<cmd>lprev<cr>zz')
+-- vim.keymap.set('n', '<leader>ln', '<cmd>lnext<cr>zz')
+-- vim.keymap.set('n', '<leader>lp', '<cmd>lprev<cr>zz')
 
 -- split tmux pane with current path buffer
 vim.keymap.set('n', '<leader>tt', function()
