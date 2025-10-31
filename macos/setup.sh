@@ -15,6 +15,8 @@ cli_packages=(
     fzf
     zoxide
     gemini-cli
+    go
+    opencode
 )
 
 cask_packages=(
