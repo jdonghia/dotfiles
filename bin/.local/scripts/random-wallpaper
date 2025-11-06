@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Configuration
+WALLPAPER_DIR="$HOME/dotfiles/backgrounds/.config/backgrounds"
+HYPRPAPER_CONFIG="$HOME/.config/hypr/hyprpaper.conf"
+
+# Check if wallpaper directory exists
+if [ ! -d "$WALLPAPER_DIR" ]; then
+    echo "Error: Wallpaper directory '$WALLPAPER_DIR' not found!"
+    exit 1
+fi
+
+# Find all image files (jpg, jpeg, png, webp)
+readarray -t wallpapers < <(find "$WALLPAPER_DIR" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) 2>/dev/null)
+
+# Check if any wallpapers were found
+if [ ${#wallpapers[@]} -eq 0 ]; then
+    echo "Error: No image files found in '$WALLPAPER_DIR'"
+    exit 1
+fi
+
+# Pick a random wallpaper
+random_index=$((RANDOM % ${#wallpapers[@]}))
+selected_wallpaper="${wallpapers[$random_index]}"
+
+echo "Selected wallpaper: $(basename "$selected_wallpaper")"
+
+# Create new hyprpaper config
+cat > "$HYPRPAPER_CONFIG" << EOF
+preload = $selected_wallpaper
+wallpaper = , contain:$selected_wallpaper
+EOF
+
+echo "Updated hyprpaper config: $HYPRPAPER_CONFIG"
+
+# Reload hyprpaper if it's running
+if pgrep -x hyprpaper > /dev/null; then
+    echo "Reloading hyprpaper..."
+    pkill hyprpaper
+    sleep 0.5
+    hyprpaper &
+    echo "Hyprpaper reloaded with new wallpaper"
+else
+    echo "Starting hyprpaper..."
+    hyprpaper &
+    echo "Hyprpaper started with new wallpaper"
+fi
