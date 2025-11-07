@@ -5,15 +5,10 @@
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
     'exec-and-forget open -a Zen',
-    # 'exec-and-forget open -a Ghostty',
-    # 'exec-and-forget open -a Gemini',
-    # 'exec-and-forget open -a Excalidraw',
-    # 'exec-and-forget open -a NotebookLM',
-    # 'exec-and-forget open -a Gmail',
-    # 'exec-and-forget open -a Tasks',
     'exec-and-forget open -a Spotify',
     'exec-and-forget open -a WhatsApp',
-    # 'exec-and-forget open -a Trello',
+    'exec-and-forget open -a Google Calendar',
+    'exec-and-forget open -a Gmail',
 ]
 
 # Start AeroSpace at login
@@ -182,38 +177,21 @@ automatically-unhide-macos-hidden-apps = false
 if.app-name-regex-substring = 'Zen'
 run = 'move-node-to-workspace 1'
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Ghostty'
-# run = 'move-node-to-workspace 2'
-
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Gemini'
-# run = 'move-node-to-workspace 3'
-
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Excalidraw'
-# run = 'move-node-to-workspace 4'
-
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'NotebookLM'
-# run = 'move-node-to-workspace 5'
-
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Gmail'
-# run = 'move-node-to-workspace 6'
-
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Tasks'
-# run = 'move-node-to-workspace 7'
-
 [[on-window-detected]]
 if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 3'
+run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'WhatsApp'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Google Calendar'
 run = 'move-node-to-workspace 4'
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Trello'
-# run = 'move-node-to-workspace 10'
+[[on-window-detected]]
+if.app-name-regex-substring = 'Gmail'
+run = 'move-node-to-workspace 5'
+
+
+
