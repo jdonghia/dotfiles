@@ -1,53 +1,47 @@
 return {
-  'nvim-telescope/telescope.nvim',
-  dependencies = {
-    'nvim-lua/plenary.nvim',
-    'nvim-tree/nvim-web-devicons',
-  },
+  "nvim-telescope/telescope.nvim",
   keys = {
     {
-      '<leader>pf',
+      "<leader>pf",
       function()
-        require('telescope.builtin').find_files {
+        require("telescope.builtin").find_files({
           hidden = true,
-        }
+        })
       end,
-      mode = 'n',
+      mode = "n",
     },
     {
-      '<leader>ps',
+      "<leader>ps",
       function()
-        require('telescope.builtin').live_grep {
+        require("telescope.builtin").live_grep({
           additional_args = {
-            '--hidden',
-            '--glob',
-            '!package-lock.json',
-            '--glob',
-            '!pnpm-lock.yaml',
+            "--hidden",
+            "--glob",
+            "!package-lock.json",
+            "--glob",
+            "!pnpm-lock.yaml",
           },
-        }
+        })
       end,
-      mode = 'n',
+      mode = "n",
     },
     {
-      '<leader>g',
+      "<leader>g",
       function()
-        require('telescope.builtin').grep_string {
+        require("telescope.builtin").grep_string({
           hidden = true,
-        }
+        })
       end,
-      mode = 'n',
+      mode = "n",
     },
   },
-  config = function()
-    require('telescope').setup {
-      defaults = {
-        file_ignore_patterns = {
-          'node_modules',
-          '.git',
-          '.next',
-        },
+  opts = {
+    defaults = {
+      file_ignore_patterns = {
+        "node_modules",
+        ".git",
+        ".next",
       },
-    }
-  end,
+    },
+  },
 }

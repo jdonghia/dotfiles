@@ -26,10 +26,10 @@ vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.breakindent = true
-vim.opt_local.formatoptions:remove { 'r', 'o' }
 
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
-
+vim.g.autoformat = false
+vim.g.snacks_animate = false
