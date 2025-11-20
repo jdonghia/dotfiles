@@ -1,45 +1,45 @@
 font-size = 16
 
-# OneDark Darker theme colors
-background = #1b1f27
-foreground = #a0a8b7
+# OneDark theme colors
+background = #282c34
+foreground = #abb2bf
 
 # Cursor colors
-cursor-color = #a0a8b7
-cursor-text = #1b1f27
+cursor-color = #abb2bf
+cursor-text = #282c34
 
 # Selection colors
-selection-background = #282c34
-selection-foreground = #a0a8b7
+selection-background = #3e4451
+selection-foreground = #abb2bf
 
 # Black
-palette = 0=#000000
+palette = 0=#282c34
 palette = 8=#545862
 
 # Red
-palette = 1=#e05561
-palette = 9=#e05561
+palette = 1=#e06c75
+palette = 9=#e06c75
 
 # Green
-palette = 2=#8cc265
-palette = 10=#8cc265
+palette = 2=#98c379
+palette = 10=#98c379
 
 # Yellow
-palette = 3=#d18f52
-palette = 11=#d18f52
+palette = 3=#e5c07b
+palette = 11=#e5c07b
 
 # Blue
-palette = 4=#4aa5f0
-palette = 12=#4aa5f0
+palette = 4=#61afef
+palette = 12=#61afef
 
 # Magenta
-palette = 5=#c162de
-palette = 13=#c162de
+palette = 5=#c678dd
+palette = 13=#c678dd
 
 # Cyan
-palette = 6=#42b3c2
-palette = 14=#42b3c2
+palette = 6=#56b6c2
+palette = 14=#56b6c2
 
 # White
-palette = 7=#a0a8b7
+palette = 7=#abb2bf
 palette = 15=#c8ccd4 
