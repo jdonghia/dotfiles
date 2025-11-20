@@ -6,9 +6,7 @@
 after-startup-command = [
     'exec-and-forget open -a Zen',
     'exec-and-forget open -a Spotify',
-    'exec-and-forget open -a WhatsApp',
-    'exec-and-forget open -a Google Calendar',
-    'exec-and-forget open -a Gmail',
+    'exec-and-forget sleep 2 && open -a "Google Calendar"',
 ]
 
 # Start AeroSpace at login
@@ -150,7 +148,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-semicolon = 'mode service'
 
     alt-shift-t = "exec-and-forget open -n -a ghostty"
-    alt-shift-q = "close --quit-if-last-window"
+    alt-shift-q = "close"
     alt-shift-f = 'fullscreen'
 
 # 'service' binding mode declaration.
@@ -179,19 +177,12 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'WhatsApp'
-run = 'move-node-to-workspace 6'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Google Calendar'
 run = 'move-node-to-workspace 4'
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'Gmail'
-run = 'move-node-to-workspace 5'
 
 
 
