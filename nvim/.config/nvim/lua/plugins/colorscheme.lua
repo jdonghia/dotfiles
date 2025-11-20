@@ -20,9 +20,9 @@ return {
       --   transparent_bg = true,
       -- }
 
-      require('onedark').setup {
-        style = 'darker',
-      }
+      -- require('onedark').setup {
+      --   style = 'darker',
+      -- }
 
       -- vim.cmd 'colorscheme rose-pine'
       -- vim.cmd 'colorscheme gruvbox'
