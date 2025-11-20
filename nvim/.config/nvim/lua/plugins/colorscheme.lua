@@ -1,7 +1,8 @@
 return {
   {
     -- 'rose-pine/neovim',
-    'Mofiqul/dracula.nvim',
+    -- 'Mofiqul/dracula.nvim',
+    'navarasu/onedark.nvim',
     -- 'ellisonleao/gruvbox.nvim',
     config = function()
       -- require('rose-pine').setup {
@@ -15,13 +16,19 @@ return {
       --   transparent_mode = true,
       -- }
 
-      require('dracula').setup {
-        transparent_bg = true,
+      -- require('dracula').setup {
+      --   transparent_bg = true,
+      -- }
+
+      require('onedark').setup {
+        style = 'darker',
       }
 
       -- vim.cmd 'colorscheme rose-pine'
       -- vim.cmd 'colorscheme gruvbox'
-      vim.cmd 'colorscheme dracula'
+      -- vim.cmd 'colorscheme dracula'
+
+      vim.cmd 'colorscheme onedark'
     end,
   },
   -- {

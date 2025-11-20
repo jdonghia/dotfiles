@@ -78,4 +78,10 @@ return {
       require('mason').setup {}
     end,
   },
+  {
+    'j-hui/fidget.nvim',
+    opts = {
+      -- options
+    },
+  },
 }
