@@ -1,2 +1,45 @@
-theme = TokyoNight Moon
-font-size = 16 
+font-size = 16
+
+# OneDark Darker theme colors
+background = #1b1f27
+foreground = #a0a8b7
+
+# Cursor colors
+cursor-color = #a0a8b7
+cursor-text = #1b1f27
+
+# Selection colors
+selection-background = #282c34
+selection-foreground = #a0a8b7
+
+# Black
+palette = 0=#000000
+palette = 8=#545862
+
+# Red
+palette = 1=#e05561
+palette = 9=#e05561
+
+# Green
+palette = 2=#8cc265
+palette = 10=#8cc265
+
+# Yellow
+palette = 3=#d18f52
+palette = 11=#d18f52
+
+# Blue
+palette = 4=#4aa5f0
+palette = 12=#4aa5f0
+
+# Magenta
+palette = 5=#c162de
+palette = 13=#c162de
+
+# Cyan
+palette = 6=#42b3c2
+palette = 14=#42b3c2
+
+# White
+palette = 7=#a0a8b7
+palette = 15=#c8ccd4 
