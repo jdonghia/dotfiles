@@ -1,8 +1,8 @@
 return {
   {
-    -- 'rose-pine/neovim',
+    'rose-pine/neovim',
     -- 'Mofiqul/dracula.nvim',
-    'navarasu/onedark.nvim',
+    -- 'navarasu/onedark.nvim',
     -- 'ellisonleao/gruvbox.nvim',
     config = function()
       -- require('rose-pine').setup {
@@ -24,11 +24,11 @@ return {
       --   style = 'darker',
       -- }
 
-      -- vim.cmd 'colorscheme rose-pine'
+      vim.cmd 'colorscheme rose-pine'
       -- vim.cmd 'colorscheme gruvbox'
       -- vim.cmd 'colorscheme dracula'
 
-      vim.cmd 'colorscheme onedark'
+      -- vim.cmd 'colorscheme onedark'
     end,
   },
   -- {
