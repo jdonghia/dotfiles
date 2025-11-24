@@ -7,6 +7,7 @@ after-startup-command = [
     'exec-and-forget open -a Zen',
     'exec-and-forget open -a Spotify',
     'exec-and-forget sleep 2 && open -a "Google Calendar"',
+    'exec-and-forget open -a Obsidian',
 ]
 
 # Start AeroSpace at login
@@ -182,6 +183,10 @@ run = 'move-node-to-workspace 5'
 [[on-window-detected]]
 if.app-name-regex-substring = 'Google Calendar'
 run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Obsidian'
+run = 'move-node-to-workspace 10'
 
 
 
