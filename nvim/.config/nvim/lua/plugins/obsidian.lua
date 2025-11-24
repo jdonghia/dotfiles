@@ -45,12 +45,22 @@ return {
     },
     {
       '<leader>oo',
-
       function()
+        -- Check if Obsidian is already running
+        local is_running = vim.fn.system('pgrep -x Obsidian'):match('%d+')
+        
         vim.cmd 'ObsidianOpen'
+        
+        -- Focus on Obsidian and apply fixed accordion vertical layout
+        if is_running then
+          vim.fn.system('open -a Obsidian')
+        end
+        vim.fn.system('aerospace layout accordion')
+        vim.fn.system('aerospace layout vertical')
       end,
       mode = 'n',
       silent = true,
+      desc = 'Open in Obsidian app with accordion layout',
     },
   },
 }

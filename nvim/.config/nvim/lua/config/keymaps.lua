@@ -40,9 +40,3 @@ vim.keymap.set('n', '<leader>tt', function()
 
   vim.fn.system(cmd)
 end, { noremap = true, silent = true, desc = "Open new tmux pane in file's directory" })
-
--- open obsidian app with accordion layout
-vim.keymap.set('n', '<leader>oo', function()
-  vim.cmd('ObsidianOpen')
-  vim.fn.system('aerospace layout accordion vertical horizontal')
-end, { noremap = true, silent = true, desc = 'Open in Obsidian app with accordion layout' })
