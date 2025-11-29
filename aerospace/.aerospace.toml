@@ -7,7 +7,6 @@ after-startup-command = [
     'exec-and-forget open -a Zen',
     'exec-and-forget open -a Spotify',
     'exec-and-forget sleep 2 && open -a "Google Calendar"',
-    'exec-and-forget open -a Obsidian',
 ]
 
 # Start AeroSpace at login
