@@ -13,7 +13,7 @@ vim.opt.backup = false
 vim.opt.undodir = os.getenv 'HOME' .. '/.vim/undodir'
 vim.opt.undofile = true
 
-vim.opt.updatetime = 100
+-- vim.opt.updatetime = 100
 
 vim.opt.termguicolors = true
 vim.opt.number = true
@@ -28,10 +28,11 @@ vim.opt.expandtab = true
 vim.opt.breakindent = true
 vim.opt_local.formatoptions:remove { 'r', 'o' }
 
+
 vim.g.netrw_browse_split = 0
 vim.g.netrw_banner = 0
 vim.g.netrw_winsize = 25
 
-vim.opt.conceallevel = 2
+-- vim.opt.conceallevel = 2
 
 

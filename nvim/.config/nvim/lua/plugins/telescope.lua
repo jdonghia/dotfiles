@@ -18,13 +18,16 @@ return {
       '<leader>ps',
       function()
         require('telescope.builtin').live_grep {
-          additional_args = {
-            '--hidden',
-            '--glob',
-            '!package-lock.json',
-            '--glob',
-            '!pnpm-lock.yaml',
+          hidden = {
+            true,
           },
+          -- additional_args = {
+          --   '--hidden',
+          --  '--glob',
+          --   '!package-lock.json',
+          --   '--glob',
+          --   '!pnpm-lock.yaml',
+          -- },
         }
       end,
       mode = 'n',
@@ -43,9 +46,7 @@ return {
     require('telescope').setup {
       defaults = {
         file_ignore_patterns = {
-          'node_modules',
-          '.git',
-          '.next',
+          '.git/',
         },
       },
     }
