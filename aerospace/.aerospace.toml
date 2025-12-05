@@ -6,7 +6,10 @@
 after-startup-command = [
     'exec-and-forget open -a Zen',
     'exec-and-forget open -a Spotify',
-    'exec-and-forget sleep 2 && open -a "Google Calendar"',
+    'exec-and-forget open -a "Google Calendar"',
+    'exec-and-forget open -a "Google Tasks"',
+    'exec-and-forget open -a "Obsidian"',
+    'exec-and-forget open -a "Anki"',
 ]
 
 # Start AeroSpace at login
@@ -55,12 +58,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 0
-    inner.vertical =   0
-    outer.left =       0
-    outer.bottom =     0
-    outer.top =        0
-    outer.right =      0
+    inner.horizontal = 5
+    inner.vertical =   5
+    outer.left =       5
+    outer.bottom =     5
+    outer.top =        5
+    outer.right =      5
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -177,11 +180,19 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 5'
+run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Google Calendar'
 run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Google Tasks'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Anki'
+run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
