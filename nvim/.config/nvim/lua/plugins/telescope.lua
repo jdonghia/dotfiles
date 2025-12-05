@@ -6,7 +6,7 @@ return {
   },
   keys = {
     {
-      '<leader>pf',
+      '<C-n>',
       function()
         require('telescope.builtin').find_files {
           hidden = true,
