@@ -1,3 +1,4 @@
+theme = Builtin Solarized Dark 
 font-size = 16
-theme = Rose Pine
+macos-titlebar-style = hidden
 
