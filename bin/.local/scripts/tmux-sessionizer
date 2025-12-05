@@ -5,9 +5,7 @@ if [[ $# -eq 1 ]]; then
 else
     selected=$(\
         {
-            # echo ~/obsidian
             echo ~/dotfiles
-            echo ~/docs
             find ~/projects -mindepth 1 -maxdepth 1 -type d
         } | fzf)
 fi
