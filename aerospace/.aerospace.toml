@@ -4,12 +4,11 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-    'exec-and-forget open -a Zen',
-    'exec-and-forget open -a Spotify',
-    'exec-and-forget open -a "Google Calendar"',
-    'exec-and-forget open -a "Google Tasks"',
-    'exec-and-forget open -a "Obsidian"',
-    'exec-and-forget open -a "Anki"',
+  'exec-and-forget open -a "Google Chrome"',
+  'exec-and-forget open -a Ghostty',
+  'exec-and-forget open -a Obsidian',
+  'exec-and-forget open -a Spotify',
+  'exec-and-forget open -a Anki',
 ]
 
 # Start AeroSpace at login
@@ -22,7 +21,7 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 # See: https://nikitabobko.github.io/AeroSpace/guide#layouts
 # The 'accordion-padding' specifies the size of accordion padding
 # You can set 0 to disable the padding feature
-accordion-padding = 10
+accordion-padding = 0
 
 # Possible values: tiles|accordion
 default-root-container-layout = 'tiles'
@@ -58,12 +57,12 @@ automatically-unhide-macos-hidden-apps = false
 #                 See:
 #                 https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
 [gaps]
-    inner.horizontal = 5
-    inner.vertical =   5
-    outer.left =       5
-    outer.bottom =     5
-    outer.top =        5
-    outer.right =      5
+    inner.horizontal = 0
+    inner.vertical =   0
+    outer.left =       0
+    outer.bottom =     0
+    outer.top =        0
+    outer.right =      0
 
 # 'main' binding mode declaration
 # See: https://nikitabobko.github.io/AeroSpace/guide#binding-modes
@@ -104,8 +103,8 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
+    ctrl-1 = 'focus down'
+    ctrl-2 = 'focus up'
     alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
@@ -175,29 +174,35 @@ automatically-unhide-macos-hidden-apps = false
     shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Zen'
+if.app-name-regex-substring = 'Google Chrome'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 6'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Google Calendar'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Google Tasks'
-run = 'move-node-to-workspace 4'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Anki'
-run = 'move-node-to-workspace 5'
+if.app-name-regex-substring = 'Ghostty'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
 run = 'move-node-to-workspace 3'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Anki'
+run = 'move-node-to-workspace 4'
 
+[[on-window-detected]]
+if.app-name-regex-substring = 'Spotify'
+run = 'move-node-to-workspace 5'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Clock'
+run = 'move-node-to-workspace 6'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'OBS'
+run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Moonlight'
+run = 'move-node-to-workspace 10'
 
 
