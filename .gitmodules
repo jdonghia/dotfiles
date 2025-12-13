@@ -1,0 +1,3 @@
+[submodule "keyboard/corne"]
+	path = keyboard/corne
+	url = git@github.com:jdonghia/zmk-config.git
