@@ -6,6 +6,7 @@ else
     selected=$(\
         {
             echo ~/dotfiles
+            echo ~/obsidian
             find ~/projects -mindepth 1 -maxdepth 1 -type d
         } | fzf)
 fi
