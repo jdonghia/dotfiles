@@ -4,7 +4,8 @@
 # You can use it to add commands that run after AeroSpace startup.
 # Available commands : https://nikitabobko.github.io/AeroSpace/commands
 after-startup-command = [
-  'exec-and-forget open -a "Google Chrome"',
+  # 'exec-and-forget open -a "Google Chrome"',
+  'exec-and-forget open -a Arc',
   'exec-and-forget open -a Ghostty',
   'exec-and-forget open -a Obsidian',
   'exec-and-forget open -a Spotify',
@@ -103,8 +104,8 @@ automatically-unhide-macos-hidden-apps = false
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#focus
     alt-h = 'focus left'
-    ctrl-1 = 'focus down'
-    ctrl-2 = 'focus up'
+    alt-j = 'focus down'
+    alt-k = 'focus up'
     alt-l = 'focus right'
 
     # See: https://nikitabobko.github.io/AeroSpace/commands#move
@@ -171,32 +172,32 @@ automatically-unhide-macos-hidden-apps = false
     # shift-down = ['volume set 0', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Google Chrome'
+if.app-name-regex-substring = 'Arc'
 run = 'move-node-to-workspace 1'
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Ghostty'
-# run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+if.app-name-regex-substring = 'Ghostty'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
-run = 'move-node-to-workspace 4'
+run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Anki'
+run = 'move-node-to-workspace 4'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Clock'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Clock'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'OBS'
-run = 'move-node-to-workspace 8'
+run = 'move-node-to-workspace 7'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Moonlight'
