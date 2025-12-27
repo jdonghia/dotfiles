@@ -1,14 +1,15 @@
 return {
   'obsidian-nvim/obsidian.nvim',
-  version = '*', 
+  version = '*',
   ft = 'markdown',
   ---@module 'obsidian'
   ---@type obsidian.config
   opts = {
-    legacy_commands = false, 
+    legacy_commands = false,
+    ui = { enable = false },
     workspaces = {
       {
-        name = 'personal',
+        name = 'obsidian',
         path = '~/obsidian',
       },
     },
@@ -16,18 +17,9 @@ return {
   },
 
   keys = {
-    { 'gt', '<cmd>ObsidianTag<CR>', silent = true },
-    {
-      'gf',
-      function()
-        return require('obsidian').util.gf_passthrough()
-      end,
-      mode = 'n',
-      noremap = false,
-      expr = true,
-      buffer = true,
-      silent = true,
-    },
+    { 'gt', '<cmd>Obsidian tags<CR>', silent = true },
+
+    { 'gf', '<cmd>Obsidian backlinks<CR>', silent = true },
     {
       '<leader>ti',
       function()
@@ -46,21 +38,12 @@ return {
     {
       '<leader>oo',
       function()
-        -- Check if Obsidian is already running
-        local is_running = vim.fn.system('pgrep -x Obsidian'):match('%d+')
-        
+        local is_running = vim.fn.system('pgrep -x Obsidian'):match '%d+'
+
         vim.cmd 'Obsidian open'
-        
-        -- Focus on Obsidian and apply fixed accordion vertical layout
-        if is_running then
-          vim.fn.system('open -a Obsidian')
-        end
-        vim.fn.system('aerospace layout accordion')
-        vim.fn.system('aerospace layout vertical')
       end,
       mode = 'n',
       silent = true,
-      desc = 'Open in Obsidian app with accordion layout',
     },
   },
 }
