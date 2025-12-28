@@ -14,19 +14,19 @@ return {
 
         indent = { enable = true },
 
-        -- ensure_installed = {
-        --   'lua',
-        --   'javascript',
-        --   'typescript',
-        --   'markdown',
-        --   'markdown_inline',
-        --   'bash',
-        --   'json',
-        --   'go',
-        --   'html',
-        --   'scss',
-        --   'css',
-        -- },
+        ensure_installed = {
+          'lua',
+          'javascript',
+          'typescript',
+          'markdown',
+          'markdown_inline',
+          'bash',
+          'json',
+          'go',
+          'html',
+          'scss',
+          'css',
+        },
       }
     end,
   },
