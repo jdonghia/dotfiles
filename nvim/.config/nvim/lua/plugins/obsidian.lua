@@ -14,6 +14,7 @@ return {
       },
     },
     frontmatter = { enabled = false },
+    statusline = { enabled = false },
   },
 
   keys = {
