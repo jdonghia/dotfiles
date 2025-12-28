@@ -6,7 +6,7 @@ ZSH_THEME="robbyrussell"
 plugins=(git zoxide fzf zsh-autosuggestions zsh-syntax-highlighting)
 source $ZSH/oh-my-zsh.sh
 
-PATH="$PATH":"$HOME/.local/scripts/"
+PATH="$PATH":"$HOME/.local/bin/"
 bindkey -s ^g "tmux-sessionizer\n"
 
 export NVM_DIR="$HOME/.nvm"

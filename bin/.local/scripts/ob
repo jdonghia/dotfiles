@@ -1,9 +1,0 @@
-#!/bin/bash
-
-cd ~/obsidian
-
-timestamp=$(date '+%Y-%m-%d %H:%M:%S')
-
-git add .
-git commit -m "vault backup: $timestamp"
-git push
