@@ -210,7 +210,7 @@ cleanup_dead_panes() {
 sanity_check
 
 # if TS_SEARCH_PATHS is not set use default
-[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/ ~/personal ~/personal/dev/env/.config)
+[[ -n "$TS_SEARCH_PATHS" ]] || TS_SEARCH_PATHS=(~/projects ~/obsidian:0 ~/dotfiles:0)
 
 # Add any extra search paths to the TS_SEARCH_PATHS array
 # e.g : EXTRA_SEARCH_PATHS=("$HOME/extra1:4" "$HOME/extra2")
@@ -242,7 +242,12 @@ find_dirs() {
             path="$entry"
         fi
 
-        [[ -d "$path" ]] && find "$path" -mindepth 1 -maxdepth "${depth:-${TS_MAX_DEPTH:-1}}" -path '*/.git' -prune -o -type d -print
+        if [[ "$depth" == "0" ]]; then
+            # Depth 0 means just list the directory itself
+            [[ -d "$path" ]] && echo "$path"
+        else
+            [[ -d "$path" ]] && find "$path" -mindepth 1 -maxdepth "${depth:-${TS_MAX_DEPTH:-1}}" -path '*/.git' -prune -o -type d -print
+        fi
     done
 }
 
