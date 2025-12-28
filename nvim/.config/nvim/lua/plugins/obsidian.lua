@@ -13,7 +13,7 @@ return {
         path = '~/obsidian',
       },
     },
-    disable_frontmatter = true,
+    frontmatter = { enabled = false },
   },
 
   keys = {
@@ -35,15 +35,7 @@ return {
       mode = 'n',
       silent = true,
     },
-    {
-      '<leader>oo',
-      function()
-        local is_running = vim.fn.system('pgrep -x Obsidian'):match '%d+'
 
-        vim.cmd 'Obsidian open'
-      end,
-      mode = 'n',
-      silent = true,
-    },
+    { '<leader>oo', '<cmd>Obsidian open<CR>', silent = true },
   },
 }
