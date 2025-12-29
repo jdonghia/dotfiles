@@ -19,6 +19,8 @@ vim.opt.shiftwidth = 2
 vim.opt.expandtab = true
 vim.opt.breakindent = true
 
+vim.o.termguicolors = true
+
 vim.g.netrw_banner = 0
 
 
