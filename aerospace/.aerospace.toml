@@ -1,9 +1,9 @@
 after-startup-command = [
-  'exec-and-forget open -a Arc',
+  'exec-and-forget open -a Dia',
   'exec-and-forget open -a Ghostty',
-  'exec-and-forget open -a Obsidian',
   'exec-and-forget open -a Spotify',
   'exec-and-forget open -a Anki',
+  'exec-and-forget open -a WhatsApp',
 ]
 
 start-at-login = true
@@ -17,7 +17,7 @@ default-root-container-layout = 'tiles'
 
 default-root-container-orientation = 'auto'
 
-on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+# on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
 
 automatically-unhide-macos-hidden-apps = false
 
@@ -37,9 +37,13 @@ automatically-unhide-macos-hidden-apps = false
     alt-comma = 'layout accordion vertical horizontal'
 
     alt-h = 'focus left'
-    alt-j = 'focus down'
-    alt-k = 'focus up'
+    # alt-j = 'focus down'
+    # alt-k = 'focus up'
     alt-l = 'focus right'
+
+    ctrl-1 = 'focus down'
+    ctrl-2 = 'focus up'
+
 
     alt-shift-h = 'move left'
     alt-shift-j = 'move down'
@@ -81,7 +85,7 @@ automatically-unhide-macos-hidden-apps = false
     esc = ['reload-config', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Arc'
+if.app-name-regex-substring = '^Dia$'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -97,19 +101,15 @@ if.app-name-regex-substring = 'Anki'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Clock'
+if.app-name-regex-substring = 'Spotify'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Spotify'
+if.app-name-regex-substring = 'OBS'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'OBS'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Moonlight'
+if.app-name-regex-substring = 'WhatsApp'
 run = 'move-node-to-workspace 10'
 
 
