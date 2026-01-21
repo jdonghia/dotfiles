@@ -1,16 +1,11 @@
 return {
   'folke/noice.nvim',
   event = 'VeryLazy',
-  opts = {
-    cmdline = {
-      enabled = true,
-    },
-    -- messages = {
-    --   enabled = true,
-    -- },
-  },
-  dependencies = {
-    'MunifTanjim/nui.nvim',
-    'rcarriga/nvim-notify',
-  },
+  config = function()
+    require('noice').setup {
+      cmdline = {
+        enabled = true,
+      },
+    }
+  end,
 }

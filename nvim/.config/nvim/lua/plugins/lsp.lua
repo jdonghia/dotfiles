@@ -12,6 +12,12 @@ return {
           },
         },
       },
+      {
+        'j-hui/fidget.nvim',
+        config = function()
+          require('fidget').setup {}
+        end,
+      },
     },
     config = function()
       vim.diagnostic.config { virtual_text = true }
@@ -20,26 +26,17 @@ return {
       vim.lsp.config('ts_ls', { capabilities = capabilities })
       vim.lsp.enable('ts_ls', true)
 
-      vim.lsp.config('eslint', { capabilities = capabilities })
-      vim.lsp.enable('eslint', true)
-
       vim.lsp.config('lua_ls', { capabilities = capabilities })
       vim.lsp.enable('lua_ls', true)
 
       vim.lsp.config('tailwindcss', { capabilities = capabilities })
       vim.lsp.enable('tailwindcss', true)
 
-      vim.lsp.config('gopls', { capabilities = capabilities })
-      vim.lsp.enable('gopls', true)
-
       vim.lsp.config('marksman', { capabilities = capabilities })
       vim.lsp.enable('marksman', true)
 
       vim.lsp.config('mdx_analyzer', { capabilities = capabilities })
       vim.lsp.enable('mdx_analyzer', true)
-
-      vim.lsp.config('bashls', { capabilities = capabilities })
-      vim.lsp.enable('bashls', true)
 
       vim.api.nvim_create_autocmd('LspAttach', {
         callback = function(args)
@@ -57,17 +54,15 @@ return {
         config = function()
           require('mason-tool-installer').setup {
             ensure_installed = {
-              'stylua',
-              'prettierd',
-              'gopls',
               'typescript-language-server',
-              'lua-language-server',
               'tailwindcss-language-server',
-              'marksman',
               'eslint_d',
-              'eslint-lsp',
-              'bash-language-server',
+              'prettierd',
+              'js-debug-adapter',
+              'marksman',
               'mdx-analyzer',
+              'stylua',
+              'lua-language-server',
             },
           }
         end,
@@ -79,7 +74,30 @@ return {
     end,
   },
   {
-    'j-hui/fidget.nvim',
-    opts = {},
+    'rafamadriz/friendly-snippets',
+  },
+  {
+    'saghen/blink.cmp',
+    config = function()
+      require('blink.cmp').setup {
+        fuzzy = { implementation = 'lua' },
+        keymap = {
+          ['<C-h>'] = {
+            function(cmp)
+              cmp.show { providers = { 'snippets' } }
+            end,
+          },
+
+          ['<C-k>'] = { 'show', 'show_documentation', 'hide_documentation' },
+          preset = 'super-tab',
+        },
+      }
+    end,
+  },
+  {
+    'L3MON4D3/LuaSnip',
+    config = function()
+      require('luasnip.loaders.from_vscode').lazy_load()
+    end,
   },
 }

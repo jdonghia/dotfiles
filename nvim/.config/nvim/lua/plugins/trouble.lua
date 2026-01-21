@@ -8,7 +8,6 @@ return {
     {
       '<leader>q',
       '<cmd>Trouble diagnostics toggle<cr>',
-      desc = 'Diagnostics (Trouble)',
     },
   },
 }

@@ -12,7 +12,6 @@ vim.opt.undofile = true
 
 vim.opt.number = true
 vim.opt.cursorline = true
-vim.opt.scrolloff = 8
 
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
@@ -21,6 +20,3 @@ vim.opt.breakindent = true
 
 vim.o.termguicolors = true
 
-vim.g.netrw_banner = 0
-
-vim.opt_local.formatoptions:remove { 'r', 'o' }

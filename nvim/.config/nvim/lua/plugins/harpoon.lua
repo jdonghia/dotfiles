@@ -55,7 +55,6 @@ return {
   {
     'akinsho/bufferline.nvim',
     version = '*',
-    dependencies = { 'nvim-tree/nvim-web-devicons', 'ThePrimeagen/harpoon' },
     config = function()
       local harpoon = require 'harpoon'
 
@@ -128,17 +127,14 @@ return {
         },
       }
 
-      -- Initial check on startup
       toggle_bufferline()
 
-      -- Hide bufferline if no files are harpooned
       vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufDelete' }, {
         callback = function()
           vim.schedule(toggle_bufferline)
         end,
       })
 
-      -- Listen to harpoon list changes
       harpoon:extend {
         ADD = function(ctx)
           vim.schedule(function()
@@ -159,7 +155,6 @@ return {
         end,
       }
 
-      -- Load harpooned files on startup
       vim.api.nvim_create_autocmd('VimEnter', {
         callback = function()
           vim.schedule(function()
@@ -176,7 +171,6 @@ return {
                   end
                 end
               end
-              -- Force bufferline to show
               vim.opt.showtabline = 2
             end
           end)

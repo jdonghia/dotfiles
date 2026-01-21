@@ -18,16 +18,13 @@ return {
       '<leader>ps',
       function()
         require('telescope.builtin').live_grep {
-          hidden = {
-            true,
+          additional_args = {
+            '--hidden',
+            '--glob',
+            '!package-lock.json',
+            '--glob',
+            '!pnpm-lock.yaml',
           },
-          -- additional_args = {
-          --   '--hidden',
-          --  '--glob',
-          --   '!package-lock.json',
-          --   '--glob',
-          --   '!pnpm-lock.yaml',
-          -- },
         }
       end,
       mode = 'n',

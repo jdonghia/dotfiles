@@ -10,8 +10,6 @@ return {
 
       dapui.setup()
 
-      vim.keymap.set('n', '<leader>do', dap.step_over, {})
-
       dap.listeners.before.attach.dapui_config = function()
         dapui.open()
       end
@@ -19,12 +17,11 @@ return {
         dapui.open()
       end
 
-      vim.keymap.set('n', '<leader>dt', dap.toggle_breakpoint, {})
-      vim.keymap.set('n', '<leader>dc', dap.continue, {})
-      vim.keymap.set('n', '<leader>di', dap.step_into, {})
-      vim.keymap.set('n', '<leader>do', dap.step_over, {})
-
-      vim.keymap.set('n', '<leader>dd', dapui.toggle, {})
+      -- vim.keymap.set('n', '<leader>dt', dap.toggle_breakpoint, {})
+      -- vim.keymap.set('n', '<leader>dc', dap.continue, {})
+      -- vim.keymap.set('n', '<leader>di', dap.step_into, {})
+      -- vim.keymap.set('n', '<leader>do', dap.step_over, {})
+      -- vim.keymap.set('n', '<leader>dd', dapui.toggle, {})
 
       require('dap').adapters['pwa-node'] = {
         type = 'server',
