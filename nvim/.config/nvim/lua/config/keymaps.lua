@@ -19,7 +19,14 @@ vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 vim.keymap.set('n', '<leader>vs', '<cmd>vsplit<CR>')
 
 vim.keymap.set('n', '<leader>tt', function()
-  local dir = vim.fn.expand '%:p:h'
+  local dir
+  
+  -- Check if current buffer is an Oil buffer
+  if vim.bo.filetype == 'oil' then
+    dir = require('oil').get_current_dir()
+  else
+    dir = vim.fn.expand '%:p:h'
+  end
 
   local cmd = "tmux split-window -h -c '" .. dir .. "'"
 
