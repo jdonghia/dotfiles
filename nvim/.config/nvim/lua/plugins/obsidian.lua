@@ -12,6 +12,10 @@ return {
           name = 'obsidian',
           path = '~/obsidian',
         },
+        {
+          name = 'javascript',
+          path = '~/javascript',
+        },
       },
       frontmatter = { enabled = false },
       statusline = { enabled = false },
