@@ -1,4 +1,6 @@
 alias vim='nvim .'
+alias lg='lazygit'
+alias oc='opencode'
 
 plugins=(starship zoxide fzf zsh-autosuggestions zsh-syntax-highlighting)
 
