@@ -14,7 +14,7 @@ return {
         },
         {
           name = 'javascript',
-          path = '~/javascript',
+          path = '~/projects/javascript',
         },
       },
       frontmatter = { enabled = false },
