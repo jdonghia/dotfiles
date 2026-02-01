@@ -239,7 +239,7 @@ end, { desc = '[P]Fold all headings level 4 or above' })
 --
 -- Use <CR> to fold when in normal mode
 -- To see help about folds use `:help fold`
-vim.keymap.set('n', '<leader><leader>', function()
+vim.keymap.set('n', '<CR>', function()
   -- Get the current line number
   local line = vim.fn.line '.'
   -- Get the fold level of the current line
