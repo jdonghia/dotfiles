@@ -1,8 +1,9 @@
 return {
-  'catppuccin/nvim',
-  name = 'catppuccin',
+  'loctvl842/monokai-pro.nvim',
+  lazy = false,
   priority = 1000,
   config = function()
-    vim.cmd 'colorscheme catppuccin'
+    require('monokai-pro').setup()
+    vim.cmd.colorscheme 'monokai-pro-classic'
   end,
 }

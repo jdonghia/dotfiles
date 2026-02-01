@@ -1,4 +1,4 @@
-theme = Catppuccin Mocha 
-font-size = 14
+theme = Monokai Classic
+font-size = 15
 macos-titlebar-style = hidden
-window-padding-balance = true
+
