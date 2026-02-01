@@ -19,6 +19,9 @@ return {
       },
       frontmatter = { enabled = false },
       statusline = { enabled = false },
+      checkbox = {
+        create_new = false,
+      },
     }
   end,
   keys = {
