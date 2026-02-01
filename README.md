@@ -12,7 +12,7 @@ Personal configuration files for my development workflow.
     *   Arch: Hyprland
     *   Windows: GlazeWM
 
-### Linking Configuration (Stow)
+## Linking Configuration (Stow)
 
 Use `stow` to symlink configurations to their respective locations (usually `~/.config/`).
 
@@ -32,14 +32,6 @@ Use `stow` to symlink configurations to their respective locations (usually `~/.
 | `waybar/` | Waybar style and config (Linux status bar). |
 | `zshrc/` | Zsh run commands and environment variables. |
 
-## Keybindings & Features
-
-*   **Tmux Sessionizer:** `<C-g>` (in shell or tmux) to jump between projects.
-*   **Neovim:**
-    *   LSP & Autocompletion (Lua, TS, etc.)
-    *   Telescope for fuzzy finding.
-    *   Harpoon for quick file navigation.
-    *   Undotree, Oil.nvim, and more.
 
 ## Keyboard Firmware
 
