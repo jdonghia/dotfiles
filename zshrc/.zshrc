@@ -1,4 +1,4 @@
-alias vim='nvim .'
+alias vim='nvim'
 alias lg='lazygit'
 alias oc='opencode'
 
