@@ -12,10 +12,6 @@ return {
           name = 'obsidian',
           path = '~/obsidian',
         },
-        {
-          name = 'javascript',
-          path = '~/projects/javascript',
-        },
       },
       frontmatter = { enabled = false },
       statusline = { enabled = false },

@@ -2,7 +2,6 @@ return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
   config = function()
-    -- Monokai Pro Classic colors
     local colors = {
       bg = '#272822',
       fg = '#fdfff1',
@@ -53,8 +52,6 @@ return {
     require('lualine').setup {
       options = {
         theme = monokai,
-        -- component_separators = { left = '', right = '' },
-        -- section_separators = { left = '', right = '' },
       },
       sections = {
         lualine_a = { 'mode' },
