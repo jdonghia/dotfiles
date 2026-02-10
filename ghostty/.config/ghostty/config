@@ -1,11 +1,17 @@
 theme = Monokai Classic
-font-family = "BlexMono Nerd Font Mono"
-# font-family = "JetBrainsMono Nerd Font Mono"
+# font-family = "BlexMono Nerd Font Mono"
+font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 14
 macos-titlebar-style = hidden
 background-opacity = 0.95
+background-blur = true
 
-# window-padding-balance = true
-# window-padding-x = 0
-# window-padding-y = 0
+# Preview
+# background-opacity = 0.925
+# background-blur = true
+
+
+window-padding-balance = true
+window-padding-x = 0
+window-padding-y = 0
 
