@@ -52,20 +52,3 @@ sudo pacman -Syu
 # sudo systemctl enable bluetooth.service
 # sudo systemctl start bluetooth.service
 
-# - **Rufus** 
-# - [Debloat Tool](https://github.com/LeDragoX/Win-Debloat-Toolswsl)    
-#
-# - [Arch Linux WSL](https://github.com/yuk7/ArchWSL)
-# - [JetBrains Nerd Font Mono](https://www.nerdfonts.com/)
-#
-# - Layout US/USINTL
-#
-# - Power Toys (on startup)
-#     - Run
-#     - Keyboard Manager (ç, Ctrl + Space -> Win + Space)
-# - .glzr / ahk (on startup)
-#
-# - Update Zen Keybind
-
-
-
