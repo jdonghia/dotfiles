@@ -9,7 +9,7 @@ return {
     },
     lazy = false, -- neo-tree will lazily load itself
     config = function()
-      vim.keymap.set('n', '<C-m>', ':Neotree filesystem toggle right<CR>', { noremap = true, silent = true })
+      vim.keymap.set('n', '<C-p>', ':Neotree filesystem toggle right<CR>', { noremap = true, silent = true })
     end,
   },
 }
