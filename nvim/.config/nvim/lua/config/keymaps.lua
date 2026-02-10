@@ -1,3 +1,8 @@
+local discipline = require("config.discipline")
+
+discipline.cowboy()
+
+
 vim.keymap.set('n', '<leader>pv', ':Oil<CR>', { silent = true })
 
 vim.keymap.set('n', '<C-g>', '<cmd>silent !tmux neww tmux-sessionizer<CR>')
