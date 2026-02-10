@@ -73,7 +73,6 @@ automatically-unhide-macos-hidden-apps = false
 
     alt-shift-semicolon = 'mode service'
 
-    alt-shift-t = "exec-and-forget ~/.local/scripts/open-ghostty"
     alt-shift-q = "close"
     alt-shift-f = 'fullscreen'
 
