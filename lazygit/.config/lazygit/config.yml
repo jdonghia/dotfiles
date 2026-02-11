@@ -1,0 +1,6 @@
+gui:
+  nerdFontsVersion: "3" 
+  mouseEvents: false
+  showBottomLine: false
+refresher:
+  fetchInterval: 0
