@@ -100,15 +100,15 @@ return {
         options = {
           show_buffer_close_icons = false,
           show_close_icon = false,
-          numbers = function(opts)
-            local buf_name = vim.api.nvim_buf_get_name(opts.id)
-            local index = get_harpoon_index(buf_name)
-            if index then
-              local keys = { 'h', 'j', 'k', 'l' }
-              return keys[index] or tostring(index)
-            end
-            return ''
-          end,
+          -- numbers = function(opts)
+          --   local buf_name = vim.api.nvim_buf_get_name(opts.id)
+          --   local index = get_harpoon_index(buf_name)
+          --   if index then
+          --     local keys = { 'h', 'j', 'k', 'l' }
+          --     return keys[index] or tostring(index)
+          --   end
+          --   return ''
+          -- end,
           custom_filter = function(buf_number)
             local buf_name = vim.api.nvim_buf_get_name(buf_number)
             return get_harpoon_index(buf_name) ~= nil
