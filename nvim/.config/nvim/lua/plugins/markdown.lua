@@ -11,7 +11,6 @@ return {
   {
     'davidmh/mdx.nvim',
   },
-  -- install with yarn or npm
   {
     'iamcco/markdown-preview.nvim',
     cmd = { 'MarkdownPreviewToggle', 'MarkdownPreview', 'MarkdownPreviewStop' },
