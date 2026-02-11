@@ -49,17 +49,31 @@ return {
       },
     }
 
+    local function empty()
+      return [[ ]]
+    end
+
     require('lualine').setup {
       options = {
         theme = monokai,
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { 'filename' },
-        lualine_c = { '' },
+        lualine_a = { { 'mode', padding = 2, color = { fg = colors.bg, bg = colors.green, gui = 'bold' }, separator = { right = '', left = '' } } },
+        lualine_b = { { empty, padding = 0, color = { fg = colors.fg, bg = colors.bg, gui = 'bold' }, separator = { right = '', left = '' } } },
+        lualine_c = {
+          -- {
+          --   'filetype',
+          --   icon_only = true,
+          --   icon = { align = 'center' },
+          --   -- padding = { right = 0 },
+          --   color = { fg = colors.red, bg = colors.fg, gui = 'bold' },
+          --   separator = { right = '', left = '' },
+          -- },
+          { 'filename', color = { fg = colors.fg, bg = colors.red, gui = 'bold' }, separator = { right = '', left = '' } },
+        },
         lualine_x = { '' },
         lualine_y = { 'diagnostics' },
-        lualine_z = { 'branch' },
+        lualine_z = { { 'branch', color = { fg = colors.bg, bg = colors.blue, gui = 'bold' } } },
       },
     }
   end,
