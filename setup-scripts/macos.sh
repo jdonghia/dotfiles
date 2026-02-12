@@ -1,5 +1,6 @@
 #!/bin/bash
 
+
 cli_packages=(
     stow
     tmux
@@ -55,4 +56,5 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 chmod +x "$HOME/dotfiles/bin/.local/scripts"/*
 
 
+# Layout Input: .U.S and Brazilian.
 

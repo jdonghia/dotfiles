@@ -1,40 +1,43 @@
-# Dotfiles
+![Neovim](neovim.png)
 
-Personal configuration files for my development workflow.
+|              Lazygit               |              Ghostty               |
+| :--------------------------------: | :--------------------------------: |
+| ![Lazygit](lazygit.png) | ![Ghostty](ghostty.png) |
 
 ## Overview
 
-*   **Shell:** Zsh (Oh My Zsh, Starship, zoxide, fzf)
-*   **Editor:** Neovim with lazy.nvim built from scratch
-*   **Terminal:** Ghostty + Tmux + Lazygit
-*   **Window Managers:** 
-    *   macOS: Aerospace
-    *   Arch: Hyprland
-    *   Windows: GlazeWM
+Dotfiles to save time setting up new environments.
 
-## Linking Configuration (Stow)
+### Workflow
 
-Use `stow` to symlink configurations to their respective locations (usually `~/.config/`).
+- **Operational System**: MacOS
+- **Window Manager**: Aerospace + Raycast
+- **IDE**: Neovim
+- **Terminal**: Ghostty
+- **Shell**: zsh
+- **Session manager**: Tmux
+- **Git Tool**: Lazygit
 
-## Directory Structure
+#### Neovim Core Plugins
 
-| Directory | Description |
-| :--- | :--- |
-| `aerospace/` | macOS Tiling WM. |
-| `bin/` | Custom scripts added to PATH (e.g., `tmux-sessionizer`). |
-| `ghostty/` | Ghostty terminal configuration. |
-| `glazewm/` | GlazeWM configuration for Windows. |
-| `hypr/` | Hyprland configuration (Linux). |
-| `keyboard/` | Firmware configs: **Corne** (ZMK/Zephyr) and **Silakka54**. |
-| `lazygit/` | Lazygit UI configuration. |
-| `nvim/` | Neovim setup |
-| `tmux/` | Tmux configuration and bindings. |
-| `waybar/` | Waybar style and config (Linux status bar). |
-| `zshrc/` | Zsh run commands and environment variables. |
+- **Markdown**: render-markdown, markdown-preview, obsidian
+- **File Search**: telescope, oil, harpoon 
+
+#### Keyboards
+
+- **Corne:** Main Keyboard, uses ZMK Firmware. you can check out my config <https://github.com/jdonghia/zmk-config>, which is also a module on this repo.
+- **Silakka54:** Old Keyboard, uses Vial Firmware.
+
+## Other Operational Systems
+
+### Windows Setup (Arch WSL)
+
+- **Window Manager**: GlazeWM & Yasb + Power Toys Run
+- **Terminal**: Windows Terminal
+
+### Linux (Arch)
+
+- **Window Manager**: Hyprland + Waybar
 
 
-## Keyboard Firmware
 
-The `keyboard/` directory contains build configurations for my split keyboards:
-*   **Corne:** ZMK/Zephyr based configuration.
-*   **Silakka:** uses Vial Firmware .vil.

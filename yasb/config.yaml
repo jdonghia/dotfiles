@@ -1,10 +1,6 @@
 watch_stylesheet: true
 watch_config: true
 debug: false
-komorebi:
-  start_command: "komorebic start --whkd"
-  stop_command: "komorebic stop --whkd"
-  reload_command: "komorebic reload-configuration"
 bars:
   status-bar:
     enabled: true
@@ -79,9 +75,7 @@ widgets:
     options:
       label: "{%a %d, %b %H:%M}"
       label_alt: "{%A %d %B %Y, %H:%M}"
-      #locale: 'en_EN' # Langugae for date, you can set your own, example fr_FR
-      timezones: [] #Looking up time zone info from registry
-      #timezones: ["America/Montreal"]
+      timezones: [] 
       callbacks:
         on_right: "exec cmd.exe /c start ms-clock:"
       calendar: 
@@ -96,10 +90,10 @@ widgets:
     options:
       label: "<span>{icon}</span> {temp}"
       label_alt: "{location}: Min {min_temp}, Max {max_temp}, Humidity {humidity}"
-      api_key: '3bf4cf9a7c3f40d6b31174128242807' # Get your free API key from https://www.weatherapi.com/
+      api_key: '' 
       update_interval: 600 # Update interval in seconds, Min 600 seconds
       hide_decimal: true
-      location: 'Havana, Cuba' # You can use "USA Los Angeles 90006" {COUNTRY CITY ZIP_CODE}, or just city.
+      location: '' # 
       icons: 
         sunnyDay: "\ue30d"
         clearNight: "\ue32b"
