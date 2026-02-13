@@ -42,12 +42,13 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
-        layout_strategy = 'vertical',
+        layout_strategy = 'horizontal',
         layout_config = {
-          vertical = {
-            width = 0.8,
-            preview_height = 0.60,
-            results_height = 0.40,
+          horizontal = {
+            height = 0.99,
+            width = 0.99,
+            preview_width = 0.65,
+            results_width = 0.30,
           },
         },
 
