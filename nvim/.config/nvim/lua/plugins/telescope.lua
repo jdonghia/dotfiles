@@ -42,6 +42,15 @@ return {
   config = function()
     require('telescope').setup {
       defaults = {
+        layout_strategy = 'vertical',
+        layout_config = {
+          vertical = {
+            width = 0.8,
+            preview_height = 0.60,
+            results_height = 0.40,
+          },
+        },
+
         file_ignore_patterns = {
           '.git/',
         },
