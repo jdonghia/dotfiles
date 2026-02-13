@@ -20,30 +20,72 @@ return {
         mode = 'n',
       },
       {
-        '<leader>h',
+        '1',
         function()
           require('harpoon'):list():select(1)
         end,
         mode = 'n',
       },
       {
-        '<leader>j',
+        '2',
         function()
           require('harpoon'):list():select(2)
         end,
         mode = 'n',
       },
       {
-        '<leader>k',
+        '3',
         function()
           require('harpoon'):list():select(3)
         end,
         mode = 'n',
       },
       {
-        '<leader>l',
+        '4',
         function()
           require('harpoon'):list():select(4)
+        end,
+        mode = 'n',
+      },
+      {
+        '5',
+        function()
+          require('harpoon'):list():select(5)
+        end,
+        mode = 'n',
+      },
+      {
+        '6',
+        function()
+          require('harpoon'):list():select(6)
+        end,
+        mode = 'n',
+      },
+      {
+        '7',
+        function()
+          require('harpoon'):list():select(7)
+        end,
+        mode = 'n',
+      },
+      {
+        '8',
+        function()
+          require('harpoon'):list():select(8)
+        end,
+        mode = 'n',
+      },
+      {
+        '9',
+        function()
+          require('harpoon'):list():select(9)
+        end,
+        mode = 'n',
+      },
+      {
+        '0',
+        function()
+          require('harpoon'):list():select(10)
         end,
         mode = 'n',
       },
