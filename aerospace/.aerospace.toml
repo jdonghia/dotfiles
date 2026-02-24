@@ -1,12 +1,13 @@
 after-startup-command = [
   'exec-and-forget open -a Arc',
   'exec-and-forget open -a Ghostty',
+  'exec-and-forget open -a Obsidian',
+  'exec-and-forget open -a "Google Tasks"',
   'exec-and-forget open -a Mail',
   'exec-and-forget open -a Calendar',
   'exec-and-forget open -a Anki',
   'exec-and-forget open -a Spotify',
   'exec-and-forget open -a WhatsApp',
-  'exec-and-forget open -a Obsidian',
 ]
 
 start-at-login = true
@@ -92,29 +93,33 @@ run = 'move-node-to-workspace 1'
 if.app-name-regex-substring = 'Zen'
 run = 'move-node-to-workspace 2'
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Ghostty'
-# run = 'move-node-to-workspace 2'
+[[on-window-detected]]
+if.app-name-regex-substring = 'Ghostty'
+run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Obsidian'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Mail'
+if.app-name-regex-substring = 'Tasks'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Calendar'
+if.app-name-regex-substring = 'Mail'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Anki'
+if.app-name-regex-substring = 'Calendar'
 run = 'move-node-to-workspace 6'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Spotify'
+if.app-name-regex-substring = 'Anki'
 run = 'move-node-to-workspace 7'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Spotify'
+run = 'move-node-to-workspace 8'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'OBS'
@@ -123,5 +128,4 @@ run = 'move-node-to-workspace 9'
 [[on-window-detected]]
 if.app-name-regex-substring = 'WhatsApp'
 run = 'move-node-to-workspace 10'
-
 
