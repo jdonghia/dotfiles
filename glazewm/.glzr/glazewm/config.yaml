@@ -18,10 +18,10 @@ gaps:
   inner_gap: '0px'
 
   outer_gap:
-    top: '5px'
-    right: '5px'
-    bottom: '5px'
-    left: '5px'
+    top: '0px'
+    right: '0px'
+    bottom: '0px'
+    left: '0px'
 
 window_effects:
   focused_window:
@@ -32,9 +32,9 @@ window_effects:
     hide_title_bar:
       enabled: true
 
-    cornerstyle:
-      enabled: true
-      style: 'rounded'
+    corner_style:
+      enabled: false
+      style: 'square'
 
     transparency:
       enabled: false
@@ -47,7 +47,7 @@ window_effects:
     hide_title_bar:
       enabled: true
     corner_style:
-      enabled: true
+      enabled: false
       style: 'square'
     transparency:
       enabled: false
@@ -56,9 +56,9 @@ window_effects:
 window_behavior:
   initial_state: 'tiling'
 
-  cornerstyle:
-    enabled: true
-    style: 'rounded'
+  corner_style:
+    enabled: false
+    style: 'square'
 
   state_defaults:
     floating:
@@ -134,3 +134,5 @@ keybindings:
     bindings: ['alt+shift+5']
   - commands: ['move --workspace 6', 'focus --workspace 6']
     bindings: ['alt+shift+6']
+
+
