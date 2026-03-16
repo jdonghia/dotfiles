@@ -1,13 +1,12 @@
 after-startup-command = [
-  'exec-and-forget open -a Zen',
-  'exec-and-forget open -a Ghostty',
-  'exec-and-forget open -a Obsidian',
+  'exec-and-forget open -a "Google Chrome"',
+  'exec-and-forget open -a iTerm',
   'exec-and-forget open -a Reminders',
   'exec-and-forget open -a Mail',
   'exec-and-forget open -a Calendar',
-  'exec-and-forget open -a Anki',
-  'exec-and-forget open -a Spotify',
-  'exec-and-forget open -a WhatsApp',
+  # 'exec-and-forget open -a Spotify',
+  # 'exec-and-forget open -a "Google Drive"',
+  'exec-and-forget open -a Obsidian'
 ]
 
 start-at-login = true
@@ -77,8 +76,7 @@ automatically-unhide-macos-hidden-apps = false
 
     alt-shift-semicolon = 'mode service'
 
-
-    alt-shift-t = "exec-and-forget open -n -a Ghostty"
+    # alt-shift-t = "exec-and-forget open -n -a Ghostty"
     alt-shift-q = "close"
     alt-shift-f = 'fullscreen'
 
@@ -86,46 +84,34 @@ automatically-unhide-macos-hidden-apps = false
     esc = ['reload-config', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Arc'
+if.app-name-regex-substring = 'Google Chrome'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Zen'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Ghostty'
+if.app-name-regex-substring = 'iTerm'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Obsidian'
+if.app-name-regex-substring = 'Reminders'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Anki'
+if.app-name-regex-substring = 'Calendar'
 run = 'move-node-to-workspace 4'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Reminders'
+if.app-name-regex-substring = 'Mail'
 run = 'move-node-to-workspace 5'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Mail'
-run = 'move-node-to-workspace 7'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Calendar'
+if.app-name-regex-substring = 'Spotify'
 run = 'move-node-to-workspace 6'
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 8'
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'OBS'
+# run = 'move-node-to-workspace 9'
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'OBS'
-run = 'move-node-to-workspace 9'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'WhatsApp'
-run = 'move-node-to-workspace 10'
-
+if.app-name-regex-substring = 'Obsidian'
+if.during-aerospace-startup = true
+run = ['macos-native-minimize']
