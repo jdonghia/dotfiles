@@ -5,7 +5,7 @@ return {
   },
   config = function()
     require('livepreview.config').set({
-      browser = 'open -na "Zen"',
+      browser = 'open -na "Google Chrome"',
     })
   end,
 }

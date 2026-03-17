@@ -20,7 +20,7 @@ return {
       vim.g.mkdp_browserfunc = 'OpenMarkdownPreview'
       vim.cmd [[
         function OpenMarkdownPreview(url)
-          execute "silent ! open -a Zen -n --args --new-window " . a:url
+          execute "silent ! open -a 'Google Chrome' -n --args --new-window " . a:url
         endfunction
       ]]
     end,
