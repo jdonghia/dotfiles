@@ -20,8 +20,11 @@ return {
 
         lua = { 'stylua' },
 
-        javascript = { 'prettierd', 'eslint_d' },
+        -- Need to check why eslint is taking vanilla js so long to format
+        -- javascript = { 'prettierd', 'eslint_d' },
+        javascript = { 'prettierd' },
         typescript = { 'prettierd', 'eslint_d' },
+        astro = { 'prettierd', 'prettier' },
 
         typescriptreact = { 'prettierd', 'eslint_d' },
         javascriptreact = { 'prettierd', 'eslint_d' },
@@ -35,14 +38,15 @@ return {
         markdown = { 'prettierd' },
         mdx = { 'prettierd' },
 
-        formatters = {
-          eslint_d = {
-            condition = function(ctx)
-              return vim.fs.find({
-                'eslint.config.js',
-                'eslint.config.mjs',
-              }, { path = ctx.filename, upward = true })[1]
-            end,
+      },
+      formatters = {
+        prettierd = {
+          cwd = require('conform.util').root_file {
+            '.prettierrc',
+            '.prettierrc.json',
+            '.prettierrc.js',
+            'prettier.config.js',
+            'package.json',
           },
         },
       },
