@@ -1,6 +1,5 @@
-local discipline = require 'config.discipline'
-
-discipline.cowboy()
+-- local discipline = require 'config.discipline'
+-- discipline.cowboy()
 
 vim.keymap.set('n', '<leader>pv', ':Oil<CR>', { silent = true })
 
@@ -21,11 +20,12 @@ vim.keymap.set('x', '<leader>p', [["_dP]])
 vim.keymap.set({ 'n', 'v' }, '<leader>d', '"_d')
 
 vim.keymap.set('n', '<leader>vs', ':vsplit<Return>')
-vim.keymap.set('n', '<leader>ss', ':split<Return>', opts)
+vim.keymap.set('n', '<leader>ss', ':split<Return>')
 
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
 
+-- open buffer in a new Browser window
 vim.keymap.set('n', '<leader>ob', function()
   local path = vim.fn.expand '%:p'
   if path == '' then
@@ -36,6 +36,8 @@ vim.keymap.set('n', '<leader>ob', function()
   vim.fn.jobstart({ 'open', '-na', 'Google Chrome', '--args', '--new-window', uri }, { detach = true })
 end, { noremap = true, silent = true, desc = 'Open buffer in Chrome new window' })
 
+
+-- open terminal for current buffer path
 vim.keymap.set('n', '<leader>tt', function()
   local dir
 
