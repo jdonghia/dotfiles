@@ -76,6 +76,7 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-semicolon = 'mode service'
 
     alt-shift-t = "exec-and-forget open -n -a iTerm"
+    alt-shift-b = "exec-and-forget open -n -a 'Google Chrome'"
     alt-shift-q = "close"
     alt-shift-f = 'fullscreen'
 
@@ -85,7 +86,7 @@ automatically-unhide-macos-hidden-apps = false
 [[on-window-detected]]
 if.app-name-regex-substring = 'Chrome'
 if.during-aerospace-startup = true
-run = 'move-node-to-workspace 1'
+run = ['move-node-to-workspace 1', 'layout accordion vertical horizontal']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'iTerm'
@@ -111,3 +112,7 @@ run = 'move-node-to-workspace 7'
 [[on-window-detected]]
 if.app-name-regex-substring = 'OBS'
 run = 'move-node-to-workspace 9'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'WhatsApp'
+run = 'move-node-to-workspace 10'
