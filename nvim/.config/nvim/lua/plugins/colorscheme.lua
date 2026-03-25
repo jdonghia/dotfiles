@@ -3,7 +3,14 @@ return {
     'rose-pine/neovim',
     name = 'rose-pine',
     priority = 1000,
-    lazy = false
+    lazy = false,
+    config = function()
+      if vim.o.background == 'light' then
+        vim.cmd.colorscheme 'rose-pine-dawn'
+      else
+        vim.cmd.colorscheme 'rose-pine-moon'
+      end
+    end,
   },
   {
     'cormacrelf/dark-notify',
