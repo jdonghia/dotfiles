@@ -1,6 +1,3 @@
--- local discipline = require 'config.discipline'
--- discipline.cowboy()
-
 vim.keymap.set("n", "<leader>pv", ":Oil<CR>", { silent = true })
 
 vim.keymap.set("n", "<C-g>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
@@ -19,8 +16,8 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
-vim.keymap.set("n", "<leader>vs", ":vsplit<Return>")
-vim.keymap.set("n", "<leader>ss", ":split<Return>")
+-- vim.keymap.set("n", "vs", ":vsplit<Return>")
+-- vim.keymap.set("n", "ss", ":split<Return>")
 
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
@@ -55,3 +52,7 @@ end, { noremap = true, silent = true })
 vim.keymap.set("n", "<leader>ce", function()
   vim.cmd("Copilot toggle")
 end, { desc = "Copilot Toggle" })
+
+-- Snacks picker (telescope) override
+vim.keymap.set("n", "<C-n>", LazyVim.pick("files", { hidden = true }), { desc = "Find Files (Root Dir)" })
+vim.keymap.set("n", "<leader>ps", LazyVim.pick("grep", { hidden = true }), { desc = "Grep (Root Dir)" })

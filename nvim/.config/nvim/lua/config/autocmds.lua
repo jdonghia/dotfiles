@@ -5,9 +5,16 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
 })
 
-vim.api.nvim_create_autocmd({ "FileType" }, {
-  pattern = { "json", "jsonc" },
+-- vim.api.nvim_create_autocmd({ "FileType" }, {
+--   pattern = { "json", "jsonc" },
+--   callback = function()
+--     vim.wo.conceallevel = 0
+--   end,
+-- })
+
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = { "markdown" },
   callback = function()
-    vim.wo.conceallevel = 0
+    vim.opt_local.spell = false
   end,
 })

@@ -1,104 +1,104 @@
 return {
+  -- {
+  --   "ThePrimeagen/harpoon",
+  --   branch = "harpoon2",
+  --   dependencies = { "nvim-lua/plenary.nvim" },
+  --   keys = {
+  --     {
+  --       "<leader>H",
+  --       function()
+  --         require("harpoon"):list():add()
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<C-e>",
+  --       function()
+  --         local harpoon = require("harpoon")
+  --         harpoon.ui:toggle_quick_menu(harpoon:list())
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>1",
+  --       function()
+  --         require("harpoon"):list():select(1)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>2",
+  --       function()
+  --         require("harpoon"):list():select(2)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>3",
+  --       function()
+  --         require("harpoon"):list():select(3)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>4",
+  --       function()
+  --         require("harpoon"):list():select(4)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>5",
+  --       function()
+  --         require("harpoon"):list():select(5)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>6",
+  --       function()
+  --         require("harpoon"):list():select(6)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>7",
+  --       function()
+  --         require("harpoon"):list():select(7)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>8",
+  --       function()
+  --         require("harpoon"):list():select(8)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>9",
+  --       function()
+  --         require("harpoon"):list():select(9)
+  --       end,
+  --       mode = "n",
+  --     },
+  --     {
+  --       "<leader>0",
+  --       function()
+  --         require("harpoon"):list():select(10)
+  --       end,
+  --       mode = "n",
+  --     },
+  --   },
+  --   config = function()
+  --     require("harpoon").setup({})
+  --   end,
+  -- },
   {
-    'ThePrimeagen/harpoon',
-    branch = 'harpoon2',
-    dependencies = { 'nvim-lua/plenary.nvim' },
-    keys = {
-      {
-        '<leader>H',
-        function()
-          require('harpoon'):list():add()
-        end,
-        mode = 'n',
-      },
-      {
-        '<C-e>',
-        function()
-          local harpoon = require 'harpoon'
-          harpoon.ui:toggle_quick_menu(harpoon:list())
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>1',
-        function()
-          require('harpoon'):list():select(1)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>2',
-        function()
-          require('harpoon'):list():select(2)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>3',
-        function()
-          require('harpoon'):list():select(3)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>4',
-        function()
-          require('harpoon'):list():select(4)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>5',
-        function()
-          require('harpoon'):list():select(5)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>6',
-        function()
-          require('harpoon'):list():select(6)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>7',
-        function()
-          require('harpoon'):list():select(7)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>8',
-        function()
-          require('harpoon'):list():select(8)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>9',
-        function()
-          require('harpoon'):list():select(9)
-        end,
-        mode = 'n',
-      },
-      {
-        '<leader>0',
-        function()
-          require('harpoon'):list():select(10)
-        end,
-        mode = 'n',
-      },
-    },
+    "akinsho/bufferline.nvim",
+    version = "*",
     config = function()
-      require('harpoon').setup {}
-    end,
-  },
-  {
-    'akinsho/bufferline.nvim',
-    version = '*',
-    config = function()
-      local harpoon = require 'harpoon'
+      local harpoon = require("harpoon")
 
       local function get_harpoon_index(buf_name)
         local list = harpoon:list()
@@ -138,7 +138,7 @@ return {
         end
       end
 
-      require('bufferline').setup {
+      require("bufferline").setup({
         options = {
           show_buffer_close_icons = false,
           show_close_icon = false,
@@ -167,24 +167,24 @@ return {
             return false
           end,
         },
-      }
+      })
 
       toggle_bufferline()
 
-      vim.api.nvim_create_autocmd({ 'BufEnter', 'BufAdd', 'BufDelete' }, {
+      vim.api.nvim_create_autocmd({ "BufEnter", "BufAdd", "BufDelete" }, {
         callback = function()
           vim.schedule(toggle_bufferline)
         end,
       })
 
-      harpoon:extend {
+      harpoon:extend({
         ADD = function(ctx)
           vim.schedule(function()
             -- Load the buffer if it's not already loaded
             if ctx.item and ctx.item.value then
               local bufnr = vim.fn.bufnr(ctx.item.value)
               if bufnr == -1 then
-                vim.cmd('badd ' .. vim.fn.fnameescape(ctx.item.value))
+                vim.cmd("badd " .. vim.fn.fnameescape(ctx.item.value))
               end
             end
             toggle_bufferline()
@@ -195,9 +195,9 @@ return {
             toggle_bufferline()
           end)
         end,
-      }
+      })
 
-      vim.api.nvim_create_autocmd('VimEnter', {
+      vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
           vim.schedule(function()
             local list = harpoon:list()
@@ -206,7 +206,7 @@ return {
                 local item = list:get(i)
                 if item and item.value then
                   -- Create buffer and load it
-                  vim.cmd('badd ' .. vim.fn.fnameescape(item.value))
+                  vim.cmd("badd " .. vim.fn.fnameescape(item.value))
                   local bufnr = vim.fn.bufnr(item.value)
                   if bufnr ~= -1 then
                     vim.fn.bufload(bufnr)
