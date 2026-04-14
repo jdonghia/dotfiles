@@ -87,7 +87,6 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Chrome'
-# if.during-aerospace-startup = true
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
@@ -96,6 +95,7 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'iTerm'
+if.during-aerospace-startup = true
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
