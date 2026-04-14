@@ -1,5 +1,5 @@
 after-startup-command = [
-  'exec-and-forget open -a "Google Chrome"',
+  # 'exec-and-forget open -a "Google Chrome"',
   'exec-and-forget open -a Arc',
   'exec-and-forget open -a iTerm',
   'exec-and-forget open -a Notes',
@@ -95,7 +95,10 @@ run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'iTerm'
-if.during-aerospace-startup = true
+run = 'move-node-to-workspace 2'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Notes'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
