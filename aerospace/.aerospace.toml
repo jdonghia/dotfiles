@@ -1,10 +1,13 @@
 after-startup-command = [
   'exec-and-forget open -a "Google Chrome"',
+  'exec-and-forget open -a Arc',
   'exec-and-forget open -a iTerm',
+  'exec-and-forget open -a Notes',
   'exec-and-forget open -a Reminders',
   'exec-and-forget open -a Mail',
   'exec-and-forget open -a Calendar',
-  # 'exec-and-forget open -a Spotify',
+  'exec-and-forget open -a Spotify',
+  'exec-and-forget open -a WhatsApp',
   # 'exec-and-forget open -a "Google Drive"',
 ]
 
@@ -76,7 +79,6 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-semicolon = 'mode service'
 
     alt-shift-t = "exec-and-forget open -n -a iTerm"
-    alt-shift-b = "exec-and-forget open -n -a 'Google Chrome'"
     alt-shift-q = "close"
     alt-shift-f = 'fullscreen'
 
@@ -85,12 +87,15 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Chrome'
-if.during-aerospace-startup = true
-run = ['move-node-to-workspace 1', 'layout accordion vertical horizontal']
+# if.during-aerospace-startup = true
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'Arc'
+run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'iTerm'
-if.during-aerospace-startup = true
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
