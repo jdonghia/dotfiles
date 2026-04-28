@@ -197,27 +197,36 @@ return {
         end,
       })
 
-      vim.api.nvim_create_autocmd("VimEnter", {
-        callback = function()
-          vim.schedule(function()
-            local list = harpoon:list()
-            if list:length() > 0 then
-              for i = 1, list:length() do
-                local item = list:get(i)
-                if item and item.value then
-                  -- Create buffer and load it
-                  vim.cmd("badd " .. vim.fn.fnameescape(item.value))
-                  local bufnr = vim.fn.bufnr(item.value)
-                  if bufnr ~= -1 then
-                    vim.fn.bufload(bufnr)
-                  end
-                end
+      local function load_harpooned_buffers()
+        local list = harpoon:list()
+        if list:length() > 0 then
+          for i = 1, list:length() do
+            local item = list:get(i)
+            if item and item.value then
+              vim.cmd("badd " .. vim.fn.fnameescape(item.value))
+              local bufnr = vim.fn.bufnr(item.value)
+              if bufnr ~= -1 then
+                vim.fn.bufload(bufnr)
               end
-              vim.opt.showtabline = 2
             end
-          end)
-        end,
-      })
+          end
+          vim.opt.showtabline = 2
+        end
+      end
+
+      -- bufferline loads on VeryLazy, which is after VimEnter — so the
+      -- autocmd would never fire on startup. Run immediately if VimEnter
+      -- has already passed; otherwise register the autocmd as a fallback.
+      if vim.v.vim_did_enter == 1 then
+        vim.schedule(load_harpooned_buffers)
+      else
+        vim.api.nvim_create_autocmd("VimEnter", {
+          once = true,
+          callback = function()
+            vim.schedule(load_harpooned_buffers)
+          end,
+        })
+      end
     end,
   },
 }
