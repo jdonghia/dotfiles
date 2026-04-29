@@ -1,4 +1,4 @@
-alias vim='nvim .'
+alias v='nvim .'
 
 plugins=(vi-mode starship zoxide fzf zsh-autosuggestions zsh-syntax-highlighting)
 
