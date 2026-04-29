@@ -1,0 +1,26 @@
+background = 1b1b1b
+foreground = fafafa
+cursor-color = fafafa
+cursor-text = 1b1b1b
+selection-background = 2c2c2c
+selection-foreground = fafafa
+
+# ANSI 0-7
+palette = 0=#1b1b1b
+palette = 1=#db324d
+palette = 2=#40bebd
+palette = 3=#ada159
+palette = 4=#40bebd
+palette = 5=#ae2429
+palette = 6=#40bebd
+palette = 7=#fafafa
+
+# Bright 8-15
+palette = 8=#777777
+palette = 9=#db324d
+palette = 10=#40bebd
+palette = 11=#f0eada
+palette = 12=#40bebd
+palette = 13=#ae2429
+palette = 14=#40bebd
+palette = 15=#f0eada

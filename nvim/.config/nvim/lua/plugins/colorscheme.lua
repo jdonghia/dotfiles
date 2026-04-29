@@ -37,16 +37,19 @@
 
 return {
   {
-    "maxmx03/solarized.nvim",
+    "LazyVim/LazyVim",
+    opts = { colorscheme = "one-for-all" },
+  },
+
+  {
+    "jdonghia/one-for-all.nvim",
+    dev = true,
     lazy = false,
     priority = 1000,
-    ---@type solarized.config
     opts = {},
     config = function(_, opts)
-      vim.o.termguicolors = true
-      vim.o.background = "light"
-      require("solarized").setup(opts)
-      vim.cmd.colorscheme("solarized")
+      require("one-for-all").setup(opts)
+      vim.cmd.colorscheme("one-for-all")
     end,
   },
 
