@@ -44,28 +44,29 @@ return {
     opts = {},
     config = function(_, opts)
       vim.o.termguicolors = true
+      vim.o.background = "light"
       require("solarized").setup(opts)
       vim.cmd.colorscheme("solarized")
     end,
   },
 
-  {
-    "cormacrelf/dark-notify",
-    priority = 1000,
-    lazy = false,
-    config = function()
-      local dn = require("dark_notify")
-
-      dn.run({
-        onchange = function(mode)
-          if mode == "light" then
-            vim.o.background = "light"
-          elseif mode == "dark" then
-            vim.o.background = "dark"
-          end
-          -- end
-        end,
-      })
-    end,
-  },
+  -- {
+  --   "cormacrelf/dark-notify",
+  --   priority = 1000,
+  --   lazy = false,
+  --   config = function()
+  --     local dn = require("dark_notify")
+  --
+  --     dn.run({
+  --       onchange = function(mode)
+  --         if mode == "light" then
+  --           vim.o.background = "light"
+  --         elseif mode == "dark" then
+  --           vim.o.background = "dark"
+  --         end
+  --         -- end
+  --       end,
+  --     })
+  --   end,
+  -- },
 }
