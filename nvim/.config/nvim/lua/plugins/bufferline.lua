@@ -1,99 +1,4 @@
 return {
-  -- {
-  --   "ThePrimeagen/harpoon",
-  --   branch = "harpoon2",
-  --   dependencies = { "nvim-lua/plenary.nvim" },
-  --   keys = {
-  --     {
-  --       "<leader>H",
-  --       function()
-  --         require("harpoon"):list():add()
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<C-e>",
-  --       function()
-  --         local harpoon = require("harpoon")
-  --         harpoon.ui:toggle_quick_menu(harpoon:list())
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>1",
-  --       function()
-  --         require("harpoon"):list():select(1)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>2",
-  --       function()
-  --         require("harpoon"):list():select(2)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>3",
-  --       function()
-  --         require("harpoon"):list():select(3)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>4",
-  --       function()
-  --         require("harpoon"):list():select(4)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>5",
-  --       function()
-  --         require("harpoon"):list():select(5)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>6",
-  --       function()
-  --         require("harpoon"):list():select(6)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>7",
-  --       function()
-  --         require("harpoon"):list():select(7)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>8",
-  --       function()
-  --         require("harpoon"):list():select(8)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>9",
-  --       function()
-  --         require("harpoon"):list():select(9)
-  --       end,
-  --       mode = "n",
-  --     },
-  --     {
-  --       "<leader>0",
-  --       function()
-  --         require("harpoon"):list():select(10)
-  --       end,
-  --       mode = "n",
-  --     },
-  --   },
-  --   config = function()
-  --     require("harpoon").setup({})
-  --   end,
-  -- },
   {
     "akinsho/bufferline.nvim",
     version = "*",
@@ -117,7 +22,6 @@ return {
           return false
         end
 
-        -- Check if any harpooned files are actually loaded as buffers
         for i = 1, list:length() do
           local item = list:get(i)
           if item and item.value then
@@ -142,15 +46,6 @@ return {
         options = {
           show_buffer_close_icons = false,
           show_close_icon = false,
-          -- numbers = function(opts)
-          --   local buf_name = vim.api.nvim_buf_get_name(opts.id)
-          --   local index = get_harpoon_index(buf_name)
-          --   if index then
-          --     local keys = { 'h', 'j', 'k', 'l' }
-          --     return keys[index] or tostring(index)
-          --   end
-          --   return ''
-          -- end,
           custom_filter = function(buf_number)
             local buf_name = vim.api.nvim_buf_get_name(buf_number)
             return get_harpoon_index(buf_name) ~= nil
@@ -180,7 +75,6 @@ return {
       harpoon:extend({
         ADD = function(ctx)
           vim.schedule(function()
-            -- Load the buffer if it's not already loaded
             if ctx.item and ctx.item.value then
               local bufnr = vim.fn.bufnr(ctx.item.value)
               if bufnr == -1 then
@@ -214,9 +108,6 @@ return {
         end
       end
 
-      -- bufferline loads on VeryLazy, which is after VimEnter — so the
-      -- autocmd would never fire on startup. Run immediately if VimEnter
-      -- has already passed; otherwise register the autocmd as a fallback.
       if vim.v.vim_did_enter == 1 then
         vim.schedule(load_harpooned_buffers)
       else
