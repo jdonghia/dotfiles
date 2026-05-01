@@ -5,6 +5,8 @@ plugins=(vi-mode starship zoxide fzf zsh-autosuggestions zsh-syntax-highlighting
 export ZSH="$HOME/.oh-my-zsh"
 source $ZSH/oh-my-zsh.sh
 
+export EDITOR=nvim
+
 PATH="$PATH":"$HOME/.local/bin/"
 bindkey -s ^g "tmux-sessionizer\n"
 
