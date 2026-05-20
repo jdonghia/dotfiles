@@ -1,14 +1,12 @@
 after-startup-command = [
-  'exec-and-forget open -a Zen',
-  # 'exec-and-forget open -a Arc',
   'exec-and-forget open -a Ghostty',
-  # 'exec-and-forget open -a iTerm',
   'exec-and-forget open -a Claude',
+  'exec-and-forget open -a ChatGPT',
   'exec-and-forget open -a Reminders',
   'exec-and-forget open -a Calendar',
   'exec-and-forget open -a Mail',
   'exec-and-forget open -a Anki',
-  # 'exec-and-forget open -a Spotify',
+  'exec-and-forget open -a Spotify',
   'exec-and-forget open -a WhatsApp',
   'exec-and-forget open -a "Google Drive"',
 ]
@@ -100,11 +98,19 @@ if.app-name-regex-substring = 'Chrome'
 run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
+if.app-name-regex-substring = 'Safari'
+run = 'move-node-to-workspace 1'
+
+[[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
 run = 'move-node-to-workspace 2'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Claude'
+run = 'move-node-to-workspace 3'
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'ChatGPT'
 run = 'move-node-to-workspace 3'
 
 [[on-window-detected]]
