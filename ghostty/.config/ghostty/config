@@ -1,5 +1,6 @@
-theme = one-for-all
-font-family = "JetBrainsMono Nerd Font Mono"
+#theme = one-for-all
+theme = Monokai Classic
+font-family = "BlexMono Nerd Font Mono"
 font-size = 18
 macos-titlebar-style = hidden
 cursor-style-blink = false

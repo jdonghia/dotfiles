@@ -1,13 +1,22 @@
 return {
   {
-    "jdonghia/one-for-all.nvim",
+    "loctvl842/monokai-pro.nvim",
     lazy = false,
     priority = 1000,
-    config = function(_, opts)
-      require("one-for-all").setup(opts)
-      vim.cmd.colorscheme("one-for-all")
+    config = function()
+      require("monokai-pro").setup()
+      vim.cmd.colorscheme("monokai-pro-classic")
     end,
   },
+  -- {
+  --   "jdonghia/one-for-all.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function(_, opts)
+  --     require("one-for-all").setup(opts)
+  --     vim.cmd.colorscheme("one-for-all")
+  --   end,
+  -- },
   -- {
   --   "cormacrelf/dark-notify",
   --   priority = 1000,
