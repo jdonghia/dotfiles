@@ -1,44 +1,43 @@
 #!/bin/bash
 
-
 cli_packages=(
-    stow
-    tmux
-    neovim
-    lazygit
-    npm
-    pnpm
-    nodejs
-    ripgrep
-    openssh
-    fzf
-    zoxide
-    gemini-cli
-    starship
-    go
-    opencode
-    starship
-    nvm
+  stow
+  tmux
+  neovim
+  lazygit
+  npm
+  pnpm
+  nodejs
+  ripgrep
+  openssh
+  fzf
+  zoxide
+  gemini-cli
+  starship
+  go
+  opencode
+  starship
+  nvm
 )
 
 cask_packages=(
-    nikitabobko/tap/aerospace
-    whatsapp
-    spotify
-    raycast
-    ghostty
-    obsidian
-    docker
-    google-drive
-    # anki
-    # parallels VM
-    # homerow
+  nikitabobko/tap/aerospace
+  whatsapp
+  spotify
+  raycast
+  ghostty
+  obsidian
+  docker
+  google-drive
+  # anki
+  # parallels VM
+  # homerow
 )
 
 # Homebrew
-if ! command -v brew &> /dev/null; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-    eval "$(/opt/homebrew/bin/brew shellenv)"
+if ! command -v brew &>/dev/null; then
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  eval "$(/opt/homebrew/bin/brew shellenv)"
 fi
 
 brew update
@@ -55,6 +54,4 @@ git clone https://github.com/zsh-users/zsh-syntax-highlighting.git $ZSH_CUSTOM/p
 # Allow bash script execution
 chmod +x "$HOME/dotfiles/bin/.local/scripts"/*
 
-
 # Layout Input: .U.S and Brazilian.
-
