@@ -16,43 +16,5 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
--- vim.keymap.set("n", "vs", ":vsplit<Return>")
--- vim.keymap.set("n", "ss", ":split<Return>")
-
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
-
--- open buffer in a new Browser window
-vim.keymap.set("n", "<leader>ob", function()
-  local path = vim.fn.expand("%:p")
-  if path == "" then
-    return
-  end
-
-  local uri = vim.uri_from_fname(path)
-  vim.fn.jobstart({ "open", "-na", "Google Chrome", "--args", "--new-window", uri }, { detach = true })
-end, { noremap = true, silent = true, desc = "Open buffer in Chrome new window" })
-
--- open terminal for current buffer path
-vim.keymap.set("n", "<leader>tt", function()
-  local dir
-
-  -- Check if current buffer is an Oil buffer
-  if vim.bo.filetype == "oil" then
-    dir = require("oil").get_current_dir()
-  else
-    dir = vim.fn.expand("%:p:h")
-  end
-
-  local cmd = "tmux split-window -h -c '" .. dir .. "'"
-
-  vim.fn.system(cmd)
-end, { noremap = true, silent = true })
-
-vim.keymap.set("n", "<leader>ce", function()
-  vim.cmd("Copilot toggle")
-end, { desc = "Copilot Toggle" })
-
--- Snacks picker (telescope) override
-vim.keymap.set("n", "<C-n>", LazyVim.pick("files", { hidden = true }), { desc = "Find Files (Root Dir)" })
-vim.keymap.set("n", "<leader>ps", LazyVim.pick("grep", { hidden = true }), { desc = "Grep (Root Dir)" })
