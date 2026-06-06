@@ -1,8 +1,9 @@
 alias v='nvim .'
 
-plugins=(vi-mode starship zoxide fzf zsh-autosuggestions zsh-syntax-highlighting)
+plugins=(vi-mode zoxide fzf zsh-autosuggestions zsh-syntax-highlighting)
 
 export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="robbyrussell"
 source $ZSH/oh-my-zsh.sh
 
 export EDITOR=nvim
