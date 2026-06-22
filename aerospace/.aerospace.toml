@@ -64,6 +64,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-8 = 'workspace 8'
     alt-9 = 'workspace 9'
     alt-0 = 'workspace 10'
+    ctrl-1 = 'workspace 11'
+    ctrl-2 = 'workspace 12'
 
     alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
     alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
@@ -75,6 +77,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-shift-8 = 'move-node-to-workspace 8 --focus-follows-window'
     alt-shift-9 = 'move-node-to-workspace 9 --focus-follows-window'
     alt-shift-0 = 'move-node-to-workspace 10 --focus-follows-window'
+    ctrl-shift-1 = 'move-node-to-workspace 11 --focus-follows-window'
+    ctrl-shift-2 = 'move-node-to-workspace 12 --focus-follows-window'
 
     alt-shift-semicolon = 'mode service'
 
@@ -85,21 +89,21 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
 
-[[on-window-detected]]
-if.app-name-regex-substring = 'Arc'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Zen'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Chrome'
-run = 'move-node-to-workspace 1'
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Safari'
-run = 'move-node-to-workspace 1'
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'Arc'
+# run = 'move-node-to-workspace 1'
+#
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'Zen'
+# run = 'move-node-to-workspace 1'
+#
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'Chrome'
+# run = 'move-node-to-workspace 1'
+#
+# [[on-window-detected]]
+# if.app-name-regex-substring = 'Safari'
+# run = 'move-node-to-workspace 1'
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
