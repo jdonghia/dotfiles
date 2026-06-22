@@ -1,0 +1,14 @@
+# GTK
+export GDK_SCALE=2
+export GDK_DPI_SCALE=0.5
+
+# Qt
+export QT_AUTO_SCREEN_SCALE_FACTOR=1
+export QT_SCALE_FACTOR=2
+export QT_FONT_DPI=96 # avoids "double scaling" with QT_SCALE_FACTOR
+
+# Java (IntelliJ, etc.)
+export _JAVA_OPTIONS='-Dsun.java2d.uiScale=2'
+
+# Electron / Chromium — pass via flag instead
+# e.g. google-chrome --force-device-scale-factor=2

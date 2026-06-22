@@ -1,0 +1,10 @@
+Xft.dpi:           192
+Xft.antialias:     1
+Xft.hinting:       1
+Xft.hintstyle:     hintslight
+Xft.rgba:          rgb
+Xft.lcdfilter:     lcddefault
+Xcursor.size:      32
+
+## if doesn't load, run:
+## xrdb -merge ~/.Xresources
