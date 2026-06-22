@@ -18,3 +18,14 @@ vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
 vim.keymap.set("n", "+", "<C-a>")
 vim.keymap.set("n", "-", "<C-x>")
+
+vim.keymap.set("n", "<leader>uA", function()
+  local clients = vim.lsp.get_clients({ name = "copilot" })
+  if #clients > 0 then
+    vim.lsp.enable("copilot", false)
+    vim.notify("Copilot disabled", vim.log.levels.INFO)
+  else
+    vim.lsp.enable("copilot", true)
+    vim.notify("Copilot enabled", vim.log.levels.INFO)
+  end
+end, { desc = "Toggle Copilot" })
