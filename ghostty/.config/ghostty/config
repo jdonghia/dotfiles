@@ -1,6 +1,7 @@
 #theme = one-for-all
-theme = TokyoNight Moon
-font-family = "JetBrainsMono Nerd Font Mono"
+# theme = light:Catppuccin Latte, dark:Catppuccin Frappe
+theme = Catppuccin Frappe
+font-family = "BlexMono Nerd Font Mono"
 font-size = 15
 macos-titlebar-style = hidden
 cursor-style-blink = false
