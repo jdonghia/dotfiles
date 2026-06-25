@@ -1,7 +1,7 @@
 after-startup-command = [
+  'exec-and-forget open -a "Google Chrome"',
   'exec-and-forget open -a Ghostty',
   'exec-and-forget open -a Claude',
-  'exec-and-forget open -a ChatGPT',
   'exec-and-forget open -a Reminders',
   'exec-and-forget open -a Calendar',
   'exec-and-forget open -a Mail',
@@ -89,58 +89,46 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Arc'
-# run = 'move-node-to-workspace 1'
-#
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Zen'
-# run = 'move-node-to-workspace 1'
-#
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Chrome'
-# run = 'move-node-to-workspace 1'
-#
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Safari'
-# run = 'move-node-to-workspace 1'
+[[on-window-detected]]
+if.app-name-regex-substring = 'Chrome'
+run = ['move-node-to-workspace 11', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Ghostty'
-run = 'move-node-to-workspace 2'
+run = ['move-node-to-workspace 2', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Claude'
-run = 'move-node-to-workspace 3'
+run = ['move-node-to-workspace 3', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'ChatGPT'
-run = 'move-node-to-workspace 3'
+run = ['move-node-to-workspace 3', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Reminders'
-run = 'move-node-to-workspace 4'
+run = ['move-node-to-workspace 4', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Calendar'
-run = 'move-node-to-workspace 5'
+run = ['move-node-to-workspace 5', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Mail'
-run = 'move-node-to-workspace 6'
+run = ['move-node-to-workspace 6', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Anki'
-run = 'move-node-to-workspace 7'
+run = ['move-node-to-workspace 7', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Spotify'
-run = 'move-node-to-workspace 8'
+run = ['move-node-to-workspace 8', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'OBS'
-run = 'move-node-to-workspace 9'
+run = ['move-node-to-workspace 9', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'WhatsApp'
-run = 'move-node-to-workspace 10'
+run = ['move-node-to-workspace 10', 'fullscreen']
