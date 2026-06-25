@@ -23,5 +23,6 @@
     ]
   },
   "effortLevel": "xhigh",
-  "theme": "auto"
+  "theme": "auto",
+  "tui": "fullscreen"
 }
