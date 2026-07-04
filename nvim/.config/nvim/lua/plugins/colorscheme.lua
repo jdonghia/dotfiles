@@ -1,16 +1,42 @@
 return {
 
+  -- {
+  --   "catppuccin/nvim",
+  --   name = "catppuccin",
+  --   priority = 1000,
+  -- },
+  -- {
+  --   "LazyVim/LazyVim",
+  --   opts = {
+  --     colorscheme = "catppuccin-frappe",
+  --   },
+  -- },
+  -- {
+  --   "projekt0n/github-nvim-theme",
+  --   name = "github-theme",
+  --   lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  --   priority = 1000, -- make sure to load this before all the other start plugins
+  --   config = function()
+  --     require("github-theme").setup({
+  --       -- ...
+  --     })
+  --
+  --     vim.cmd("colorscheme github_light_default")
+  --   end,
+  -- },
   {
-    "catppuccin/nvim",
-    name = "catppuccin",
-    priority = 1000,
+    "rose-pine/neovim",
+    config = function()
+      vim.cmd("colorscheme rose-pine")
+    end,
+    name = "rose-pine",
   },
-  {
-    "LazyVim/LazyVim",
-    opts = {
-      colorscheme = "catppuccin-frappe",
-    },
-  },
+  -- {
+  --   "Mofiqul/vscode.nvim",
+  --   config = function()
+  --     vim.cmd.colorscheme("vscode")
+  --   end,
+  -- },
   -- {
   --   "cormacrelf/dark-notify",
   --   priority = 1000,
@@ -21,9 +47,9 @@ return {
   --     dn.run({
   --       onchange = function(mode)
   --         if mode == "light" then
-  --           vim.cmd.colorscheme("catppuccin-latte")
+  --           vim.cmd("colorscheme rose-pine-dawn")
   --         elseif mode == "dark" then
-  --           vim.cmd.colorscheme("catppuccin-frappe")
+  --           vim.cmd("colorscheme rose-pine")
   --         end
   --       end,
   --     })
