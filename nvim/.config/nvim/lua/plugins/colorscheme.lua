@@ -1,16 +1,15 @@
 return {
-
-  -- {
-  --   "catppuccin/nvim",
-  --   name = "catppuccin",
-  --   priority = 1000,
-  -- },
-  -- {
-  --   "LazyVim/LazyVim",
-  --   opts = {
-  --     colorscheme = "catppuccin-frappe",
-  --   },
-  -- },
+  {
+    "catppuccin/nvim",
+    name = "catppuccin",
+    priority = 1000,
+  },
+  {
+    "LazyVim/LazyVim",
+    opts = {
+      colorscheme = "catppuccin-frappe",
+    },
+  },
   -- {
   --   "projekt0n/github-nvim-theme",
   --   name = "github-theme",
@@ -24,13 +23,22 @@ return {
   --     vim.cmd("colorscheme github_light_default")
   --   end,
   -- },
-  {
-    "rose-pine/neovim",
-    config = function()
-      vim.cmd("colorscheme rose-pine")
-    end,
-    name = "rose-pine",
-  },
+  -- {
+  --   "rose-pine/neovim",
+  --   config = function()
+  --     vim.cmd("colorscheme rose-pine")
+  --   end,
+  --   name = "rose-pine",
+  -- },
+  -- {
+  --   "loctvl842/monokai-pro.nvim",
+  --   lazy = false,
+  --   priority = 1000,
+  --   -- config = function()
+  --   --   require("monokai-pro").setup()
+  --   --   vim.cmd.colorscheme("monokai-pro")
+  --   -- end,
+  -- },
   -- {
   --   "Mofiqul/vscode.nvim",
   --   config = function()
@@ -47,9 +55,9 @@ return {
   --     dn.run({
   --       onchange = function(mode)
   --         if mode == "light" then
-  --           vim.cmd("colorscheme rose-pine-dawn")
+  --           vim.cmd("colorscheme catppuccin-latte")
   --         elseif mode == "dark" then
-  --           vim.cmd("colorscheme rose-pine")
+  --           vim.cmd("colorscheme catppuccin-frappe")
   --         end
   --       end,
   --     })
