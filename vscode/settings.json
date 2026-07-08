@@ -1,0 +1,105 @@
+{
+  // ============================================================================
+  // VS Code settings — VSCodeVim config mirroring the Neovim (LazyVim) keymaps.
+  //
+  // Requires the "Vim" extension (vscodevim.vim).
+  // The Harpoon bindings below require a Harpoon extension (see notes at bottom).
+  //
+  // To use: copy/symlink this into your VS Code User settings, e.g.
+  //   ~/Library/Application Support/Code/User/settings.json
+  // ============================================================================
+
+  // --- Editor options mirroring lua/config/options.lua ----------------------
+  "editor.cursorSurroundingLines": 8, // scrolloff = 8
+  "editor.wordWrap": "off", // wrap = false
+  "editor.lineNumbers": "relative", // LazyVim default: relative numbers
+
+  // --- Vim extension core ---------------------------------------------------
+  "vim.leader": "<space>",
+  "vim.hlsearch": true,
+  "vim.incsearch": true,
+  "vim.useSystemClipboard": false, // like Neovim: only <leader>y/Y touch the system clipboard
+  "vim.foldfix": true,
+
+  // Let Vim handle these chords instead of VS Code's defaults.
+  "vim.handleKeys": {
+    "<C-d>": true,
+    "<C-u>": true,
+    "<C-n>": true,
+    "<C-a>": true
+  },
+
+  // --- Normal mode ----------------------------------------------------------
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // <leader>pv -> open the file explorer and focus it.
+    // Closing (and returning focus to the editor) is handled by the matching
+    // "space p v" binding in keybindings.json, gated on `filesExplorerFocus`.
+    // VSCodeVim can't attach a `when` clause, so the toggle is split in two:
+    // this binding fires while the editor is focused (open), the keybindings.json
+    // one fires while the explorer is focused (close).
+    { "before": ["<leader>", "p", "v"], "commands": ["workbench.view.explorer"] },
+
+    // Keep the cursor centered on half-page jumps and search results.
+    { "before": ["<C-d>"], "after": ["<C-d>", "z", "z"] },
+    { "before": ["<C-u>"], "after": ["<C-u>", "z", "z"] },
+    { "before": ["n"], "after": ["n", "z", "z", "z", "v"] },
+    { "before": ["N"], "after": ["N", "z", "z", "z", "v"] },
+
+    // Yank to the system clipboard.
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["<leader>", "Y"], "after": ["\"", "+", "Y"] },
+
+    // Delete into the black-hole register (doesn't clobber the yank register).
+    { "before": ["<leader>", "d"], "after": ["\"", "_", "d"] },
+
+    // Increment / decrement numbers.
+    { "before": ["+"], "after": ["<C-a>"] },
+    { "before": ["-"], "after": ["<C-x>"] },
+
+    // Pickers: <C-n> find files, <leader>ps grep across files.
+    { "before": ["<C-n>"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["<leader>", "p", "s"], "commands": ["workbench.action.findInFiles"] },
+
+    // <leader>uA toggle Copilot.
+    { "before": ["<leader>", "u", "A"], "commands": ["github.copilot.completions.toggle"] },
+
+    // Harpoon (requires a Harpoon extension — see notes at bottom).
+    { "before": ["<leader>", "H"], "commands": ["vscode-harpoon.addEditor"] },
+    { "before": ["<leader>", "h"], "commands": ["vscode-harpoon.editorQuickPick"] },
+    { "before": ["<leader>", "1"], "commands": ["vscode-harpoon.gotoEditor1"] },
+    { "before": ["<leader>", "2"], "commands": ["vscode-harpoon.gotoEditor2"] },
+    { "before": ["<leader>", "3"], "commands": ["vscode-harpoon.gotoEditor3"] },
+    { "before": ["<leader>", "4"], "commands": ["vscode-harpoon.gotoEditor4"] },
+    { "before": ["<leader>", "5"], "commands": ["vscode-harpoon.gotoEditor5"] }
+  ],
+
+  // --- Visual / Visual-line / Visual-block mode -----------------------------
+  "vim.visualModeKeyBindingsNonRecursive": [
+    // Move the selected line(s) up/down (mirrors :m '>+1 / :m '<-2).
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+
+    // Yank / delete like normal mode.
+    { "before": ["<leader>", "y"], "after": ["\"", "+", "y"] },
+    { "before": ["<leader>", "d"], "after": ["\"", "_", "d"] },
+
+    // <leader>p in visual: paste over selection without clobbering the register.
+    { "before": ["<leader>", "p"], "after": ["\"", "_", "d", "P"] }
+  ]
+
+  // ============================================================================
+  // Notes / not translated
+  //
+  // - <C-g> (tmux-sessionizer) is terminal/tmux-specific and has no VS Code
+  //   equivalent, so it is intentionally omitted.
+  //
+  // - Harpoon: install a Harpoon extension, e.g. "Harpoon" (jmcinty6.vscode-harpoon).
+  //   Verify its command IDs (Cmd+Shift+P -> search "Harpoon") and adjust the
+  //   "commands" strings above if they differ.
+  //
+  // - <leader>uA Copilot toggle: if github.copilot.completions.toggle isn't
+  //   available in your Copilot version, try "github.copilot.toggleCopilot".
+  //
+  // - Visual J/K move lines but don't re-indent (Neovim's `gv=gv` reindents).
+  // ============================================================================
+}

@@ -12,27 +12,26 @@ cli_packages=(
   openssh
   fzf
   zoxide
-  gemini-cli
-  starship
-  go
   opencode
-  starship
   nvm
+  # starship
 )
 
 cask_packages=(
   nikitabobko/tap/aerospace
-  whatsapp
   spotify
   raycast
   ghostty
-  obsidian
-  docker
-  google-drive
-  # anki
-  # parallels VM
-  # homerow
+  # Whatsapp
+  # Google Drive
+  # Anki
+  # Claude
+  # Parallels
+  # Arc Browser
 )
+
+# Claude Code
+curl -fsSL https://claude.ai/install.sh | bash
 
 # Homebrew
 if ! command -v brew &>/dev/null; then
