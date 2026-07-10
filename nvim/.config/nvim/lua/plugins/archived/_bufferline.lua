@@ -5,6 +5,7 @@ return {
     config = function()
       local harpoon = require("harpoon")
 
+      -- Return the 1-based Harpoon index for a buffer name, or nil if not harpooned.
       local function get_harpoon_index(buf_name)
         local list = harpoon:list()
         for i = 1, list:length() do
@@ -34,6 +35,7 @@ return {
         return false
       end
 
+      -- Only show the tabline when there is at least one harpooned buffer.
       local function toggle_bufferline()
         if has_harpooned_buffers() then
           vim.opt.showtabline = 2
@@ -46,10 +48,12 @@ return {
         options = {
           show_buffer_close_icons = false,
           show_close_icon = false,
+          -- Only keep buffers that are present in the Harpoon list.
           custom_filter = function(buf_number)
             local buf_name = vim.api.nvim_buf_get_name(buf_number)
             return get_harpoon_index(buf_name) ~= nil
           end,
+          -- Order the bufferline to match the Harpoon list order.
           sort_by = function(buffer_a, buffer_b)
             local a_name = vim.api.nvim_buf_get_name(buffer_a.id)
             local b_name = vim.api.nvim_buf_get_name(buffer_b.id)
@@ -72,6 +76,7 @@ return {
         end,
       })
 
+      -- React to Harpoon add/remove so the bufferline updates immediately.
       harpoon:extend({
         ADD = function(ctx)
           vim.schedule(function()
@@ -91,6 +96,7 @@ return {
         end,
       })
 
+      -- Make sure already-harpooned files have buffers loaded on startup.
       local function load_harpooned_buffers()
         local list = harpoon:list()
         if list:length() > 0 then
