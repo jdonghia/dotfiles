@@ -1,16 +1,10 @@
-# theme = light:Catppuccin Latte, dark:Catppuccin Frappe
-# theme = Catppuccin Frappe
-# theme = Dark+
 font-family = "JetBrainsMono Nerd Font Mono"
 font-size = 14
+theme=Catppuccin Frappe
+
 macos-titlebar-style = hidden
+
 cursor-style-blink = false
 cursor-style = block
-
-window-decoration = false
-window-padding-balance = true
-window-padding-x = 0
-window-padding-y = 0
-window-padding-color = extend
 
 desktop-notifications = true
