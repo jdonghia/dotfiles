@@ -1,14 +1,10 @@
 after-startup-command = [
-  'exec-and-forget open -a "Google Chrome"',
-  'exec-and-forget open -a Ghostty',
+  'exec-and-forget open -a Arc',
+  'exec-and-forget open -a iTerm',
   'exec-and-forget open -a Claude',
   'exec-and-forget open -a Reminders',
-  'exec-and-forget open -a Calendar',
-  'exec-and-forget open -a Mail',
-  'exec-and-forget open -a Anki',
-  'exec-and-forget open -a Spotify',
-  'exec-and-forget open -a WhatsApp',
-  'exec-and-forget open -a "Google Drive"',
+  'exec-and-forget open -a "Microsoft Outlook"',
+  'exec-and-forget open -a Music',
 ]
 
 start-at-login = true
@@ -42,8 +38,8 @@ automatically-unhide-macos-hidden-apps = false
     alt-comma = 'layout accordion vertical horizontal'
 
     alt-h = 'focus left'
-    ctrl-1 = 'focus down'
-    ctrl-2 = 'focus up'
+    ctrl-j= 'focus down'
+    ctrl-k = 'focus up'
     alt-l = 'focus right'
 
     alt-shift-h = 'move left'
@@ -85,35 +81,31 @@ automatically-unhide-macos-hidden-apps = false
 [mode.service.binding]
     esc = ['reload-config', 'mode main']
 
-# [[on-window-detected]]
-# if.app-name-regex-substring = 'Chrome'
-# run = ['move-node-to-workspace 1', 'fullscreen']
+[[on-window-detected]]
+if.app-name-regex-substring = 'Arc'
+run = ['move-node-to-workspace 1', 'fullscreen']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Visual Studio Code'
-run = ['move-node-to-workspace 3', 'fullscreen']
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Terminal'
-run = ['move-node-to-workspace 4', 'fullscreen']
+if.app-name-regex-substring = 'iTerm'
+run = ['move-node-to-workspace 2', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Claude'
-run = ['move-node-to-workspace 5', 'fullscreen']
+run = ['move-node-to-workspace 3', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Reminders'
-run = ['move-node-to-workspace 6', 'fullscreen']
+run = ['move-node-to-workspace 4', 'fullscreen']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Calendar'
-run = ['move-node-to-workspace 7', 'fullscreen']
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Mail'
-run = ['move-node-to-workspace 8', 'fullscreen']
+if.app-name-regex-substring = 'Microsoft Outlook'
+run = ['move-node-to-workspace 5', 'fullscreen']
 
 [[on-window-detected]]
 if.app-name-regex-substring = 'Music'
-run = ['move-node-to-workspace 9', 'fullscreen']
+run = ['move-node-to-workspace 6', 'fullscreen']
+
+[[on-window-detected]]
+if.app-name-regex-substring = 'TCG'
+run = ['layout floating']
 
