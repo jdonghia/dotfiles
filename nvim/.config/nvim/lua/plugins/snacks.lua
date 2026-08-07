@@ -1,12 +1,16 @@
 return {
-  {
-    "folke/snacks.nvim",
-    opts = {
-      scroll = { enabled = false },
-    },
-    keys = {
-      { "<C-n>", LazyVim.pick("files", { hidden = true }), desc = "Find Files (Root Dir)" },
-      { "<leader>ps", LazyVim.pick("grep", { hidden = true }), desc = "Grep (Root Dir)" },
+  "folke/snacks.nvim",
+  opts = {
+    scroll = { enabled = false }, -- remove animation when scrolling,
+
+    picker = {
+      win = {
+        input = {
+          keys = {
+            ["<c-h>"] = { "toggle_hidden", mode = { "i", "n" } }, -- remapped since aerospace
+          },
+        },
+      },
     },
   },
 }
