@@ -1,10 +1,8 @@
 after-startup-command = [
-  'exec-and-forget open -a Arc',
-  'exec-and-forget open -a iTerm',
+  'exec-and-forget open -a "Google Chrome"',
+  'exec-and-forget open -a Ghostty',
   'exec-and-forget open -a Claude',
-  'exec-and-forget open -a Reminders',
-  'exec-and-forget open -a "Microsoft Outlook"',
-  'exec-and-forget open -a Music',
+  'exec-and-forget open -a Spotify',
 ]
 
 start-at-login = true
@@ -15,7 +13,6 @@ enable-normalization-opposite-orientation-for-nested-containers = true
 accordion-padding = 0
 
 default-root-container-layout = 'tiles'
-
 default-root-container-orientation = 'auto'
 
 on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
@@ -82,11 +79,11 @@ automatically-unhide-macos-hidden-apps = false
     esc = ['reload-config', 'mode main']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Arc'
+if.app-name-regex-substring = 'Chrome'
 run = ['move-node-to-workspace 1', 'fullscreen']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'iTerm'
+if.app-name-regex-substring = 'Ghostty'
 run = ['move-node-to-workspace 2', 'fullscreen']
 
 [[on-window-detected]]
@@ -94,18 +91,6 @@ if.app-name-regex-substring = 'Claude'
 run = ['move-node-to-workspace 3', 'fullscreen']
 
 [[on-window-detected]]
-if.app-name-regex-substring = 'Reminders'
+if.app-name-regex-substring = 'Spotify'
 run = ['move-node-to-workspace 4', 'fullscreen']
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Microsoft Outlook'
-run = ['move-node-to-workspace 5', 'fullscreen']
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'Music'
-run = ['move-node-to-workspace 6', 'fullscreen']
-
-[[on-window-detected]]
-if.app-name-regex-substring = 'TCG'
-run = ['layout floating']
 
