@@ -1,10 +1,7 @@
 font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 14
-theme=Catppuccin Frappe
+font-size = 16
+
+theme=Rose Pine Moon
 
 macos-titlebar-style = hidden
 
-cursor-style-blink = false
-cursor-style = block
-
-desktop-notifications = true

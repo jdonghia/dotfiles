@@ -1,6 +1,5 @@
-vim.keymap.set("n", "<leader>pv", ":Oil<CR>", { silent = true })
-
-vim.keymap.set("n", "<C-g>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
+-- vim.keymap.set("n", "<leader>pv", ":Oil<CR>", { silent = true })
+-- vim.keymap.set("n", "<C-g>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -16,9 +15,7 @@ vim.keymap.set("n", "<leader>Y", [["+Y]])
 vim.keymap.set("x", "<leader>p", [["_dP]])
 vim.keymap.set({ "n", "v" }, "<leader>d", '"_d')
 
-vim.keymap.set("n", "+", "<C-a>")
-vim.keymap.set("n", "-", "<C-x>")
-
+-- toggle copilot
 vim.keymap.set("n", "<leader>uA", function()
   local clients = vim.lsp.get_clients({ name = "copilot" })
   if #clients > 0 then
