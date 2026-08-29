@@ -1,9 +1,3 @@
-![Neovim](neovim.png)
-
-|              Lazygit               |              Ghostty               |
-| :--------------------------------: | :--------------------------------: |
-| ![Lazygit](lazygit.png) | ![Ghostty](ghostty.png) |
-
 ## Overview
 
 Dotfiles to save time setting up new environments.
@@ -20,8 +14,14 @@ Dotfiles to save time setting up new environments.
 
 #### Neovim Core Plugins
 
-- **Markdown**: render-markdown, markdown-preview, obsidian
-- **File Search**: telescope, oil, harpoon 
+- **Distribution**: LazyVim
+- **Picker**: snacks.nvim
+- **UI**: bufferline, lualine
+- **Colorscheme**: tokyonight
+
+#### Shell Plugins
+
+- starship, zoxide, fzf, zsh-autosuggestions, zsh-syntax-highlighting
 
 #### Keyboards
 
