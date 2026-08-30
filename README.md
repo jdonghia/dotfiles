@@ -38,6 +38,3 @@ Dotfiles to save time setting up new environments.
 ### Linux (Arch)
 
 - **Window Manager**: Hyprland + Waybar
-
-
-
