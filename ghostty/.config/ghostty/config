@@ -1,7 +1,7 @@
 font-family = "BlexMono Nerd Font Mono"
-font-size = 15
+font-size = 18
 
-theme=Solarized Dark Higher Contrast
+theme=Rose Pine Moon
 
 macos-titlebar-style = hidden
 
