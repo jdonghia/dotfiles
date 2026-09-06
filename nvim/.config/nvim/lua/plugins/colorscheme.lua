@@ -1,19 +1,12 @@
 return {
-  -- {
-  --
-  --   "rose-pine/neovim",
-  -- },
   {
-    "craftzdog/solarized-osaka.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {},
-  },
 
+    "rose-pine/neovim",
+  },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "rose-pine-moon",
     },
   },
 }
